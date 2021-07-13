@@ -6,30 +6,31 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-User.destroy_all
-Article.destroy_all
-Comment.destroy_all
+# User.destroy_all
+# Article.destroy_all
+# Comment.destroy_all
 
-users = User.create([
-    {
-        username: "test", 
-        password_digest: "123"
-    },
-])
+# users = User.create([
+#     {
+#         username: "test", 
+#         email: "test@email.com",
+#         password_digest: "123"
+#     },
+# ])
 
-articles = Article.create([
-    {
-        title: "First Blog Article", 
-        body: "This is my first article description 
-        in Ruby on Rails.",
-        user: users.first
-    },
-])
+# articles = Article.create([
+#     {
+#         title: "First Blog Article", 
+#         body: "This is my first article description 
+#         in Ruby on Rails.",
+#         user: users.first
+#     },
+# ])
 
-comments = Comment.create([
-    {
-        body: "This is a great article!!!",
-        user: users.first,
-        article: articles.first
-    },
-])
+# comments = Comment.create([
+#     {
+#         body: "This is a great article!!!",
+#         user: users.first,
+#         article: articles.first
+#     },
+# ])
