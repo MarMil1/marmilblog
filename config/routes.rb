@@ -4,12 +4,20 @@ Rails.application.routes.draw do
   root 'articles#index'
 
   # Users routes
-  get 'signup'  => 'users#new'
+  get 'signup'     => 'users#new'
   resources :users
+  
   # Articles routes
   resources :articles do 
     resources :comments
   end
 
   # Comments routes
+
+  # Session tracking routes
+  get    'login'   => 'sessions#new'
+  post   'login'   => 'sessions#create'
+  delete 'logout'  => 'sessions#destroy'
+
+
 end
