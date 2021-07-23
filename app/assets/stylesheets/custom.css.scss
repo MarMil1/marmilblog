@@ -1,9 +1,11 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import "font-awesome-sprockets";
+@import "font-awesome";
 
 // global styling
 * {
-    font-family:Arial, Helvetica, sans-serif;
+  font-family: 'Rubik', sans-serif;
 }
 
 body {
@@ -56,7 +58,7 @@ $gray-medium-light: #eaeaea;
     font-size: 3em;
     letter-spacing: -2px;
     margin-bottom: 30px;
-    text-align: center;
+    text-align:left;
   }
   
   h2 {

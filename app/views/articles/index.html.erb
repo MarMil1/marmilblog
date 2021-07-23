@@ -2,10 +2,33 @@
 
 <ul>
     <% @articles.each do |article| %>
-        <li>
-            <%= link_to article.title, article %>
-        </li>
+        <div class="single-article-container">
+            <div class="user-img-name">
+                <div class="user-img">
+                </div>
+                <div class="user-name">
+                    <%= link_to article.user.username.split.map(&:capitalize).join(' '), 
+                        @user,
+                        style: "color: black"
+                    %>
+                </div>
+            </div>
+            <div class="article-title">
+                <%= link_to truncate(article.title.html_safe, length: 50), 
+                    article,
+                    style: "color: black"
+                %>
+            </div>
+            <div class="article-body">
+                <%= link_to truncate(article.body.html_safe, length: 70), 
+                    article,
+                    style: "color: gray"
+                %>
+            </div>
+            <div class="article-info" style = "color: gray">
+                <%= Time.at(*article.created_at.to_i).to_s(:long_ordinal)[0..-6]%>
+            </div>
+            
+        </div>
     <% end %>
 </ul>
-
-<%= link_to "New Article", new_article_path %>

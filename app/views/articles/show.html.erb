@@ -1,18 +1,44 @@
-<h1><%= @article.title %></h1>
+<div class="full-article-container">
+    <h1><%= @article.title %></h1>
+    <div class="full-article-info-settings">
 
-<p><%= @article.body %></p>
-<p>Username: <%= User.find_by_sql "SELECT users.id, users.username FROM users, articles WHERE users.id = articles.user_id" %></p>
+        <div class="full-article-img-info">
+            <div class="full-article-user-img"></div>
+            <div class="full-article-info">
+                <div class="full-article-name">
+                    <%= @article.user.username.split.map(&:capitalize).join(' ') %>
+                </div>
+                <div class="full-article-time">
+                    <%= Time.at(*@article.created_at.to_i).to_s(:long_ordinal)[0..-6] %>
+                </div>
+            </div>
+        </div>
+        
 
-<ul>
-    <li>
-        <%= link_to "Edit", edit_article_path(@article) %>
-    </li>
+        <div class="full-article-settings"> 
+            <% if current_user?(@article.user) %>
+                <div class="full-article-edit">
+                <i class="fas fa-edit" style="color: green"></i>
+                    <%= link_to "Edit", 
+                        edit_article_path(@article),
+                        class: "edit-article" 
+                    %>
+                </div>
+                <div class="full-article-delete">
+                <i class="fas fa-trash-alt"></i>
+                        <%= link_to "Delete", 
+                            article_path(@article), 
+                            method: :delete, 
+                            data: { confirm: "Are you sure?" },
+                            class: "delete-article" 
+                        %>
+                </div>          
+            <% end %>
+        </div>
+    </div>
 
-    <li>
-        <%= link_to "Destroy", 
-            article_path(@article), 
-            method: :delete, 
-            data: { confirm: "Are you sure?" } 
-        %>
-    </li>
-</ul>
+    <div class="full-article-body">
+        <p><%= @article.body %></p>
+    </div>
+    
+</div>
