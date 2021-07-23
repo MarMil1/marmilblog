@@ -1,3 +1,121 @@
 // Place all the styles related to the Articles controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+// Single article 
+
+.single-article-container {
+    margin-bottom: 50px;
+    width: 300px;
+    height: 120px;
+}
+
+.single-article-container:hover * {
+    text-decoration: none;
+    color: inherit;
+}
+
+.user-img-name {
+    display: flex;
+    align-items: center;
+}
+
+.user-img {
+    height: 22px;
+    width: 22px;
+    border-radius: 50px;
+    background-color: gray;
+}
+
+.user-name {
+    margin-left: 10px;
+    font-weight: bold;
+    font-size: 12px;
+}
+
+.article-title {
+    margin-top: 8px;
+    font-size: 20px;
+    font-weight: bold;
+    color: black;
+}
+
+.article-body {
+    color: gray;
+    font-size: 15px;
+    overflow: hidden;
+    height: 45px;
+}
+
+.article-info {
+    color: gray;
+    margin-top: 10px;
+    font-size: 12px;
+}
+
+// Full single article with body
+.full-article-container {
+    text-align: left;
+    width: 70%;
+    position: relative;
+    left: 15%;
+    right: 15%;
+}
+
+.full-article-info-settings {
+    display: flex;
+    align-items: center;
+    margin-bottom: 40px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.full-article-img-info {
+    display: flex;
+    align-items: center;
+}
+
+.full-article-user-img {
+    height: 50px;
+    width: 50px;
+    background-color: gray;
+    border-radius: 50px;
+}
+
+
+.full-article-info {
+    margin-left: 10px;
+}
+
+.full-article-time {
+    color: gray;
+}
+
+.full-article-settings {
+    display: flex;
+    align-items: center;
+}
+
+
+.full-article-delete {
+    color: red;
+    margin-left: 10px;
+}
+
+.edit-article:hover {
+    text-decoration: none;
+}
+
+.delete-article:hover {
+    text-decoration: none;
+}
+
+.full-article-body {
+    font-size: 17px;
+    text-indent: 60px;
+}
+
+.full-article-body::first-letter {
+    font-size: 40px;
+}
+

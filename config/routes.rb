@@ -6,11 +6,21 @@ Rails.application.routes.draw do
   # Users routes
   get 'signup'     => 'users#new'
   resources :users
+
+  resources :users do
+    resources :articles, only: [:edit, :create, :destroy] do
+      collection do
+        delete :destroy_all
+      end
+    end
+  end
   
   # Articles routes
   resources :articles do 
     resources :comments
   end
+
+  #delete 'delete_all' => 'articles#destroy_all'
 
   # Comments routes
 

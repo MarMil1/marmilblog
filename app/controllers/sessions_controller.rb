@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
       # Log the user in, remember their token and direct to user profile page
       log_in user
       params[:session][:remember_me] == '1' ? remember(user) : forget(user)
-      redirect_to user
+      redirect_back_or user
     else 
       # Create new render on login page and throw error
       flash.now[:danger] = 'Invalid email or password.'

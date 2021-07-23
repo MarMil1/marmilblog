@@ -24,6 +24,8 @@ gem 'bcrypt', '~> 3.1.7'
 
 # Bootstrap
 gem 'bootstrap-sass'
+# Font Awesome
+gem 'font-awesome-sass'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
