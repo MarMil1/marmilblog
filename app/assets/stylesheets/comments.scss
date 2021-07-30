@@ -1,3 +1,188 @@
 // Place all the styles related to the Comments controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+// Comment form
+.comment-form-container{
+    color: black;
+    border-bottom: 1px solid rgb(230, 229, 229);
+    padding-bottom: 50px;
+}
+
+.comment-form-input {
+    margin: 15px;
+    height: 40px;
+    overflow: hidden;
+    cursor: pointer;
+    border-color: #f5f5f5;
+    border-radius: 5px;
+    border: none;
+    box-shadow: lightgray 2px 2px 8px;
+}
+
+.commenter-info {
+    margin: 12px;
+    display: flex;
+    align-items: center;
+}
+
+.comment-textarea {
+    margin-bottom: 0 !important;
+    resize: none;
+    border: none;
+    padding: 10px;
+    font-size: 15px;
+}
+
+.comment-textarea:focus {
+    height:100px;
+}
+
+.expanded {
+    height: auto;
+}
+
+.comment-form-close-save-btns {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-right: 15px;
+    margin-bottom: 30px;
+}
+
+.close-comment-btn {
+    cursor: pointer;
+}
+
+.close-comment-btn:hover {
+    color: rgba(61, 61, 61, 1);;
+}
+
+.post-comment-btn {
+    width: 60px !important;
+    margin-left: 10px;
+    border-radius: 30px !important;
+}
+
+.post-comment-btn:focus {
+    outline: none;
+}
+
+.filter-comments {
+    position: relative;
+    top: 40px;
+    margin-left: 15px;
+    font-weight: bold;
+    font-size: 12px;
+}
+
+// Posted comment box 
+
+.user-comment-container {
+    margin-bottom: 20px;
+    margin: 12px;
+}
+
+.user-comment-info-settings {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.user-comment-img-info {
+    display: flex;
+    align-items: center;
+}
+
+.user-comment-info {
+    margin-left: 10px;
+}
+
+.user-comment-username {
+    display: flex;
+}
+
+.is-author {
+    margin-left: 10px;
+    color: rgb(69, 186, 19);
+}
+
+.is-author-icon:hover {
+    color: rgb(69, 186, 19);
+}
+
+[data-comment-initial]:before {
+    content:attr(data-comment-initial);
+    display:inline-block;
+    font-size: 20px;
+    height: 30px;
+    width: 30px;
+    line-height:1.5em;
+    text-align:center;
+    border-radius:50%;
+    background:gray;
+    vertical-align:middle;
+    color:white;
+    // margin-right: 10px;
+}
+
+.user-comment-time {
+    color: gray;
+    font-size: 12px;
+}
+
+.user-comment-settings {
+    display: flex;
+    align-items: center;
+}
+
+.user-comment-delete {
+    margin-left: 10px;
+}
+
+.user-comment-body {
+    margin-top: 10px;
+}
+
+.small-comment {
+    height: 40px;
+    overflow: hidden;
+}
+.big-comment {
+    height: auto;
+    overflow-wrap: break-word;
+}
+
+.read-more {
+    margin-top: 5px;
+    color: rgb(141, 182, 254);
+    cursor: pointer;
+    width: 90px;
+}
+
+.read-more:hover {
+    color: rgb(88, 148, 254);
+}
+
+.comment-likes-section {
+    margin-top: 20px;
+    font-size: 15px;
+    cursor: pointer;
+    width: 90px;
+}
+
+.line-between-comments:last-child {
+    display: none;
+}
+
+.no-comment {
+    color: gray;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    top: 30%;
+    margin-left: 10%;
+    margin-right: 10%;
+    text-align: center;
+}

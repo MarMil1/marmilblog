@@ -5,7 +5,9 @@
 // sidebar
 
 aside {
-    section.user_info {
+    section.user-info {
+      display: flex;
+      align-items: center;
       margin-top: 20px;
     }
     section {
@@ -39,6 +41,24 @@ aside {
     margin-top: 15px;
   }
 
+  .user-name-profile {
+    margin-left: 10px;
+  }
+
+  [data-profile-initial]:before {
+    content:attr(data-profile-initial);
+    display:inline-block;
+    font-size: 30px;
+    height: 50px;
+    width: 50px;
+    line-height:1.7em;
+    text-align:center;
+    border-radius:50%;
+    background:gray;
+    vertical-align:middle;
+    color:white;
+}
+
   .danger-zone {
       margin-top: 50px;
       border: 1px solid rgb(161, 151, 151);
@@ -53,6 +73,7 @@ aside {
 
   #delete-user-button {
       color: white;
+      width: auto;
   }
 
   .delete-user-btn {
@@ -62,4 +83,20 @@ aside {
   .delete-user-btn:link {
     color: white;
     text-decoration: none;
+}
+
+@media screen and (max-width: 1200px) {
+  .danger-zone-items {
+    flex-direction: column;
+  }
+}
+
+// Login page
+
+.to-login-page {
+  display:flex; 
+  align-items:center; 
+  color: #333333;
+  font-size: 1.1em;
+  line-height: 1.7em;
 }

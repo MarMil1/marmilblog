@@ -1,7 +1,7 @@
 <% provide(:title, "Edit user") %>
 <h1>Update your profile</h1>
 
-<div class="row">
+<div class="row" style="margin-top: 50px;">
   <div class="col-md-6 col-md-offset-3">
     <%= form_for(@user) do |f| %>
       <%= render 'shared/error_messages', object: f.object  %>
@@ -20,11 +20,6 @@
 
       <%= f.submit "Save changes", class: "btn btn-primary" %>
     <% end %>
-
-    <%# <div class="gravatar_edit"> %>
-      <%# <%= gravatar_for @user %> 
-      <%# <a href="http://gravatar.com/emails" target="_blank">change</a> %>
-    <%# </div> %>
     
     <% if current_user?(@user) %>
         <div class="danger-zone">
@@ -32,7 +27,7 @@
             <br>
             <div class="danger-zone-items">
                 <p>This will delete your entire profile and all posts</p>
-                <button id="delete-user-button" class="btn btn-danger">
+                <button id="delete-user-button" class="btn btn-danger btn-sm">
                     <%= link_to "Delete User Profile", @user, method: :delete, 
                     data: { confirm: "Are you sure?" },
                     class: "delete-user-btn" ,
@@ -43,7 +38,7 @@
 
             <div class="danger-zone-items">
                 <p>This will delete all of your articles</p>
-                <button id="delete-user-button" class="btn btn-danger">
+                <button id="delete-user-button" class="btn btn-danger btn-sm">
                     <%= link_to "Delete All Articles", 
                         destroy_all_user_articles_path(current_user), 
                         method: :delete, 
@@ -57,9 +52,11 @@
 
             <div class="danger-zone-items">
                 <p>This will delete all of your comments</p>
-                <button id="delete-user-button" class="btn btn-danger">
-                    <%= link_to "Delete All Comments", @user, method: :delete, 
-                        data: { confirm: "Are you sure?" },
+                <button id="delete-user-button" class="btn btn-danger btn-sm">
+                    <%= link_to "Delete All Comments", 
+                        destroy_all_article_comments_url(current_user), 
+                        method: :delete, 
+                        data: { confirm: "Total of '#{Comment.where(user_id: current_user).count}' comments. Are you sure?" },
                         class: "delete-user-btn" ,
                         style: "color: white" 
                     %>

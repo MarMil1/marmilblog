@@ -1,0 +1,23 @@
+<div id="modal-right" class="modal fade" data-backdrop="true">
+    <div class="modal-dialog modal-right ">
+        <div class="modal-content h-100 no-radius">
+            <div class="modal-header">
+                <div class="modal-title text-md">
+                    Comments ( <%= @article.comments.count %> )
+                </div> 
+                <div class="close" data-dismiss="modal">
+                    <i class="fas fa-times"></i>
+                </div>
+            </div>
+            <div class="modal-comment-form">
+                <%= render "comments/new", comment: @comment %>
+            </div>
+            <div class="modal-body">
+                
+                <div class="text-left">
+                    <%= render "comments/show", comment: @comment %>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
