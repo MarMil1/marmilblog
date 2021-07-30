@@ -1,19 +1,41 @@
 <%= form_with model: article do |form| %>
 <%= render 'shared/error_messages', object: form.object %>
-
-    <div>
-        <%= form.label :title %><br>
-        <%= form.text_field :title %>
+<h1>Write</h1>
+    <div class="article-title-area"> 
+        <%= form.text_field :title, 
+            placeholder: "Add a title . . .",
+            class: "article-input-title"
+        %>
     </div>
 
-    <div>
-        <%= form.label :body %><br>
-        <%= form.text_area :body %>
+    <div class="article-body-area">
+        <%= form.text_area :body, 
+            placeholder: "Write something interesting . . .",
+            class: "article-input-body",
+            id: "article-input-body" 
+        %>
     </div>
     <br>
-    
-    <div>
-        <%= form.submit %>
+
+    <div class="publish-btn">
+        <div class="cancel-publish-article">
+            <%= link_to "Cancel",   articles_path, class:"cancel-publish-article" %>
+        </div>
+        <div class="publish-article">
+            <%= form.submit "Publish", class: "btn btn-primary" %>
+        </div>
     </div>
 
 <% end %>
+
+<script>
+    // To resize text area as user is typing
+    textarea = document.getElementById("article-input-body");
+    textarea.addEventListener('input', autoResize, false);
+    
+    function autoResize() {
+        this.style.height = 'auto';
+        this.style.height = this.scrollHeight - 3.5 + 'px';
+    }
+
+</script>

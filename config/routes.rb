@@ -15,14 +15,14 @@ Rails.application.routes.draw do
     end
   end
   
-  # Articles routes
+  # Articles & Comments routes
   resources :articles do 
-    resources :comments
+    resources :comments, only: [:edit, :create, :destroy] do
+      collection do
+        delete :destroy_all
+      end
+    end
   end
-
-  #delete 'delete_all' => 'articles#destroy_all'
-
-  # Comments routes
 
   # Session tracking routes
   get    'login'   => 'sessions#new'

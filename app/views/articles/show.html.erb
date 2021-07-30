@@ -3,10 +3,10 @@
     <div class="full-article-info-settings">
 
         <div class="full-article-img-info">
-            <div class="full-article-user-img"></div>
+            <div data-letters=<%= @article.user.username[0].capitalize %>></div>
             <div class="full-article-info">
                 <div class="full-article-name">
-                    <%= @article.user.username.split.map(&:capitalize).join(' ') %>
+                    <%= @article.user.username %>
                 </div>
                 <div class="full-article-time">
                     <%= Time.at(*@article.created_at.to_i).to_s(:long_ordinal)[0..-6] %>
@@ -16,29 +16,49 @@
         
 
         <div class="full-article-settings"> 
-            <% if current_user?(@article.user) %>
-                <div class="full-article-edit">
-                <i class="fas fa-edit" style="color: green"></i>
-                    <%= link_to "Edit", 
-                        edit_article_path(@article),
-                        class: "edit-article" 
-                    %>
-                </div>
-                <div class="full-article-delete">
-                <i class="fas fa-trash-alt"></i>
-                        <%= link_to "Delete", 
-                            article_path(@article), 
-                            method: :delete, 
-                            data: { confirm: "Are you sure?" },
-                            class: "delete-article" 
-                        %>
-                </div>          
-            <% end %>
+            <%= render "articles/options", article: @article %>
         </div>
     </div>
 
     <div class="full-article-body">
         <p><%= @article.body %></p>
     </div>
+
+    <hr/>
+
+    <div class="comments-likes-report-section">
+        <div class="likes-comments-section">
+            <div class="likes-section" type="button">
+                <i class="far fa-thumbs-up"></i>
+                0
+            </div>
+            
+            <div class="comments-section">  
+                <i class="far fa-comments" data-toggle="modal" data-target="#modal-right" data-toggle-class="modal-open-aside"></i>
+                <% if @article.comments.count > 0 %>
+                    <%= @article.comments.count %>
+                <% end %>
+                <%= render "articles/modal", article: @article %>
+            </div>
+        </div>
+        <% if @article.body.length > 600 %>
+            <%= render "articles/options", article: @article %>
+        <% end %>
+
+    </div>
     
 </div>
+
+<script>
+    function copyArticleLink() {
+        const input = document.body.appendChild(document.createElement("input"));
+        const link = navigator.clipboard.writeText(window.location.href);
+        input.value = link;
+        input.focus();
+        input.select();
+        document.execCommand('copy');
+        input.parentNode.removeChild(input);
+        //alert("Link copied");
+    }
+    
+</script>

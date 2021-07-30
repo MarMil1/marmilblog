@@ -1,0 +1,64 @@
+<div class="comment-form-container" id="comment-form-container">
+    <%= form_with model: [ @article, @article.comments.build ] do |f| %>
+        <%= render 'shared/error_messages', object: f.object  %>
+        <div class="comment-form-input" id="comment-form-input">
+                <% if logged_in? %>
+                    <div class="commenter-info" id="commenter-info">
+                            <div data-comment-initial=<%= current_user.username[0].capitalize %>></div>
+                        <div class="user-comment-username" style="margin-left: 10px;">
+                            <%= current_user.username %>
+                        </div>
+                    </div>
+                <% else %>
+                    <div class="commenter-info" id="commenter-info">
+                            Not registered? 
+                        <div class="user-comment-username" style="margin-left: 10px;">
+                            <%= link_to "Sign up now!", signup_path %>
+                        </div>
+                    </div>
+                <% end %>
+            
+                <%= f.text_area :body, 
+                    placeholder: "Add a comment . . .", 
+                    class: "comment-textarea",
+                    id: "comment-textarea" 
+                %>
+        </div>
+            
+        <div class="comment-form-close-save-btns" id="post-btns">
+            <div type="button" class="close-comment-btn" id="close-comment-btn" onclick="deleteTextarea()">
+                Cancel
+            </div>
+            <%= f.submit "Post", class:"post-comment-btn btn btn-primary br-30" %>
+        </div>
+    <% end %>
+    <div class="filter-comments">MOST RECENT</div>
+</div>
+
+<script>
+    // Clear textarea when clicking on cancel button
+    function deleteTextarea() {
+        document.getElementById('comment-textarea').value = "";
+    }
+
+    $(document).ready(function(){
+        $('#post-btns').hide();
+        $('#commenter-info').hide();
+    });
+
+    $(document).on('click', '.comment-textarea', function () {
+        $(this).addClass('expanded');
+        $('#post-btns').show();
+        $('#commenter-info').show();
+        $('#comment-form-input').height(150);
+    });
+
+    // Collapse the comment textarea when clicking on cancel button
+    $('#close-comment-btn').click(function() {
+        $('div.comment-form-input').
+            toggleClass('expanded', false);
+            $('#post-btns').hide();
+            $('#commenter-info').hide();
+            $('#comment-form-input').height(40);
+    });
+</script>

@@ -1,13 +1,10 @@
-<h1>Articles</h1>
-
-<ul>
+<div class="all-articles">
     <% @articles.each do |article| %>
         <div class="single-article-container">
             <div class="user-img-name">
-                <div class="user-img">
-                </div>
+                <div data-index-initial=<%= article.user.username[0].capitalize %>></div>
                 <div class="user-name">
-                    <%= link_to article.user.username.split.map(&:capitalize).join(' '), 
+                    <%= link_to article.user.username, 
                         @user,
                         style: "color: black"
                     %>
@@ -31,4 +28,4 @@
             
         </div>
     <% end %>
-</ul>
+</div>

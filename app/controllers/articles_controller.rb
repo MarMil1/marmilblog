@@ -19,6 +19,7 @@ class ArticlesController < ApplicationController
 
     def create
         @article = current_user.articles.build(article_params) if logged_in?
+        puts "ARTICLE PARAMS <<<<<<< #{article_params} >>>>>>>>>"
         
         if @article.save
             flash[:success] = "Article `#{@article.title}` created successfully."

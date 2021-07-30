@@ -1,0 +1,37 @@
+<div class="report-section">
+    <div class="share-section" type="button">
+        <div class="dropdown-more-section" style="float:left;">
+            <div class="dropbtn-more-section">
+                <i class="fas fa-share-alt"></i>
+            </div>
+            <div class="dropdown-content-more-section">
+                <a id="copyArticleLink" onclick="copyArticleLink()">Copy article link</a>
+            </div>
+        </div>
+    </div>
+    <div class="archive-section" type="button">
+        <i class="far fa-bookmark"></i>
+    </div>
+    <div class="more-section" type="button">
+        <div class="dropdown-more-section" style="float:left;">
+            <div class="dropbtn-more-section"><i class="fas fa-ellipsis-h"></i></div>
+            <div class="dropdown-content-more-section">
+                <% if current_user?(@article.user) %>
+                    <%= link_to "Edit this article", 
+                        edit_article_path(@article),
+                        class: "edit-article" 
+                    %>
+                    <%= link_to "Delete this article", 
+                        article_path(@article), 
+                        method: :delete, 
+                        data: { confirm: "Are you sure?" },
+                        class: "delete-article" 
+                    %>
+                <% else %>
+                    <a class="dropdown-item">Report this article</a>
+                    <a class="dropdown-item">Block this author</a>
+                <% end %>
+            </div>
+        </div>
+    </div>
+</div>

@@ -27,6 +27,9 @@ gem 'bootstrap-sass'
 # Font Awesome
 gem 'font-awesome-sass'
 
+# Autosize textarea
+gem 'autosize'
+
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 

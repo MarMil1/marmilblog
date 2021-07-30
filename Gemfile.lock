@@ -64,6 +64,7 @@ GEM
       public_suffix (>= 2.0.2, < 5.0)
     autoprefixer-rails (10.2.5.1)
       execjs (> 0)
+    autosize (2.4.0.0)
     bcrypt (3.1.16)
     bindex (0.8.1)
     bootsnap (1.7.5)
@@ -212,6 +213,7 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
+  autosize
   bcrypt (~> 3.1.7)
   bootsnap (>= 1.4.4)
   bootstrap-sass
