@@ -1,0 +1,19 @@
+<div class="py-20" style="background: linear-gradient(122deg, rgba(162,162,162,1) 0%, rgba(167,170,182,1) 22%, rgba(138,140,153,1) 50%, rgba(181,181,181,1) 75%, rgba(237,237,237,1) 100%);">
+  <div class="container mx-auto px-6">
+    <h2 class="text-4xl font-bold mb-2 text-black">
+      Share your stories and reach the world.
+    </h2>
+    <h3 class="text-2xl mb-8 text-black-200">
+      Writing and reading stories from all over the world has never been easier.
+    </h3>
+    <% if logged_in? %>
+        <button class="bg-white font-bold rounded-lg py-4 px-8 shadow-lg uppercase tracking-wider">
+            <%= link_to "Write Something", new_article_path, class:"nav-link" %>
+        </button>
+    <% else %>
+        <button class="bg-white font-bold rounded-lg py-4 px-8 shadow-lg uppercase tracking-wider">
+            <%= link_to "Get Started", signup_path, class:"nav-link" %>
+        </button>
+    <% end %>
+  </div>
+</div>

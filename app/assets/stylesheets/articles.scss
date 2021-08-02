@@ -6,7 +6,7 @@
 
 .single-article-container {
     margin-bottom: 50px;
-    width: 300px;
+    width: 250px;
     height: 120px;
 }
 
@@ -44,28 +44,42 @@
     color: gray;
     margin-top: 10px;
     font-size: 12px;
+    display: flex;
+}
+
+.article-comment-like-container {
+    margin-left: 10px;
 }
 
 // All articles / Index page
 .all-articles {
+    margin-left: 30px;
+    margin-right: 20px;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-areas: 
-    "single-article-container single-article-container single-article-container";
+    "single-article-container single-article-container single-article-container single-article-container";
     grid-gap: 0.2rem;
     margin-top: 50px;
+    margin-bottom: 30px;
 }
 
-@media only screen and (max-width: 992px) { 
+@media only screen and (max-width: 1050px) { 
     .all-articles {
        grid-template-columns: 1fr 1fr;
        grid-template-areas: 
        "single-article-container single-article-container";
-       display: flex;
+       display: grid;
        flex-direction: row;
        align-items: center;
        flex-wrap: wrap;
        justify-content: center;
+    }
+    
+    .full-article-container {
+        width: 90%;
+        left: 5%;
+        right: 0;
     }
 }
 
@@ -78,16 +92,37 @@
       flex-direction: column;
       align-items: center;
    }
+
+   .gallery-article-mobile {
+    justify-content: space-evenly !important;
+   }
+
+   .article-body-mobile {
+       display: none;
+   }
+
+   .article-info-mobile {
+       flex-direction: column;
+   }
+
+   .article-comment-like-container {
+    margin-left: 0;
+   }
+
+   .comment-dots-mobile {
+       margin-left: 0px;
+   }
 }
 
 
 // Full single article with body
 .full-article-container {
     text-align: left;
-    width: 70%;
+    width: 65%;
     position: relative;
     left: 15%;
     right: 15%;
+    margin-top:100px;
 }
 
 .full-article-info-settings {
@@ -376,3 +411,18 @@
     text-decoration: none;
 }
 
+// Landing page
+
+.landing-page-container {
+    background-color: lightgreen;
+    height: 40vh;
+    width: 100%;
+}
+
+.landing-page-main-slogan {
+    font-size: 3vh;
+    font-weight: 500;
+    width: 40vw;
+    position: relative;
+    top: 7vh;
+}
