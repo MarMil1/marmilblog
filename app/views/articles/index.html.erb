@@ -1,31 +1,153 @@
-<div class="all-articles">
-    <% @articles.each do |article| %>
-        <div class="single-article-container">
-            <div class="user-img-name">
-                <div data-index-initial=<%= article.user.username[0].capitalize %>></div>
-                <div class="user-name">
-                    <%= link_to article.user.username, 
-                        @user,
+<div class="animated-landing-page">
+    <%= render 'layouts/landing' %>
+</div>
+
+<div class="article-lifecycle">LATEST ARTICLES</div>
+<% if @articles.length >= 10 %>
+    <div class="all-articles">
+        <% @articles.slice(0, 4).each do |article| %>
+            <div class="single-article-container">
+                <div class="user-img-name">
+                    <div data-index-initial=<%= article.user.username[0].capitalize %>></div>
+                    <div class="user-name">
+                        <%= link_to article.user.username, 
+                            @user,
+                            style: "color: black"
+                        %>
+                    </div>
+                </div>
+                <div class="article-title">
+                    <%= link_to truncate(article.title.html_safe, length: 50), 
+                        article,
                         style: "color: black"
                     %>
                 </div>
+                <div class="article-body">
+                    <%= link_to truncate(article.body.html_safe, length: 70), 
+                        article,
+                        style: "color: gray"
+                    %>
+                </div>
+                <div class="article-info" style = "color: gray;">
+                    <%= Time.at(*article.created_at.to_i).to_s(:long_ordinal)[0..-6]%>
+                    <div style="margin-left: 10px;">
+                        <i class="far fa-comment-dots disable-hover"></i> <%= article.comments.count %>
+                        <i class="fas fa-chart-line disable-hover" style="margin-left: 10px;"></i> <%= article.comments.count %>
+                        </div>
+                </div>
+                
             </div>
-            <div class="article-title">
-                <%= link_to truncate(article.title.html_safe, length: 50), 
-                    article,
-                    style: "color: black"
-                %>
+        <% end %>
+    </div>
+    <%= render 'layouts/carousel_index' %>
+    
+    <% else %>
+
+    <div class="all-articles">
+        <% @articles.each do |article| %>
+            <div class="single-article-container">
+                <div class="user-img-name">
+                    <div data-index-initial=<%= article.user.username[0].capitalize %>></div>
+                    <div class="user-name">
+                        <%= link_to article.user.username, 
+                            @user,
+                            style: "color: black"
+                        %>
+                    </div>
+                </div>
+                <div class="article-title">
+                    <%= link_to truncate(article.title.html_safe, length: 50), 
+                        article,
+                        style: "color: black"
+                    %>
+                </div>
+                <div class="article-body">
+                    <%= link_to truncate(article.body.html_safe, length: 70), 
+                        article,
+                        style: "color: gray"
+                    %>
+                </div>
+                <div class="article-info" style = "color: gray;">
+                    <%= Time.at(*article.created_at.to_i).to_s(:long_ordinal)[0..-6]%>
+                    <div style="margin-left: 10px;">
+                        <i class="far fa-comment-dots disable-hover"></i> <%= article.comments.count %>
+                        <i class="fas fa-chart-line disable-hover" style="margin-left: 10px;"></i> <%= article.comments.count %>
+                        </div>
+                </div>
+                
             </div>
-            <div class="article-body">
-                <%= link_to truncate(article.body.html_safe, length: 70), 
-                    article,
-                    style: "color: gray"
-                %>
+        <% end %>
+    </div>
+
+<% end %>
+
+
+
+<% if @articles.length >= 10 %>
+    <div class="article-lifecycle">OTHER ARTICLES</div>
+    <div class="all-articles">
+        <% @articles.slice(10, @articles.length).each do |article| %>
+            <div class="single-article-container">
+                <div class="user-img-name">
+                    <div data-index-initial=<%= article.user.username[0].capitalize %>></div>
+                    <div class="user-name">
+                        <%= link_to article.user.username, 
+                            @user,
+                            style: "color: black"
+                        %>
+                    </div>
+                </div>
+                <div class="article-title">
+                    <%= link_to truncate(article.title.html_safe, length: 50), 
+                        article,
+                        style: "color: black"
+                    %>
+                </div>
+                <div class="article-body">
+                    <%= link_to truncate(article.body.html_safe, length: 70), 
+                        article,
+                        style: "color: gray"
+                    %>
+                </div>
+                <div class="article-info" style = "color: gray;">
+                    <%= Time.at(*article.created_at.to_i).to_s(:long_ordinal)[0..-6]%>
+                    <div style="margin-left: 10px;">
+                      <i class="far fa-comment-dots disable-hover"></i> <%= article.comments.count %>
+                      <i class="fas fa-chart-line disable-hover" style="margin-left: 10px;"></i> <%= article.comments.count %>
+                    </div>
+                </div>
+                
             </div>
-            <div class="article-info" style = "color: gray">
-                <%= Time.at(*article.created_at.to_i).to_s(:long_ordinal)[0..-6]%>
-            </div>
-            
-        </div>
-    <% end %>
-</div>
+        <% end %>
+    </div>
+<% end %>
+
+<style>
+.animated-landing-page {
+    animation-duration: 1s;
+    animation-name: slidein;
+}
+
+.disable-hover {
+    pointer-events: none;
+}
+
+@keyframes slidein {
+  from {
+    margin-left: 100%;
+    width: 300%;
+  }
+
+  to {
+    margin-left: 0%;
+    width: 100%;
+  }
+}
+</style>
+
+<script>
+    // To animate only the hero banner
+    $(document).ready(function(){
+        window.scroll(0,1);
+    });
+</script>

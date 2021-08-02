@@ -1,9 +1,9 @@
-<div class="nav-container">
-  <%= link_to "sphere_blog", articles_path, id: "logo" %>
-  <div class="topnav" id="myTopnav">
-    <%= link_to "Home",   articles_path, class:"nav-link-first" %>
-    <%= link_to "Help",   '#', class:"nav-link" %>
-    <% if logged_in? %>
+<% if logged_in? %>
+  <div class="nav-container">
+    <%= link_to "sphere_blog", root_path, id: "logo" %>
+    <div class="topnav" id="myTopnav">
+      <%= link_to "Home",   articles_path, class:"nav-link-first" %>
+      <%= link_to "Write",   new_article_path, class:"nav-link" %>
       <%= link_to "Archive", '#', class:"nav-link" %>
       <div class="dropdown">
         <button class="dropbtn">
@@ -13,18 +13,26 @@
           <%= link_to "Write an article", new_article_path, class:"nav-link" %>
           <%= link_to "Profile", current_user, class:"nav-link" %>
           <%= link_to "Settings", edit_user_path(current_user), class:"nav-link" %>
-          <%= link_to "Log out", logout_path, method: :delete, class:"nav-link" %>
+          <%= link_to "Log out", logout_path, method: :delete, class:"nav-link", style:"background-color:lightred;" %>
         </div>
-      <% else %>
-        <%= link_to "Sign Up", signup_path, class:"nav-link" %>
-        <%= link_to "Log in",  login_path, class:"nav-link" %>
-      <% end %>
       </div>
-      <% if logged_in? %>
+      <a href="javascript:void(0);" style="font-size:15px;" class="icon nav-link" onclick="myFunction()">&#9776;</a>
+    </div>
+  </div>
+
+<% else %>
+<div class="nav-container">
+  <%= link_to "sphere_blog", root_path, id: "logo" %>
+  <div class="topnav" id="myTopnav">
+    <%= link_to "About", '#', class:"nav-link-first" %>
+    <%= link_to "Write", signup_path, class:"nav-link" %>
+    <%= link_to "Log in", login_path, class:"nav-link" %>
+    <%= link_to "SIGN UP FOR FREE", signup_path, class:"nav-link", style:"background-color:green;" %>
     <a href="javascript:void(0);" style="font-size:15px;" class="icon nav-link" onclick="myFunction()">&#9776;</a>
-    <% end %>
   </div>
 </div>
+<% end %>
+
 
 <script>
 // Navbar dropdown when mobile screen

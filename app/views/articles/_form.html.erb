@@ -1,6 +1,5 @@
 <%= form_with model: article do |form| %>
 <%= render 'shared/error_messages', object: form.object %>
-<h1>Write</h1>
     <div class="article-title-area"> 
         <%= form.text_field :title, 
             placeholder: "Add a title . . .",

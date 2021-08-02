@@ -1,0 +1,123 @@
+<div class="gallery-container">
+  <div class="article-lifecycle">FEATURED ARTICLES</div>
+  <i class="far fa-arrow-alt-circle-left move-carousel-left"></i>
+  <ul class="gallery">
+      <% @articles.slice(4, 10).each do |article| %>
+        <li class="gallery-article gallery-article-mobile" style="text-decoration: none;">
+          
+              <div class="user-img-name">
+                  <div data-index-initial=<%= article.user.username[0].capitalize %>></div>
+                  <div class="user-name">
+                      <%= link_to article.user.username, 
+                          @user,
+                          style: "color: black; text-decoration:none;"
+                      %>
+                  </div>
+              </div>
+              <div class="article-title">
+                  <%= link_to truncate(article.title.html_safe, length: 50), 
+                      article,
+                      style: "color: black; text-decoration:none;"
+                  %>
+              </div>
+              <div class="article-body article-body-mobile">
+                  <%= link_to truncate(article.body.html_safe, length: 70), 
+                      article,
+                      style: "color: #e0e0e0; text-decoration:none;"
+                  %>
+              </div>
+              <div class="article-info article-info-mobile" style="color: #e0e0e0;">
+                  <%= Time.at(*article.created_at.to_i).to_s(:long_ordinal)[0..-6]%>
+                  <div class="article-comment-like-container">
+                    <i class="far fa-comment-dots disable-hover comment-dots-mobile"></i> <%= article.comments.count %>
+                    <i class="fas fa-chart-line disable-hover" style="margin-left: 10px;"></i> <%= article.comments.count %>
+                  </div>
+              </div>
+        </li>
+      <% end %>
+      <i class="far fa-arrow-alt-circle-right move-carousel-right"></i>
+  </ul>
+</div>
+
+<style>
+.move-carousel-right {
+  height: 50px;
+  width: 50px;
+  position: sticky;
+  right: 0px;
+  margin-top: 85px;
+  margin-right: 10px;
+  margin-left: 10px;
+  font-size: 30px;
+  cursor: pointer;
+  border-radius: 100px;
+  text-align: center;
+  writing-mode: vertical-lr;
+  padding: 10px;
+  background: #bfbfbf47;
+}
+
+.move-carousel-left {
+  height: 50px;
+  width: 50px;
+  position: absolute;
+  left: 0px;
+  margin-top: 105px;
+  margin-right: 10px;
+  margin-left: 10px;
+  font-size: 30px;
+  cursor: pointer;
+  border-radius: 100px;
+  text-align: center;
+  writing-mode: vertical-lr;
+  padding: 10px;
+  background: #bfbfbf47;
+}
+
+@media screen and (max-width: 510px) {
+  .article-title  {
+    font-size: 15px;
+  }
+}
+
+ /* width */
+.gallery::-webkit-scrollbar {
+  width: 1px;
+}
+
+/* Track */
+.gallery::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+.gallery::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+.gallery::-webkit-scrollbar-thumb:hover {
+  background: #555;
+} 
+</style>
+
+<script>
+  // Left and right scroll carousel buttons
+  var galleryContainer = document.querySelector('.gallery-container');
+  var gallery = galleryContainer.querySelector('.gallery');
+  var leftBtn = galleryContainer.querySelector('.move-carousel-left');
+  var rightBtn = galleryContainer.querySelector('.move-carousel-right');
+  var articleWidth = galleryContainer.querySelector('.gallery-article').clientWidth;
+
+  leftBtn.addEventListener('click', scrollToPrevArticle);
+  rightBtn.addEventListener('click', scrollToNextArticle);
+
+  function scrollToPrevArticle() {
+    gallery.scrollBy({left: -articleWidth, top: 0, behavior: 'smooth'});
+  }
+  function scrollToNextArticle() {
+    gallery.scrollBy({left: articleWidth, top: 0, behavior: 'smooth'});
+  }
+     
+
+</script>
