@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   # Users routes
   get 'signup'     => 'users#new'
-  resources :users
+  # resources :users
 
   resources :users do
     resources :articles, only: [:edit, :create, :destroy] do
@@ -23,6 +23,8 @@ Rails.application.routes.draw do
       end
     end
   end
+
+  patch '/articles/:article_id/comments/:id' => 'comments#update'
 
   # Session tracking routes
   get    'login'   => 'sessions#new'

@@ -10,12 +10,12 @@
                             <div class="user-comment-username">
                                 <%= User.find_by(id: comment.user_id).try(:username) %>
                                 <% if @article.user_id == comment.user_id %>
-                                    <div class="is-author"><i class="is-author-icon fas fa-check-circle"></i></div>
+                                    <div class="is-author">AUTHOR</i></div>
                                 <% end %>
                             </div>
 
                             <div class="user-comment-time">
-                                <%= Time.at(*comment.created_at.to_i).to_s(:long_ordinal)[0..-6] %>
+                                <%= Time.at(*comment.created_at.to_i).to_s(:long_ordinal) %>
                             </div>
                         </div>
                     </div>
@@ -26,10 +26,8 @@
                         <div class="dropdown-content-more-section">
                             <% if logged_in? && current_user.id == comment.user_id %>
                                 <%= link_to "Edit", 
-                                    # article_comment_path(@article, comment), 
-                                    method: :delete, 
-                                    data: { confirm: "Are you sure?" },
-                                    class: "delete-article" 
+                                    edit_article_comment_path(@article, comment),
+                                    class: "delete-article"
                                 %>
                                 <%= link_to "Delete", 
                                     article_comment_path(@article, comment), 
