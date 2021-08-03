@@ -122,7 +122,7 @@
     position: relative;
     left: 15%;
     right: 15%;
-    margin-top:100px;
+    margin-top:30px;
 }
 
 .full-article-info-settings {
@@ -425,4 +425,12 @@
     width: 40vw;
     position: relative;
     top: 7vh;
+}
+
+@media screen and (max-width: 510px) {
+    .full-article-container {
+        width: 90%;
+        left: 5%;
+        right: 5%;
+    }
 }

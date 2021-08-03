@@ -83,7 +83,7 @@
 
 
 
-<% if @articles.length >= 10 %>
+<% if @articles.length > 10 %>
     <div class="article-lifecycle">OTHER ARTICLES</div>
     <div class="all-articles">
         <% @articles.slice(10, @articles.length).each do |article| %>

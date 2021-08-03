@@ -12,7 +12,6 @@ class CommentsController < ApplicationController
     
     def new
         @comment = Comment.new
-        puts "NEW COMMENT ID <<<<< #{@comment.id} >>>>>>>>"
     end
 
     
@@ -28,6 +27,32 @@ class CommentsController < ApplicationController
         else
             flash[:danger] = "Something went wrong."
             redirect_to article_path(@article)
+        end
+    end
+
+
+    def edit
+        @article = Article.find(params[:article_id])
+        @comment = current_user.comments.find_by(id: params[:id])
+        
+        if !@comment.nil?
+            render :edit
+        else 
+            flash[:danger] = "Not authorized to edit article."
+            redirect_to root_path
+        end
+    end
+
+
+    def update
+        @article = Article.find(params[:article_id])
+        @comment = current_user.comments.find(params[:id])
+
+        if @comment.update(comment_params)
+            flash[:success] = "Comment updated successfully."
+            redirect_to @article
+        else
+            render :edit
         end
     end
 

@@ -43,6 +43,18 @@ textarea {
   border-bottom: 2px solid lightgray;
 }
 
+.bounding-container {
+  margin-left:10%; 
+  margin-right:10%; 
+  margin-top:50px;
+}
+
+.alert {
+  position: absolute;
+  width: 100%;
+  padding-bottom: 0px;
+}
+
 // mixins, variables
 
 $gray-medium-light: #eaeaea;
@@ -73,7 +85,7 @@ $gray-medium-light: #eaeaea;
     font-size: 3em;
     letter-spacing: -2px;
     margin-bottom: 30px;
-    text-align: center;
+    text-align: left;
   }
   
   h2 {
@@ -474,4 +486,21 @@ li {
   h1 {
     font-size: 2.5em;
   }
+
+  .bounding-container {
+    margin-left:5%; 
+    margin-right:5%; 
+    margin-top:50px;
+  }
+}
+
+.app-path-container {
+  height: 40px;
+  background-color: lightgray;
+  width: 100%;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  padding-left: 5vw;
+  font-weight: bold;
 }

@@ -1,0 +1,39 @@
+<div class="app-path-container">Edit your comment</div>
+<div class="bounding-container">
+
+    <div id="comment-form-container">
+        <%= form_with model: [ @article, @comment ] do |f| %>
+            <%= render 'shared/error_messages', object: f.object  %>
+            <div class="comment-form-input" id="comment-form-input" style="height:150px;">
+                    <% if logged_in? %>
+                        <div class="commenter-info" id="commenter-info">
+                                <div data-comment-initial=<%= current_user.username[0].capitalize %>></div>
+                            <div class="user-comment-username" style="margin-left: 10px;">
+                                <%= current_user.username %>
+                            </div>
+                        </div>
+                    <% else %>
+                        <div class="commenter-info" id="commenter-info">
+                                Not registered? 
+                            <div class="user-comment-username" style="margin-left: 10px;">
+                                <%= link_to "Sign up now!", signup_path %>
+                            </div>
+                        </div>
+                    <% end %>
+                
+                    <%= f.text_area :body, 
+                        placeholder: "Add a comment . . .", 
+                        class: "comment-textarea",
+                        id: "comment-textarea" 
+                    %>
+            </div>
+                
+            <div class="comment-form-close-save-btns" id="post-btns">
+                <div type="button" class="close-comment-btn" id="close-comment-btn">
+                    <%= link_to "Cancel", @article, class:"nav-link", style:"color:#000"%>
+                </div>
+                <%= f.submit "Post", class:"post-comment-btn btn btn-primary br-30" %>
+            </div>
+        <% end %>
+    </div>
+</div>
