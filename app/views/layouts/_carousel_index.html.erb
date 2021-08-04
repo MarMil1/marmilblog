@@ -29,8 +29,8 @@
               <div class="article-info article-info-mobile" style="color: #e0e0e0;">
                   <%= Time.at(*article.created_at.to_i).to_s(:long_ordinal)[0..-6]%>
                   <div class="article-comment-like-container">
-                    <i class="far fa-comment-dots disable-hover comment-dots-mobile"></i> <%= article.comments.count %>
-                    <i class="fas fa-chart-line disable-hover" style="margin-left: 10px;"></i> <%= article.comments.count %>
+                    <i class="far fa-comments disable-hover comment-dots-mobile"></i> <%= article.comments.count %>
+                    <i class="far fa-thumbs-up disable-hover" style="margin-left: 10px;"></i> <%= article.comments.count %>
                   </div>
               </div>
         </li>
