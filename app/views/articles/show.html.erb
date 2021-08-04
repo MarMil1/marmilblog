@@ -48,16 +48,3 @@
 
     </div>
 </div>
-
-<script>
-    function copyArticleLink() {
-        const input = document.body.appendChild(document.createElement("input"));
-        const link = navigator.clipboard.writeText(window.location.href);
-        input.value = link;
-        input.focus();
-        input.select();
-        document.execCommand('copy');
-        input.parentNode.removeChild(input);
-    }
-    
-</script>

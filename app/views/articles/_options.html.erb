@@ -6,6 +6,7 @@
             </div>
             <div class="dropdown-content-more-section">
                 <a id="copyArticleLink" onclick="copyArticleLink()">Copy article link</a>
+                <div class="link-copied-confirmation" id="link-copied-confirmation">Copied</div>
             </div>
         </div>
     </div>
@@ -35,3 +36,37 @@
         </div>
     </div>
 </div>
+
+<style>
+    .link-copied-confirmation {
+        display:none;
+        font-size: 15px;
+        padding: 7px;
+        text-align: center;
+        background-color: #a4ffa4a6;
+        color: #656565;
+    }
+</style>
+
+<script>
+    function copyArticleLink() {
+        const copyBtn = document.getElementById('copyArticleLink');
+        const input = document.body.appendChild(document.createElement("input"));
+        
+        // Get the link from browser
+        const link = navigator.clipboard.writeText(window.location.href);
+        input.value = link;
+        input.focus();
+        input.select();
+        document.execCommand('copy');
+        input.parentNode.removeChild(input);
+
+        // Switch between copied and hide copy link button
+        document.getElementById('link-copied-confirmation').style.display = 'block'; 
+        copyBtn.style.display = 'none';
+        setInterval(function() {
+            document.getElementById('link-copied-confirmation').style.display = 'none'; 
+            copyBtn.style.display = 'block';
+        }, 1500)
+    }
+</script>
