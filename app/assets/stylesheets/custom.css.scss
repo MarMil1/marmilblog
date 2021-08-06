@@ -530,6 +530,17 @@ li {
     margin-right:5%; 
     margin-top:50px;
   }
+
+  footer {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-areas: 
+    "header"
+    "content-two"
+    "content-three"
+    "content-one";
+    padding-bottom: 20px;
+  }
 }
 
 .app-path-container {
