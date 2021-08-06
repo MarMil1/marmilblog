@@ -201,8 +201,8 @@
 
 .full-article-body {
     font-size: 17px;
-    text-indent: 60px;
     overflow-wrap: break-word;
+    margin-bottom: 40px;
 }
 
 .full-article-body::first-letter {
@@ -381,6 +381,10 @@
 
 .article-input-title {
     font-size: 3em;
+    box-shadow: lightgray 2px 2px 8px;
+    padding: 3px;
+    border-radius: 5px;
+    margin-bottom: 50px;
 }
 
 .article-input-body {
@@ -388,6 +392,9 @@
     display: block;
     overflow: hidden;
     resize: none;
+    box-shadow: lightgray 2px 2px 8px;
+    padding: 10px;
+    border-radius: 5px;
 }
 
 .publish-article {

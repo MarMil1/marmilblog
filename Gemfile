@@ -26,9 +26,13 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'bootstrap-sass'
 # Font Awesome
 gem 'font-awesome-sass'
-
 # Autosize textarea
-gem 'autosize'
+# gem 'autosize'
+# RedCarpet for markdown previewer
+gem 'redcarpet'
+# Albino and Nokogiri for syntax highlighting
+# gem 'albino'
+gem 'nokogiri'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'

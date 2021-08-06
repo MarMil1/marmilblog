@@ -1,0 +1,54 @@
+<div class="text-formater-container">
+    <button onclick="insertRedCarpetChars('**','**');" title="Bold Highlighted Text"><strong>B</strong></button>
+    <button onclick="insertRedCarpetChars('*', '*');" title="Italicize Highlighted Text"><em>I</em></button>
+    <button onclick="insertRedCarpetChars('_', '_');" title="Underline Highlighted Text"><u>U</u></button>
+    <button onclick="insertRedCarpetChars('~~', '~~');" title="Strikethrough Highlighted Text" style="text-decoration: line-through;"><div>S</div></button>
+    <button onclick="insertRedCarpetChars('&quot;', '&quot;');" title="Quite Highlighted Text"><div>""</div></button>
+    <button onclick="insertRedCarpetChars('==', '==');" title="Highlight Text" style="background: #fcf8e3;"><div>H</div></button>
+    <button onclick="insertRedCarpetChars('`', '`');" title="Highlight Text" style="background: #f9f2f4;"><div>H</div></button>
+    <button onclick="insertRedCarpetChars('~~~&nbsp;', '&nbsp;~~~');" title="Quite Highlighted Text" style="width: 40px;"><div>Code</div></button>
+    <button onclick="insertRedCarpetChars('&gt;', '');" title="Quite Highlighted Text" style="width: 45px;"><div>Indent</div></button>
+    <button onclick="insertRedCarpetChars('#', '');" title="Quite Highlighted Text"><div>h1</div></button>
+</div>
+
+<script>
+    // Insert characters for styling text in RedCarpet Markdown
+    function insertRedCarpetChars(insertBefore, insertAfter) {
+        const isTwoArguments = arguments.length > 1;
+        const selStart = textarea.selectionStart;
+        const selEnd = textarea.selectionEnd; 
+        const prevText = textarea.value;
+        textarea.value = prevText.substring(0, selStart) + (isTwoArguments ? insertBefore + prevText.substring(selStart, selEnd) + insertAfter : insertBefore) + prevText.substring(selEnd);
+        textarea.setSelectionRange(isTwoArguments || selStart === selEnd ? selStart + insertBefore.length : selStart, (isTwoArguments ? selEnd : selStart) + insertBefore.length);
+        textarea.focus();
+    }
+</script>
+
+<style>
+    .text-formater-container {
+        position: relative;
+        top: 115px;
+        margin-bottom: 10px;
+        text-align-last: center;
+    }
+    .text-formater-container > *  {
+        border: 1px solid #d2d2d2;
+        border-radius: 5px;
+        padding: 2px;
+        font-size: 12px;
+        margin-right: 5px;
+        box-shadow: #9a9a9a 1px 0px 2px 0px;
+        width: 20px;
+    }
+
+    .text-formater-container > *:focus {
+        outline-style: none;
+    }
+
+    @media screen and (max-width: 350px) {
+        .text-formater-container {
+            display: flex;
+            flex-wrap: nowrap;
+        }
+    }
+</style>

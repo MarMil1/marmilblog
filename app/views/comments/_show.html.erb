@@ -45,11 +45,11 @@
                 
                 <div class="user-comment">
                     <div class="user-comment-body small-comment">
-                        <%= comment.body %>
+                        <%= markdown(comment.body) %>
                     </div>
                     <%# if and else statement below so that 
                     all comments' id numbers would be generated %>
-                    <% if comment.body.length > 100%>
+                    <% if comment.body.include?("\r") || comment.body.length > 42 %>
                         <div class="read-more" 
                             onclick="readMoreLess(this)"
                         >
