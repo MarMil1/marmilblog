@@ -17,7 +17,7 @@
                     </div>
                 </div>
                 <div class="article-title">
-                    <%= link_to truncate(article.title.html_safe, length: 50), 
+                    <%= link_to truncate(article.title.html_safe, length: 23), 
                         article,
                         style: "color: black"
                     %>
@@ -28,7 +28,7 @@
                         style: "color: gray"
                     %>
                 </div>
-                <div class="article-info" style = "color: gray;">
+                <div class="article-info" style="color: gray;">
                     <%= Time.at(*article.created_at.to_i).to_s(:long_ordinal)[0..-6]%>
                     <div style="margin-left: 10px;">
                         <i class="far fa-comments disable-hover"></i> <%= article.comments.count %>
@@ -68,7 +68,7 @@
                         style: "color: gray"
                     %>
                 </div>
-                <div class="article-info" style = "color: gray;">
+                <div class="article-info" style="color: gray;">
                     <%= Time.at(*article.created_at.to_i).to_s(:long_ordinal)[0..-6]%>
                     <div style="margin-left: 10px;">
                         <i class="far fa-comments disable-hover"></i> <%= article.comments.count %>
@@ -110,7 +110,7 @@
                         style: "color: gray"
                     %>
                 </div>
-                <div class="article-info" style = "color: gray;">
+                <div class="article-info" style="color: gray;">
                     <%= Time.at(*article.created_at.to_i).to_s(:long_ordinal)[0..-6]%>
                     <div style="margin-left: 10px;">
                       <i class="far fa-comments disable-hover"></i> <%= article.comments.count %>
@@ -123,7 +123,7 @@
     </div>
 <% end %>
 
-<style>
+<%# <style>
 .animated-landing-page {
     animation-duration: 1s;
     animation-name: slidein;
@@ -151,4 +151,4 @@
     $(document).ready(function(){
         window.scroll(0,1);
     });
-</script>
+</script> %>

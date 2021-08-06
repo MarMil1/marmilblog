@@ -1,7 +1,7 @@
 <div class="app-path-container">Edit your comment</div>
-<div class="bounding-container">
+<div class="bounding-container" style="display: flex; justify-content: center;">
 
-    <div id="comment-form-container">
+    <div id="comment-form-container" style="width: 400px;">
         <%= form_with model: [ @article, @comment ] do |f| %>
             <%= render 'shared/error_messages', object: f.object  %>
             <div class="comment-form-input" id="comment-form-input" style="height:150px;">

@@ -1,3 +1,5 @@
+<%= render "layouts/text_tools" %>
+
 <%= form_with model: article do |form| %>
 <%= render 'shared/error_messages', object: form.object %>
     <div class="article-title-area"> 
@@ -11,7 +13,8 @@
         <%= form.text_area :body, 
             placeholder: "Write something interesting . . .",
             class: "article-input-body",
-            id: "article-input-body" 
+            id: "article-input-body",
+            style: "height: 70vh;" 
         %>
     </div>
     <br>
@@ -29,12 +32,11 @@
 
 <script>
     // To resize text area as user is typing
-    textarea = document.getElementById("article-input-body");
+    let textarea = document.getElementById("article-input-body");
     textarea.addEventListener('input', autoResize, false);
     
     function autoResize() {
         this.style.height = 'auto';
         this.style.height = this.scrollHeight - 3.5 + 'px';
     }
-
 </script>

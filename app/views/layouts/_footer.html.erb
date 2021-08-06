@@ -1,12 +1,23 @@
-<footer class="footer">
-  <small>
-    Repository on <a href="https://github.com/MarMil1/sphereblog">GitHub</a>
-    by <a href="https://www.linkedin.com/in/marko-milosavljevic/">Marko Milosavljevic</a>
-  </small>
-  <nav>
-    <ul>
-      <li><%= link_to "About",   '#' %></li>
-      <li><%= link_to "Contact", '#' %></li>
-    </ul>
-  </nav>
+<footer>
+  <div class="footer-menu">
+    <%= link_to "About",   '#' %>
+    <%= link_to "Contact", '#' %>
+    <%= link_to "Help",    '#' %>
+  </div>
+  <div class="footer-content-1">
+    &#169;2021 Marko Milosavljevic 
+  </div>
+  <div class="footer-content-2">
+    <%= link_to "sphere_blog", root_path, style:"text-decoration:none; color:white;" %>
+    <div class="footer-content-2-slogan">
+      read.write.connect
+    </div>
+  </div>
+  <div class="footer-content-3">
+    <a href="https://github.com/MarMil1/sphereblog"><i class="fab fa-github"></i></a>
+    <a href="https://www.linkedin.com/in/marko-milosavljevic/"><i class="fab fa-linkedin"></i></a>
+    <a href="https://codepen.io/marmil1"><i class="fab fa-codepen"></i></a>
+  </div>
+
 </footer>
+

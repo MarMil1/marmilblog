@@ -150,8 +150,9 @@
 }
 
 .small-comment {
-    height: 40px;
+    height: 30px;
     overflow: hidden;
+    overflow-wrap: break-word;
 }
 .big-comment {
     height: auto;
