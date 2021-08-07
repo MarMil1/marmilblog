@@ -82,8 +82,6 @@
 
 <% end %>
 
-
-
 <% if @articles.length > 10 %>
     <div class="article-lifecycle">OTHER ARTICLES</div>
     <div class="all-articles">
@@ -122,33 +120,3 @@
         <% end %>
     </div>
 <% end %>
-
-<%# <style>
-.animated-landing-page {
-    animation-duration: 1s;
-    animation-name: slidein;
-}
-
-.disable-hover {
-    pointer-events: none;
-}
-
-@keyframes slidein {
-  from {
-    margin-left: 100%;
-    width: 300%;
-  }
-
-  to {
-    margin-left: 0%;
-    width: 100%;
-  }
-}
-</style>
-
-<script>
-    // To animate only the hero banner
-    $(document).ready(function(){
-        window.scroll(0,1);
-    });
-</script> %>
