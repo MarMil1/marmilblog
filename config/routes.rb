@@ -1,11 +1,19 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   # root
   root 'articles#index'
 
+  # Static pages
+  get 'static_pages/help' => 'static_pages#help'
+  get 'static_pages/contact' => 'static_pages#contact'
+  get 'static_pages/about' => 'static_pages#about'
+
+  # Session tracking routes
+  get    'login'   => 'sessions#new'
+  post   'login'   => 'sessions#create'
+  delete 'logout'  => 'sessions#destroy'
+  
   # Users routes
   get 'signup'     => 'users#new'
-  # resources :users
 
   resources :users do
     resources :articles, only: [:edit, :create, :destroy] do
@@ -25,11 +33,5 @@ Rails.application.routes.draw do
   end
 
   patch '/articles/:article_id/comments/:id' => 'comments#update'
-
-  # Session tracking routes
-  get    'login'   => 'sessions#new'
-  post   'login'   => 'sessions#create'
-  delete 'logout'  => 'sessions#destroy'
-
 
 end
