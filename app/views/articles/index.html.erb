@@ -1,4 +1,4 @@
-<div class="animated-landing-page">
+<div class="landing-page">
     <%= render 'layouts/landing' %>
 </div>
 
@@ -40,7 +40,6 @@
             </div>
         <% end %>
     </div>
-    <%= render 'layouts/carousel_index' %>
     
     <% else %>
 
@@ -85,7 +84,7 @@
 <% if @articles.length > 10 %>
     <div class="article-lifecycle">OTHER ARTICLES</div>
     <div class="all-articles">
-        <% @articles.slice(10, @articles.length).each do |article| %>
+        <% @articles.slice(4, @articles.length).each do |article| %>
             <div class="single-article-container">
                 <div class="user-img-name">
                     <div data-index-initial=<%= article.user.username[0].capitalize %>></div>

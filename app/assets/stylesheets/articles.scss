@@ -52,6 +52,33 @@
 }
 
 // All articles / Index page
+.hero-container {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 5%;
+    margin-top: 55px;
+}
+
+.hero-container h1 {
+    margin-top: 100px;
+}
+
+.container-item {
+    margin-bottom: 50px;
+}
+
+.hero-button {
+    border-radius: 5px;
+    padding: 7px;
+    font-weight: 500;
+    font-size: 1.75rem;
+    background-color: rgb(232, 232, 232);
+    border: 1px solid gray;
+    box-shadow: 0px 0px 1px 0px gray;
+}
+
 .all-articles {
     margin-left: 30px;
     margin-right: 20px;

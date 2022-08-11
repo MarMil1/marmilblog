@@ -1,6 +1,6 @@
 <% if logged_in? %>
   <div class="nav-container">
-    <%= link_to "sphere_blog", root_path, id: "logo" %>
+    <%= link_to "marmil_blog", root_path, id: "logo" %>
     <div class="topnav" id="myTopnav">
       <%= link_to "Home",   articles_path, class:"nav-link-first" %>
       <%= link_to "Write",   new_article_path, class:"nav-link" %>
@@ -22,7 +22,7 @@
 
 <% else %>
 <div class="nav-container">
-  <%= link_to "sphere_blog", root_path, id: "logo" %>
+  <%= link_to "marmil_blog", root_path, id: "logo" %>
   <div class="topnav" id="myTopnav">
     <%= link_to "About", '#', class:"nav-link-first" %>
     <%= link_to "Write", signup_path, class:"nav-link" %>
