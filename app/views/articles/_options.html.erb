@@ -21,7 +21,7 @@
                         edit_article_path(@article),
                         class: "edit-article" 
                     %>
-                    <%= link_to "Delete this article", 
+                    <%= button_to "Delete this article", 
                         article_path(@article), 
                         method: :delete, 
                         data: { confirm: "Are you sure?" },

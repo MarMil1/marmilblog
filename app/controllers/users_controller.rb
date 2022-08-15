@@ -43,7 +43,7 @@ class UsersController < ApplicationController
     def destroy
         @user = User.find(params[:id])
         @articles = Article.where(:user_id => params[:id])
-        
+        puts `This is user: #{@user}`
         if @user && @articles
             @articles.destroy_all
             @user.destroy

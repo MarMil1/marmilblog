@@ -29,7 +29,7 @@
                                     edit_article_comment_path(@article, comment),
                                     class: "delete-article"
                                 %>
-                                <%= link_to "Delete", 
+                                <%= button_to "Delete", 
                                     article_comment_path(@article, comment), 
                                     method: :delete, 
                                     data: { confirm: "Are you sure?" },
