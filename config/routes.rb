@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   # Session tracking routes
   get    'login'   => 'sessions#new'
   post   'login'   => 'sessions#create'
-  delete 'logout'  => 'sessions#destroy'
+  get    'logout'  => 'sessions#destroy'
   
   # Users routes
   get 'signup'     => 'users#new'

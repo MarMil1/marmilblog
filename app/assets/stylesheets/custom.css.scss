@@ -1,6 +1,6 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
-@import "font-awesome-sprockets";
+@import "font-awesome.css";
 @import "font-awesome";
 
 // global styling
@@ -146,16 +146,20 @@ footer {
   grid-area: header;
   display: flex;
   justify-content: space-evenly;
+  border: 1px solid #555;
 }
 
 .footer-menu > * {
   color: #828282;
   font-size: 14px;
   font-weight: bold;
+  padding: 17px;
 }
 
 .footer-menu > *:hover {
   text-decoration: none;
+  background-color: #555;
+  color: white;
 }
 
 .footer-content-1 {

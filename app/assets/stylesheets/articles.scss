@@ -53,7 +53,7 @@
 
 // All articles / Index page
 .hero-container {
-    height: 100vh;
+    height: 80vh;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -222,8 +222,17 @@
     text-decoration: none;
 }
 
+.delete-article {
+    background-color: #f9f9f9;
+    font-size: 14px;
+    border: none;
+    padding: 8px 6px;
+    color: #808080;
+}
+
 .delete-article:hover {
-    text-decoration: none;
+    background-color: #f1f1f1;
+    color: #23527c;
 }
 
 .full-article-body {
