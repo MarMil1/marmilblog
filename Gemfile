@@ -34,6 +34,9 @@ gem 'redcarpet'
 # gem 'albino'
 gem 'nokogiri'
 
+# Breadcrumbs on rails
+gem 'breadcrumbs_on_rails'
+
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 

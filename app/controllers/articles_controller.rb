@@ -1,6 +1,7 @@
 class ArticlesController < ApplicationController
     before_action :logged_in_user, only: [:edit, :create, :destroy, :destroy_all]
     before_action :correct_user, only: [:edit, :update, :destroy, :destroy_all]
+    add_breadcrumb "Home", :articles_path
     
     def index
         @articles = Article.all
@@ -9,11 +10,13 @@ class ArticlesController < ApplicationController
 
     def show 
         @article = Article.find(params[:id])
+        add_breadcrumb "#{@article.title}", article_path
     end
 
 
     def new
         @article = Article.new
+        add_breadcrumb "New article", new_article_path
     end
 
 
@@ -27,9 +30,12 @@ class ArticlesController < ApplicationController
             render :new
         end
     end
+    
 
     def edit
         @article = current_user.articles.find_by(id: params[:id])
+        add_breadcrumb "#{@article.title}", article_path
+        add_breadcrumb "Edit article", edit_article_path
         if !@article.nil?
             render :edit
         else 
