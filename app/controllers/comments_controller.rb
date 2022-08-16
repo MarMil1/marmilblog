@@ -1,6 +1,7 @@
 class CommentsController < ApplicationController
     before_action :logged_in_user, only: [:edit, :create, :destroy, :destroy_all]
     before_action :correct_user, only: [:edit, :update, :destroy, :destroy_all]
+    add_breadcrumb "Home", :articles_path
 
     def index
         @comments = Comment.all
@@ -34,12 +35,14 @@ class CommentsController < ApplicationController
     def edit
         @article = Article.find(params[:article_id])
         @comment = current_user.comments.find_by(id: params[:id])
-        
+        add_breadcrumb "#{@article.title}", @article
+        add_breadcrumb "Edit your comment", edit_article_comment_path
+
         if !@comment.nil?
             render :edit
         else 
             flash[:danger] = "Not authorized to edit article."
-            redirect_to root_path
+            redirect_to @article
         end
     end
 
