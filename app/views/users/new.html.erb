@@ -1,4 +1,4 @@
-<div class="app-path-container">Sign Up</div>
+<div class="app-path-container"><%= link_to "Home ", articles_path%>/Sign Up</div>
 <div class="bounding-container">
     <% provide(:title, 'Sign up') %>
 
@@ -19,7 +19,7 @@
                 <%= f.label :password_confirmation, "Password Confirmation" %>
                 <%= f.password_field :password_confirmation, class: 'form-control' %>
 
-                <%= f.submit "Create my account", class: "btn btn-primary" %>
+                <%= f.submit "Create my account", class: "btn save-settings-btn" %>
             <% end %>
             <div class="to-login-page">
                 Already a member? 

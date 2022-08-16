@@ -41,7 +41,7 @@ textarea {
   font-weight: bold; 
   margin: 25px;
   margin-top: 80px;
-  border-bottom: 2px solid lightgray;
+  border-bottom: 2px solid #799E61;
 }
 
 .bounding-container {
@@ -136,7 +136,7 @@ $gray-medium-light: #eaeaea;
 // footer
 
 footer {
-  background-color: #333;
+  background-color: #61799E;
   height: 40vh;
   width: 100%;
   display: grid;
@@ -156,11 +156,11 @@ footer {
   grid-area: header;
   display: flex;
   justify-content: space-evenly;
-  border: 1px solid #555;
+  border-bottom: 1px solid #799E61;
 }
 
 .footer-menu > * {
-  color: #828282;
+  color: #F2F2F2;
   font-size: 14px;
   font-weight: bold;
   padding: 17px;
@@ -168,8 +168,8 @@ footer {
 
 .footer-menu > *:hover {
   text-decoration: none;
-  background-color: #555;
-  color: white;
+  background-color: #799E61;
+  color: #F2F2F2;
 }
 
 .footer-content-1 {
@@ -203,7 +203,7 @@ footer {
 }
 
 .fa-github:hover, .fa-linkedin:hover, .fa-codepen:hover {
-  color: gray;
+  color: #799E61;
 }
 
 
@@ -252,7 +252,7 @@ input, textarea, select, .uneditable-input {
  // Nav
 .nav-container {
   display: flex;
-  background-color: #333;
+  background-color: #61799E;
   justify-content: space-between;
   position: fixed;
   top: 0;
@@ -262,7 +262,6 @@ input, textarea, select, .uneditable-input {
 
  .topnav {
   overflow: hidden;
-  background-color: #333;
 }
 
 .topnav .nav-link, .topnav .nav-link-first {
@@ -320,7 +319,7 @@ input, textarea, select, .uneditable-input {
 }
 
 .topnav .nav-link:hover, .topnav .nav-link-first:hover, .dropdown:hover .dropbtn {
-  background-color: #555;
+  background-color: #799E61;
   color: white;
 }
 
@@ -560,11 +559,10 @@ li {
 
 .app-path-container {
   height: 40px;
-  background-color: lightgray;
   width: 100%;
-  font-size: 18px;
+  font-size: 15px;
   display: flex;
   align-items: center;
   padding-left: 5vw;
-  font-weight: bold;
+  padding-top: 25px;
 }
