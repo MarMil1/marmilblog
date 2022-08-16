@@ -59,6 +59,18 @@ aside {
     color:white;
 }
 
+// Settings Page
+
+  .save-settings-btn {
+    background-color: #61799E;
+    color: #f2f2f2;
+  }
+
+  .save-settings-btn:hover {
+    background-color: #799E61;
+    color: #f2f2f2;
+  }
+  
   .danger-zone {
       margin-top: 50px;
       border: 1px solid rgb(161, 151, 151);
@@ -69,10 +81,16 @@ aside {
   .danger-zone-items {
       display: flex;
       justify-content: space-between;
+      align-items: center;
+  }
+
+  .delete-user-btn-container {
+    background-color: #9E6179;
+    color: #f2f2f2;
+    height: 40px;
   }
 
   #delete-user-button {
-      color: white;
       width: auto;
   }
 
@@ -81,6 +99,11 @@ aside {
       background-color: inherit;
       border: none;
       font-size: 14px;
+      // margin-top: 15px;
+  }
+
+  .delete-user-btn-container:hover {
+    background-color: #799E61;
   }
   
   .delete-user-btn:link {
@@ -88,9 +111,10 @@ aside {
     text-decoration: none;
 }
 
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 1348px) {
   .danger-zone-items {
     flex-direction: column;
+    align-items: stretch;
   }
 }
 

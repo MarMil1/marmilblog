@@ -1,4 +1,4 @@
-<div class="app-path-container">Settings</div>
+<div class="app-path-container"><%= link_to "Home ", articles_path%>/Settings</div>
 <div class="bounding-container">
     <% provide(:title, "Edit user") %>
 
@@ -19,7 +19,7 @@
         <%= f.label :password_confirmation, "Password Confirmation" %>
         <%= f.password_field :password_confirmation, class: 'form-control' %>
 
-        <%= f.submit "Save changes", class: "btn btn-primary" %>
+        <%= f.submit "Save changes", class: "btn save-settings-btn" %>
         <% end %>
         
         <% if current_user?(@user) %>
@@ -28,7 +28,7 @@
                 <br>
                 <div class="danger-zone-items">
                     <p>This will delete your entire profile and all posts</p>
-                    <button id="delete-user-button" class="btn btn-danger btn-sm">
+                    <button id="delete-user-button" class="btn delete-user-btn-container">
                         <%= button_to "Delete User Profile", 
                         @user, 
                         method: :delete, 
@@ -41,7 +41,7 @@
 
                 <div class="danger-zone-items">
                     <p>This will delete all of your articles</p>
-                    <button id="delete-user-button" class="btn btn-danger btn-sm">
+                    <button id="delete-user-button" class="btn delete-user-btn-container">
                         <%= button_to "Delete All Articles", 
                             destroy_all_user_articles_path(current_user), 
                             method: :delete, 
@@ -55,7 +55,7 @@
 
                 <div class="danger-zone-items">
                     <p>This will delete all of your comments</p>
-                    <button id="delete-user-button" class="btn btn-danger btn-sm">
+                    <button id="delete-user-button" class="btn delete-user-btn-container">
                         <%= button_to "Delete All Comments", 
                             destroy_all_article_comments_url(current_user), 
                             method: :delete, 
