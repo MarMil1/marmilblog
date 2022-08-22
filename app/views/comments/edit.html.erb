@@ -1,7 +1,7 @@
-<div class="app-path-container"><%= render_breadcrumbs :separator => '&nbsp;&nbsp;>&nbsp;&nbsp;' %></div>
-<div class="bounding-container" style="display: flex; justify-content: center;">
-
-    <div id="comment-form-container" style="width: 400px;">
+<%# <div class="app-path-container"></div> %>
+<div class="bounding-container">
+    <div class="page-title">Log In</div>
+    <div id="comment-form-container" style="width: 100%;">
         <%= form_with model: [ @article, @comment ] do |f| %>
             <%= render 'shared/error_messages', object: f.object  %>
             <div class="comment-form-input" id="comment-form-input" style="height:150px;">

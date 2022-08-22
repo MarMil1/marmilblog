@@ -1,0 +1,14 @@
+<aside class="sidenav-container">
+    <%= link_to "Home",   articles_path, class:"nav-link #{active_class_desktop?(articles_path) || active_class_desktop?(articles_popular_path)}" %>
+    <% if logged_in? %>
+        <%= link_to "Write",   new_article_path, class:"nav-link #{active_class_desktop?(new_article_path)}" %>
+        <%= link_to "Archive", root_path, class:"nav-link #{active_class_desktop?(root_path)}" %>
+        <%= link_to "Profile", current_user, class:"nav-link #{active_class_desktop?(current_user)}" %>
+        <%= link_to "Settings", edit_user_path(current_user), class:"nav-link #{active_class_desktop?(edit_user_path(current_user))}" %>
+    <% else %>
+        <%= link_to "Write",   signup_path, class:"nav-link #{active_class_desktop?(signup_path)}" %>
+    <% end %>
+    <%= link_to "About",   static_pages_about_path, class:"nav-link #{active_class_desktop?(static_pages_about_path)}" %>
+    <%= link_to "Contact", static_pages_contact_path, class:"nav-link #{active_class_desktop?(static_pages_contact_path)}" %>
+    <%= link_to "Help",    static_pages_help_path, class:"nav-link #{active_class_desktop?(static_pages_help_path)}" %>
+</aside>

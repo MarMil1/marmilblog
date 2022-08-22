@@ -1,6 +1,7 @@
-<div class="app-path-container"><%= render_breadcrumbs :separator => '&nbsp;&nbsp;>&nbsp;&nbsp;' %></div>
+<%# <div class="app-path-container"></div> %>
+
 <div class="full-article-container">
-    <h1><%= @article.title %></h1>
+    <div class="page-title"><%= @article.title %></div>
     <div class="full-article-info-settings">
 
         <div class="full-article-img-info">
@@ -30,14 +31,16 @@
     <div class="comments-likes-report-section">
         <div class="likes-comments-section">
             <div class="likes-section" type="button">
-                <i class="far fa-thumbs-up"></i>
-                0
+                <i class="far fa-thumbs-up article-reactions-btn"></i>
+                <div style="font-size:14px">0 Likes</div>
             </div>
             
             <div class="comments-section">  
-                <i class="far fa-comments" data-toggle="modal" data-target="#modal-right" data-toggle-class="modal-open-aside"></i>
+                <i class="far fa-comments article-reactions-btn" data-toggle="modal" data-target="#modal-right" data-toggle-class="modal-open-aside"></i>
                 <% if @article.comments.count > 0 %>
-                    <%= @article.comments.count %>
+                    <div style="font-size:14px"><%= @article.comments.count %> Comments</div>
+                <% else %> 
+                    <div style="font-size:14px">0 Comments</div>
                 <% end %>
                 <%= render "articles/modal", article: @article %>
             </div>

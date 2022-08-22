@@ -1,0 +1,42 @@
+<aside class="side-content-container">
+    <% if logged_in? %>
+        <div class="side-login-signup">
+                <div class="sidecontent-title">
+                    Share content
+                </div>
+                <div>
+                    You have a cool idea for an article?
+                    Or you want to share an interesting story?
+                </div>
+                <div class="sidecontent-signup-login-btn-container">
+                    <%= link_to "Write",   new_article_path, class:"sidecontent-signup-login-btn" %>
+                </div>
+        </div>
+        
+        <div class="side-notifications-container">
+            <div class="side-notifications-title">
+                Notifications
+            </div>
+            <div class="side-notifications-body">
+                No new notifications
+            </div>
+        </div>
+    <% else %>
+        <div class="side-login-signup">
+            <div class="sidecontent-title">
+                Share content
+            </div>
+            <div>
+                Create an account and start writing about 
+                the cause you believe in.
+            </div>
+            <div class="sidecontent-signup-login-btn-container">
+                <%= link_to "Create account", signup_path, class:"sidecontent-signup-login-btn" %>
+            </div>
+            <div>Already have an account?</div>
+            <div class="sidecontent-signup-login-btn-container">
+                <%= link_to "Log in", login_path, class:"sidecontent-signup-login-btn" %>
+            </div>
+        </div>
+    <% end %>
+</aside>

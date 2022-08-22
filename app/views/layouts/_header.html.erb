@@ -1,34 +1,38 @@
 <% if logged_in? %>
   <div class="nav-container">
-    <%= link_to "marmil_blog", root_path, id: "logo" %>
-    <div class="topnav" id="myTopnav">
-      <%= link_to "Home",   articles_path, class:"nav-link-first" %>
-      <%= link_to "Write",   new_article_path, class:"nav-link" %>
-      <%= link_to "Archive", '#', class:"nav-link" %>
-      <div class="dropdown">
-        <button class="dropbtn">
-          <div data-comment-initial=<%= current_user.username[0].capitalize %>></div> 
-        </button>
-        <div class="dropdown-content">
-          <%= link_to "Write an article", new_article_path, class:"nav-link" %>
-          <%= link_to "Profile", current_user, class:"nav-link" %>
-          <%= link_to "Settings", edit_user_path(current_user), class:"nav-link" %>
-          <%= button_to "Log out", logout_path, method: :delete, class:"nav-link logout-header-btn", style:"background-color:lightred;" %>
-        </div>
+    <div class="nav-sub-container">
+      <div class="logo-container">
+        <%= link_to "mb", root_path, id: "logo" %>
       </div>
-      <a href="javascript:void(0);" style="font-size:15px;" class="icon nav-link" onclick="myFunction()">&#9776;</a>
+      <div class="topnav" id="myTopnav">
+        <div class="dropdown">
+          <button class="dropbtn">
+            <div data-comment-initial=<%= current_user.username[0].capitalize %>></div> 
+          </button>
+          <div class="dropdown-content">
+            <%= link_to "Write an article", new_article_path, class:"nav-link" %>
+            <%= link_to "Profile", current_user, class:"nav-link" %>
+            <%= link_to "Settings", edit_user_path(current_user), class:"nav-link" %>
+            <%= link_to "About",   static_pages_about_path, class:"nav-link" %>
+            <%= link_to "Contact", static_pages_contact_path, class:"nav-link" %>
+            <%= link_to "Help",    static_pages_help_path, class:"nav-link" %>
+            <%= button_to "Log out", logout_path, method: :delete, class:"nav-link logout-header-btn", style:"background-color:lightred;" %>
+          </div>
+        </div>
+        <%# <a href="javascript:void(0);" style="font-size:15px;" class="icon nav-link" onclick="myFunction()">&#9776;</a> %>
+      </div>
     </div>
   </div>
 
 <% else %>
 <div class="nav-container">
-  <%= link_to "marmil_blog", root_path, id: "logo" %>
-  <div class="topnav" id="myTopnav">
-    <%= link_to "Home", articles_path, class:"nav-link-first" %>
-    <%= link_to "Write", signup_path, class:"nav-link" %>
-    <%= link_to "Log in", login_path, class:"nav-link" %>
-    <%= link_to "Sign Up", signup_path, class:"nav-link", style:"background-color:#9E6179;" %>
-    <a href="javascript:void(0);" style="font-size:15px;" class="icon nav-link" onclick="myFunction()">&#9776;</a>
+  <div class="nav-sub-container">
+    <%= link_to "mb", root_path, id: "logo" %>
+    <div class="nav-login-btns">
+      <%= link_to "Log in", login_path, class:"nav-login-btn" %>
+      <%= link_to "Sign Up", signup_path, class:"nav-signup-btn" %>
+      <%# <a href="javascript:void(0);" style="font-size:15px;" class="icon nav-link" onclick="myFunction()">&#9776;</a> %>
+    </div>
   </div>
 </div>
 <% end %>
