@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   # root
   root 'articles#index'
+  # Filter latest articles
+  get 'articles/popular' => 'articles#popular'
 
   # Static pages
   get 'static_pages/help' => 'static_pages#help'

@@ -1,8 +1,6 @@
 class SessionsController < ApplicationController
-  add_breadcrumb "Home", :articles_path
   
   def new
-    add_breadcrumb "Log In", login_path
   end
 
   def create
@@ -11,7 +9,7 @@ class SessionsController < ApplicationController
       # Log the user in, remember their token and direct to user profile page
       log_in user
       params[:session][:remember_me] == '1' ? remember(user) : forget(user)
-      redirect_back_or user
+      redirect_back_or articles_path
     else 
       # Create new render on login page and throw error
       flash.now[:danger] = 'Invalid email or password.'

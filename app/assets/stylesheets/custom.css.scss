@@ -6,6 +6,7 @@
 // global styling
 body {
   margin-top: 55px;
+  background-color: rgb(246, 246, 246);
 }
 
 * {
@@ -45,15 +46,22 @@ textarea {
 }
 
 .bounding-container {
-  margin-left:10%; 
-  margin-right:10%; 
-  margin-top:50px;
+  width: 100%;
+  border-radius: 10px;
+  border: 1px solid #eeeeee;
+  padding: 20px;
+  background-color: white;
+  box-shadow: 0px 0px 3px 0px lightgrey;
+}
+
+.row {
+  justify-content: center;
+  display: block;
 }
 
 .alert {
   position: absolute;
-  width: 100%;
-  padding-bottom: 0px;
+  top: -45px;
 }
 
 // mixins, variables
@@ -107,18 +115,13 @@ $gray-medium-light: #eaeaea;
 // header
 
 #logo {
-    float: left;
-    margin-left: 5vw;
     font-size: 1.7em;
-    color: #fff;
+    color: #61799E;
     text-transform: uppercase;
-    letter-spacing: -1px;
-    padding-top: 9px;
     font-weight: bold;
   }
   
   #logo:hover {
-    color: #fff;
     text-decoration: none;
   }
 
@@ -251,13 +254,22 @@ input, textarea, select, .uneditable-input {
 
  // Nav
 .nav-container {
-  display: flex;
-  background-color: #61799E;
-  justify-content: space-between;
   position: fixed;
   top: 0;
   width: 100%;
+  background-color: white;
   z-index: 1;
+  box-shadow: 0px 0px 3px 0px lightgrey;
+}
+
+.nav-sub-container {
+  display: flex;
+  align-items: center;
+  max-width: 100%;
+  justify-content: space-between;
+  margin-left: 11%;
+  margin-right: 11.5%;
+  height: 55px;
 }
 
  .topnav {
@@ -306,7 +318,8 @@ input, textarea, select, .uneditable-input {
   min-width: 160px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 1;
-  right: 0px;
+  right: 11%;
+  top: 55px;
 }
 
 .dropdown-content .nav-link, .dropdown-content .nav-link-first {
@@ -319,7 +332,7 @@ input, textarea, select, .uneditable-input {
 }
 
 .topnav .nav-link:hover, .topnav .nav-link-first:hover, .dropdown:hover .dropbtn {
-  background-color: #799E61;
+  background-color: #8194B1;
   color: white;
 }
 
@@ -336,58 +349,16 @@ input, textarea, select, .uneditable-input {
   border-top: 0.5px solid rgb(215, 214, 214);
 }
 
-@media screen and (max-width: 710px) {
-  .topnav .nav-link, .topnav .nav-link-first, .dropdown .dropbtn {
-    display: none;
-  }
-  .topnav .nav-link.icon, .topnav .nav-link-first.icon {
-    float: right;
-    display: block;
-  }
-}
-
-@media screen and (max-width: 710px) {
-  .nav-container {
-    display: block;
+@media screen and (max-width: 1200px) {
+  .nav-sub-container {
+    margin-left: 20px;
+    margin-right: 0px;
   }
 
-  #logo {
-    position: absolute;
-    z-index: 1;
-  }
-
-  .topnav.responsive {position: relative;}
-  .topnav.responsive .icon {
-    position: absolute;
-    right: 0;
-    top: 0;
-  }
-  .topnav.responsive .nav-link, .topnav.responsive .nav-link-first {
-    float: none;
-    display: block;
-    text-align: left;
-  }
-
-  .topnav.responsive .nav-link-first:first-child {
-    margin-top: 50px;
-  }
-
-  .topnav.responsive .dropdown {
-    float: none;
-  }
-
-  .topnav.responsive .dropdown-content {
-    position: relative;
-  }
-  
-  .topnav.responsive .dropdown .dropbtn {
-    display: block;
-    width: 100%;
-    text-align: left;
-  }
   .dropdown-content {
-    top: 0px;
+    right: 0%;
   }
+
 }
 
 // Carousel on Article page
@@ -405,19 +376,10 @@ input, textarea, select, .uneditable-input {
 
 .slides {
   display: flex;
-  
   overflow-x: auto;
   scroll-snap-type: x mandatory;
-  
-  
-  
   scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch;
-  
-  /*
-  scroll-snap-points-x: repeat(300px);
-  scroll-snap-type: mandatory;
-  */
 }
 .slides::-webkit-scrollbar {
   width: 10px;
@@ -442,7 +404,6 @@ input, textarea, select, .uneditable-input {
   transform: scale(1);
   transition: transform 0.5s;
   position: relative;
-  
   display: flex;
   justify-content: center;
   align-items: center;
@@ -539,12 +500,6 @@ li {
     font-size: 2.5em;
   }
 
-  .bounding-container {
-    margin-left:5%; 
-    margin-right:5%; 
-    margin-top:50px;
-  }
-
   footer {
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 1fr 1fr;
@@ -565,4 +520,25 @@ li {
   align-items: center;
   padding-left: 5vw;
   padding-top: 25px;
+}
+
+.current-link-btn-desktop {
+  background-color: #61799e;
+  color: white;
+  border-radius: 7px;
+  box-shadow: 0px 0px 5px 1px lightgrey;
+}
+
+.current-link-btn-mobile {
+  color: white;
+  background-color: #61799e;
+  padding: 10px;
+  border-radius: 20px;
+}
+
+.page-title {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 30px;
+  border-bottom: 1px solid #eeeeee;
 }

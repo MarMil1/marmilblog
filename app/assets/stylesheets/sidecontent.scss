@@ -1,0 +1,62 @@
+.side-content-container {
+    width: 250px;
+    margin-left: 20px;
+    border-radius: 10px;
+}
+
+.side-login-signup {
+    background-color: white;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid #eeeeee;
+    box-shadow: 0px 0px 3px 0px lightgrey;
+}
+
+.sidecontent-title {
+    font-size: 1.75rem;
+    font-weight: 600;
+}
+
+.side-notifications-container {
+    margin-top: 20px;
+    background-color: white;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid #eeeeee;
+    box-shadow: 0px 0px 3px 0px lightgrey;
+}
+
+.side-notifications-title {
+    font-weight: 600;
+    font-size: 1.75rem;
+}
+
+.side-notifications-body {
+    margin-top: 20px;
+}
+
+.sidecontent-signup-login-btn-container {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.sidecontent-signup-login-btn {
+    background-color: inherit;
+    border: 1px solid #61799E;
+    border-radius: 7px;
+    padding: 7px;
+    margin-top: 20px;
+}
+
+.sidecontent-signup-login-btn:hover {
+    text-decoration: none;
+    color: white;
+    background-color: #61799E;
+}
+
+
+@media screen and (max-width:753px) {
+    .side-content-container {
+        display: none;
+    }
+}

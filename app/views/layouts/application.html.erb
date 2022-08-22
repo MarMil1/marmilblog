@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>marmil_blog</title>
+    <title>mb</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <link rel="stylesheet" href="https://unpkg.com/tailwindcss/dist/tailwind.min.css" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -22,6 +22,8 @@
 
   <body>
     <%= render 'layouts/header' %>
+    <div class="main-container">
+    <%= render 'layouts/sidenav' %>
       <% flash.each do |message_type, message| %>
         <div class="alert alert-<%= message_type %> alert-dismissible fade show text-center">
           <%= message %>
@@ -37,7 +39,9 @@
         </div>
       <% end %>
       <%= yield %>
-      <%= render 'layouts/footer' %>
-      <%= debug(params) if Rails.env.development? %>
+    </div>
+    <%= render 'layouts/mobilenav' %>
+    <%# <%= render 'layouts/footer' %> 
+    <%# <%= debug(params) if Rails.env.development? %>
   </body>
 </html>
