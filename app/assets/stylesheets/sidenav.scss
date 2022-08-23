@@ -9,6 +9,14 @@
     box-shadow: 0px 0px 3px 0px lightgrey;
 }
 
+.sidenav-container a:hover {
+    text-decoration: none;
+}
+
+.sidenav-container a .nav-link:hover {
+    text-decoration: none;
+}
+
 @media screen and (max-width:753px) {
     .sidenav-container {
         display: none;
