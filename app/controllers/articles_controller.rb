@@ -3,7 +3,7 @@ class ArticlesController < ApplicationController
     before_action :correct_user, only: [:edit, :update, :destroy, :destroy_all]
     
     def index
-        @articles = Article.all
+        @articles = Article.all.order('created_at DESC')
     end
 
 
@@ -12,7 +12,7 @@ class ArticlesController < ApplicationController
     end
 
     def popular
-        @articles = Article.all
+        @articles = Article.all.order('comments_count DESC')
     end
 
 

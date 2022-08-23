@@ -150,6 +150,10 @@
     display: flex;
 }
 
+.latest-popular-index-filter a, .latest-popular-index-filter a:hover {
+    text-decoration: none;
+}
+
 @media screen and (max-width: 753px) {
     .latest-popular-index-filter {
         display: none;
