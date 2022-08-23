@@ -4,29 +4,16 @@
     align-items: center;
 }
 
+.user-profile-name-member-since {
+    margin-left: 10px;
+}
+
 .user-profile-name {
-    transform: translate(10px, -5px);
+    margin-bottom: 15px;
+    display: inline;
+    line-height: 1;
 }
 
 .user-profile-member-since {
-    transform: translate(-40px, 20px);
     font-size: 1.5rem;
-}
-
-@media screen and (max-width: 510px) {
-    .user-profile-member-since {
-        transform: translate(-30px, 20px);
-    }
-}
-
-@media screen and (max-width: 401px) {
-    .user-profile-member-since {
-        transform: translate(-30px, 25px);
-    }
-}
-
-@media screen and (max-width: 301px) {
-    .user-profile-member-since {
-        transform: translate(-30px, 35px);
-    }
 }

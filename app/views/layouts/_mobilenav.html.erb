@@ -1,15 +1,47 @@
 <% if logged_in? %>
     <nav class="mobile-nav">
-        <a href="<%= articles_path %>"><div title="Home"><i class="fa-solid fa-house <%= active_class_mobile?(articles_path)%>"></i></div></a>
-        <a href="<%= articles_popular_path %>"><div title="Popular"><i class="fa-solid fa-arrow-trend-up <%= active_class_mobile?(articles_popular_path)%>"></i></div></a>
-        <a href="<%= new_article_path %>" class="mobile-write-btn"><div title="Write"><i class="fa-solid fa-plus <%= active_class_mobile?(new_article_path)%>"></i></div></a>
-        <a href="<%=  %>"><div title="Archive"><i class="far fa-bookmark <%= active_class_mobile?(root_path)%>"></i></div></a>
-        <a href="<%= user_path(current_user) %>"><div title="Profile"><i class="fa-solid fa-user <%= active_class_mobile?(user_path(current_user))%>"></i></div></a>
+        <a href="<%= articles_path %>">
+            <div title="Home">
+                <i class="fa-solid fa-house <%= active_class_mobile?(articles_path)%>"></i>
+            </div>
+        </a>
+        <a href="<%= articles_popular_path %>">
+            <div title="Popular">
+                <i class="fa-solid fa-arrow-trend-up <%= active_class_mobile?(articles_popular_path)%>"></i>
+            </div>
+        </a>
+        <a href="<%= new_article_path %>" class="mobile-write-btn">
+            <div title="Write">
+                <i class="fa-solid fa-plus <%= active_class_mobile?(new_article_path)%>"></i>
+            </div>
+        </a>
+        <a href="<%=  %>">
+            <div title="Archive">
+                <i class="far fa-bookmark <%= active_class_mobile?(root_path)%>"></i>
+            </div>
+        </a>
+        <a href="<%= user_path(current_user) %>">
+            <div title="Profile">
+                <i class="fa-solid fa-user <%= active_class_mobile?(user_path(current_user))%>"></i>
+            </div>
+        </a>
     </nav>
 <% else %>
     <nav class="mobile-nav">
-        <a href="<%= articles_path %>"><div title="Home"><i class="fa-solid fa-house <%= active_class_mobile?(articles_path)%>"></i></div></a>
-        <a href="<%= signup_path %>" class="mobile-write-btn"><div title="Write"><i class="fa-solid fa-plus <%= active_class_mobile?(signup_path)%>"></i></div></a>
-        <a href="<%= articles_popular_path %>"><div title="Popular"><i class="fa-solid fa-arrow-trend-up <%= active_class_mobile?(articles_popular_path)%>"></i></div></a>
+        <a href="<%= articles_path %>">
+            <div title="Home">
+                <i class="fa-solid fa-house <%= active_class_mobile?(articles_path)%>"></i>
+            </div>
+        </a>
+        <a href="<%= signup_path %>" class="mobile-write-btn">
+            <div title="Write">
+                <i class="fa-solid fa-plus <%= active_class_mobile?(signup_path)%>"></i>
+            </div>
+        </a>
+        <a href="<%= articles_popular_path %>">
+            <div title="Popular">
+                <i class="fa-solid fa-arrow-trend-up <%= active_class_mobile?(articles_popular_path)%>"></i>
+            </div>
+        </a>
     </nav>
 <% end %>

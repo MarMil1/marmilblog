@@ -1,14 +1,50 @@
 <aside class="sidenav-container">
-    <%= link_to "Home",   articles_path, class:"nav-link #{active_class_desktop?(articles_path) || active_class_desktop?(articles_popular_path)}" %>
+    <a href="<%= articles_path %>">
+        <div class="nav-link <%= active_class_desktop?(articles_path) || active_class_desktop?(articles_popular_path) %>">
+            Home
+        </div>
+    </a>
     <% if logged_in? %>
-        <%= link_to "Write",   new_article_path, class:"nav-link #{active_class_desktop?(new_article_path)}" %>
-        <%= link_to "Archive", root_path, class:"nav-link #{active_class_desktop?(root_path)}" %>
-        <%= link_to "Profile", current_user, class:"nav-link #{active_class_desktop?(current_user)}" %>
-        <%= link_to "Settings", edit_user_path(current_user), class:"nav-link #{active_class_desktop?(edit_user_path(current_user))}" %>
+        <a href="<%= new_article_path %>">
+            <div class="nav-link <%= active_class_desktop?(new_article_path) %>">
+                Write
+            </div>
+        </a>
+        <a href="<%= root_path %>">
+            <div class="nav-link <%= active_class_desktop?(root_path) %>">
+                Archive
+            </div>
+        </a>
+        <a href="<%= user_path(current_user) %>">
+            <div class="nav-link <%= active_class_desktop?(user_path(current_user)) %>">
+                Profile
+            </div>
+        </a>
+        <a href="<%= edit_user_path(current_user) %>">
+            <div class="nav-link <%= active_class_desktop?(edit_user_path(current_user)) %>">
+                Settings
+            </div>
+        </a>
     <% else %>
-        <%= link_to "Write",   signup_path, class:"nav-link #{active_class_desktop?(signup_path)}" %>
+        <a href="<%= signup_path %>">
+            <div class="nav-link <%= active_class_desktop?(signup_path) %>">
+                Write
+            </div>
+        </a>
     <% end %>
-    <%= link_to "About",   about_path, class:"nav-link #{active_class_desktop?(about_path)}" %>
-    <%= link_to "Contact", contact_path, class:"nav-link #{active_class_desktop?(contact_path)}" %>
-    <%= link_to "Help",    help_path, class:"nav-link #{active_class_desktop?(help_path)}" %>
+    <a href="<%= about_path %>">
+        <div class="nav-link <%= active_class_desktop?(about_path) %>">
+            About
+        </div>
+    </a>
+    <a href="<%= contact_path %>">
+        <div class="nav-link <%= active_class_desktop?(contact_path) %>">
+            Contact
+        </div>
+    </a>
+    <a href="<%= help_path %>">
+        <div class="nav-link <%= active_class_desktop?(help_path) %>">
+            Help
+        </div>
+    </a>
 </aside>
