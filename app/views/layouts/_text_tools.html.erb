@@ -1,15 +1,14 @@
 <div class="text-formater-container">
-    <button onclick="insertRedCarpetChars('**','**');" title="Bold Highlighted Text"><strong>B</strong></button>
-    <button onclick="insertRedCarpetChars('*', '*');" title="Italicize Highlighted Text"><em>I</em></button>
-    <button onclick="insertRedCarpetChars('_', '_');" title="Underline Highlighted Text"><u>U</u></button>
-    <button onclick="insertRedCarpetChars('~~', '~~');" title="Strikethrough Highlighted Text" style="text-decoration: line-through;"><div>S</div></button>
-    <button onclick="insertRedCarpetChars('&quot;', '&quot;');" title="Quote Highlighted Text"><div>""</div></button>
-    <button onclick="insertRedCarpetChars('&bull;', '');" title="Bulletpoint Highlighted Text"><div>&bull;</div></button>
-    <button onclick="insertRedCarpetChars('==', '==');" title="Highlight Text" style="background: #fcf8e3;"><div>H</div></button>
-    <button onclick="insertRedCarpetChars('`', '`');" title="Highlight Text" style="background: #f9f2f4;"><div>H</div></button>
-    <button onclick="insertRedCarpetChars('~~~&nbsp;', '&nbsp;~~~');" title="Code Highlighted Text" style="width: 40px;"><div>Code</div></button>
-    <button onclick="insertRedCarpetChars('&gt;', '');" title="Indent Highlighted Text" style="width: 45px;"><div>Indent</div></button>
-    <button onclick="insertRedCarpetChars('###', '');" title="Title Bold Highlighted Text"><div>h2</div></button>
+    <button onclick="insertRedCarpetChars('**','**');" title="Bold"><strong>B</strong></button>
+    <button onclick="insertRedCarpetChars('*', '*');" title="Italic"><em>I</em></button>
+    <button onclick="insertRedCarpetChars('_', '_');" title="Underline"><u>U</u></button>
+    <button onclick="insertRedCarpetChars('~~', '~~');" title="Strikethrough" style="text-decoration: line-through;"><div>S</div></button>
+    <button onclick="insertRedCarpetChars('&quot;', '&quot;');" title="Quotes"><div>""</div></button>
+    <button onclick="insertRedCarpetChars('&bull;', '');" title="Bulletpoint"><div>&bull;</div></button>
+    <button onclick="insertRedCarpetChars('==', '==');" title="Highlight" style="background: #fcf8e3;"><div>H</div></button>
+    <button onclick="insertRedCarpetChars('`', '`');" title="Code Block" style="width: 25px;"><div>&lt;/&gt;</div></button>
+    <button onclick="insertRedCarpetChars('&gt;', '');" title="Indent" style="width: 25px;"><div><i class="fa fa-indent" aria-hidden="true"></i></div></button>
+    <button onclick="insertRedCarpetChars('###', '');" title="Subtitle"><div>h2</div></button>
 </div>
 
 <script>
@@ -28,7 +27,7 @@
 <style>
     .text-formater-container {
         position: relative;
-        top: 83px;
+        top: 77px;
         text-align-last: center;
     }
     .text-formater-container > *  {
@@ -45,10 +44,11 @@
         outline-style: none;
     }
 
-    @media screen and (max-width: 400px) {
+    @media screen and (max-width: 452px) {
         .text-formater-container {
             display: flex;
             flex-wrap: nowrap;
+            justify-content: center;
         }
     }
 </style>
