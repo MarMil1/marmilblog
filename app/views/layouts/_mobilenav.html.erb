@@ -2,7 +2,7 @@
     <nav class="mobile-nav">
         <a href="<%= articles_path %>">
             <div title="Home">
-                <i class="fa-solid fa-house <%= active_class_mobile?(articles_path)%>"></i>
+                <i class="fa-solid fa-house <%= active_class_mobile?(articles_path) || active_class_mobile?(root_path) %>"></i>
             </div>
         </a>
         <a href="<%= articles_popular_path %>">
@@ -30,7 +30,7 @@
     <nav class="mobile-nav">
         <a href="<%= articles_path %>">
             <div title="Home">
-                <i class="fa-solid fa-house <%= active_class_mobile?(articles_path)%>"></i>
+                <i class="fa-solid fa-house <%= active_class_mobile?(articles_path) || active_class_mobile?(root_path)%>"></i>
             </div>
         </a>
         <a href="<%= signup_path %>" class="mobile-write-btn">

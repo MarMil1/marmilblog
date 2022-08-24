@@ -36,14 +36,14 @@
     border: none;
     padding: 10px;
     font-size: 15px;
+    height: 150px;
 }
 
 .comment-textarea:focus {
-    height:100px;
+    height:150px;
 }
 
 .expanded {
-    height: auto;
     background-color: white;
 }
 
