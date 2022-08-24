@@ -3,14 +3,14 @@
 <%= render 'shared/error_messages', object: form.object %>
     <div class="article-title-area"> 
         <%= form.text_field :title, 
-            placeholder: "Add a title . . .",
+            placeholder: "Add a title...",
             class: "article-input-title"
         %>
     </div>
 
     <div class="article-body-area">
         <%= form.text_area :body, 
-            placeholder: "Write something interesting . . .",
+            placeholder: "Write something interesting...",
             class: "article-input-body",
             id: "article-input-body",
             style: "height: 70vh;" 
