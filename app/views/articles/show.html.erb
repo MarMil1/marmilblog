@@ -29,17 +29,30 @@
     <div class="comments-likes-report-section">
         <div class="likes-comments-section">
             <div class="likes-section" type="button">
-                <i class="far fa-thumbs-up article-reactions-btn" title="Like article"></i>
-                <div style="font-size:14px">0 Likes</div>
+                <% if logged_in? %>
+                    <% pre_like = @article.likes.find { |like| like.user_id == current_user.id} %>
+                    <% if pre_like %>
+                        <%= button_to article_like_path(@article, pre_like), method: :delete, class:"favorite-article-btn" do %> 
+                            <i class="fa-solid fa-thumbs-up article-reactions-btn" title="Unlike article"></i>
+                        <% end %>
+                    <% else %>
+                        <%= button_to article_likes_path(@article), method: :post, class:"favorite-article-btn" do %> 
+                            <i class="fa-regular fa-thumbs-up article-reactions-btn" title="Like article"></i>
+                        <% end %>
+                    <% end %>
+                <% else %>
+                    <a href="<%= signup_path %>" class="favorite-article-btn like-btn-favorite">
+                        <div title="Favorite">
+                            <i class="fa-regular fa-thumbs-up article-reactions-btn" title="Like article"></i>
+                        </div>
+                    </a>
+                <% end %>
+                <div style="font-size:14px"><%= @article.likes.count %> <%= "Like".pluralize(@article.likes.length) %></div>
             </div>
             
             <div class="comments-section">  
                 <i class="far fa-comments article-reactions-btn" data-toggle="modal" data-target="#modal-right" data-toggle-class="modal-open-aside" title="Comment article"></i>
-                <% if @article.comments.count > 0 %>
-                    <div style="font-size:14px"><%= @article.comments.count %> <%= "Comment".pluralize(@article.comments.length) %></div>
-                <% else %> 
-                    <div style="font-size:14px">0 Comments</div>
-                <% end %>
+                <div style="font-size:14px"><%= @article.comments.count %> <%= "Comment".pluralize(@article.comments.length) %></div>
                 <%= render "articles/modal", article: @article %>
             </div>
         </div>

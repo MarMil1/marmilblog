@@ -36,6 +36,7 @@ Rails.application.routes.draw do
         delete :destroy_all
       end
     end
+    resources :likes
   end
 
   patch '/articles/:article_id/comments/:id' => 'comments#update'

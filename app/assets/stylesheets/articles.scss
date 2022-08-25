@@ -87,7 +87,6 @@
     color: gray;
     font-size: 15px;
     overflow: hidden;
-    // height: 45px;
 }
 
 .article-info {
@@ -100,6 +99,14 @@
 
 .article-comment-like-container {
     margin-left: 10px;
+}
+
+.like-btn-favorite, .like-btn-favorite:hover {
+    color: #333333;
+}
+
+.fa-solid.fa-thumbs-up {
+    color: #61799E;
 }
 
 // All articles / Index page

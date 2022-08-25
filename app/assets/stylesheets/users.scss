@@ -62,8 +62,10 @@ aside {
 // Settings Page
 
   .save-settings-btn {
-    background-color: #61799E;
-    color: #f2f2f2;
+    background-color: inherit;
+    color: #333333;
+    border: 1px solid #61799e;
+    border-radius: 7px;
   }
 
   .save-settings-btn:hover {
