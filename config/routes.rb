@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   get 'signup'     => 'users#new'
 
   resources :users do
+    get  '/favorites' => 'users#favorites'
     resources :articles, only: [:edit, :create, :destroy] do
       collection do
         delete :destroy_all
@@ -27,6 +28,8 @@ Rails.application.routes.draw do
   
   # Articles & Comments routes
   resources :articles do 
+    post '/favorites' => 'users#add_favorite'
+    delete  '/favorites' => 'users#remove_favorite'
     resources :comments, only: [:edit, :create, :destroy] do
       collection do
         delete :destroy_all
@@ -35,5 +38,5 @@ Rails.application.routes.draw do
   end
 
   patch '/articles/:article_id/comments/:id' => 'comments#update'
-
+  
 end

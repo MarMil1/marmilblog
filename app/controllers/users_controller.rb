@@ -39,6 +39,33 @@ class UsersController < ApplicationController
         end
     end
 
+    def add_favorite
+        @favorite = current_user.favorites.build(article_id: params[:article_id])
+        if @favorite.save
+            flash[:success] = "Added a new favorite article."
+            redirect_to article_path(params[:article_id])
+        else 
+            flash[:danger] = "Unable to add favorite article."
+            redirect_to article_path(params[:article_id])
+       end
+    end
+
+    def remove_favorite
+        if current_user.favorite_articles.exists?(params[:article_id])
+            current_user.favorite_articles.destroy(params[:article_id])
+            flash[:success] = "Article removed from favorites."
+            redirect_to article_path(params[:article_id])
+        else 
+            flash[:danger] = "Unable to remove article from favorites."
+            redirect_to article_path(params[:article_id])
+        end
+    end
+
+    def favorites
+        @favorites = current_user.favorite_articles.order('created_at ASC')
+        @favorite_articles = @favorites.where(id: Favorite.pluck(:article_id))
+    end
+
     # Delete user profile and all posted user articles
     def destroy
         @user = User.find(params[:id])

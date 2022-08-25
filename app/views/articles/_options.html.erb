@@ -1,7 +1,7 @@
 <div class="report-section">
     <div class="share-section">
         <div class="dropdown-more-section" style="float:left;">
-            <div class="dropbtn-more-section">
+            <div class="dropbtn-more-section" title="Share">
                 <i class="fas fa-share-alt"></i>
             </div>
             <div class="dropdown-content-more-section">
@@ -9,12 +9,20 @@
             </div>
         </div>
     </div>
-    <div class="saved-section">
-        <i class="far fa-bookmark"></i>
+    <div class="favorites-section" title="Add to Favorites">
+        <% if current_user.favorite_articles.exists?(@article.id) %>
+            <%= button_to article_favorites_path(@article), method: :delete, data: { confirm: "Are you sure?" }, class:"favorite-article-btn" do %>
+                <i class="fa-solid fa-bookmark"></i>
+            <% end %>
+        <% else %>
+            <%= button_to article_favorites_path(@article), method: :post, data: { confirm: "Are you sure?" }, class:"favorite-article-btn" do %>
+                <i class="far fa-bookmark"></i>
+            <% end %>
+        <% end %>
     </div>
     <div class="more-section">
         <div class="dropdown-more-section" style="float:left;">
-            <div class="dropbtn-more-section"><i class="fas fa-ellipsis-h"></i></div>
+            <div class="dropbtn-more-section" title="More"><i class="fas fa-ellipsis-h"></i></div>
             <div class="dropdown-content-more-section">
                 <% if current_user?(@article.user) %>
                     <%= link_to "Edit this article", 

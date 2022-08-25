@@ -284,12 +284,13 @@
     font-size: 14px;
     border: none;
     padding: 8px 6px;
-    color: #808080;
+    color: #000000;
 }
 
 .delete-article:hover {
-    background-color: #f1f1f1;
-    color: #23527c;
+    background-color: #DDDDDD;
+    border-radius: 7px;
+    text-decoration: none;
 }
 
 .full-article-body {
@@ -344,14 +345,33 @@
 
 .report-section {
     display: flex;
+    align-items: center;
     font-size: 20px;
 }
 
-.saved-section, .share-section {
-    cursor: pointer;
-    margin-right: 20px;
+.favorites-section, .share-section, .more-section {
+    // cursor: pointer;
+    // margin-right: 20px;
+    padding: 7px;
     font-size: 17px;
 }
+
+.favorites-section:hover, .share-section:hover, .more-section:hover {
+    background-color: #f9f9f9;
+    border-radius: 7px;
+}
+
+
+
+.favorite-article-btn {
+    background-color: inherit;
+    border: none;
+}
+
+.favorite-article-btn:focus {
+    outline: 0;
+}
+
 
 // more section dropdown
 
@@ -377,10 +397,12 @@
     min-width: 130px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
+    border-radius: 7px;
+    padding-top: 15px;
 }
   
 .dropdown-content-more-section a {
-    color: gray;
+    color: #000000;
     padding: 8px 6px;
     text-decoration: none;
     font-size: 14px;
@@ -389,14 +411,19 @@
 }
 
 #copyArticleLink, .dropdown-item {
-    color: gray !important;
+    color: #000000 !important;
+    margin-bottom: 15px;
 }
 
 #copyArticleLink:hover, .dropdown-item:hover {
-    color: rgb(49, 71, 108) !important;
+    cursor: pointer;
 }
   
-.dropdown-content-more-section a:hover {background-color: #f1f1f1;}
+.dropdown-content-more-section a:hover {
+    background-color: #DDDDDD;
+    border-radius: 7px;
+    color: #000000;
+}
   
 .dropdown-more-section:hover .dropdown-content-more-section {
     display: block;

@@ -10,9 +10,9 @@
                 Write
             </div>
         </a>
-        <a href="<%= root_path %>">
-            <div class="nav-link <%= active_class_desktop?(root_path) %>">
-                Saved
+        <a href="<%= user_favorites_path(current_user) %>">
+            <div class="nav-link <%= active_class_desktop?(user_favorites_path(current_user)) %>">
+                Favorites
             </div>
         </a>
         <a href="<%= user_path(current_user) %>">

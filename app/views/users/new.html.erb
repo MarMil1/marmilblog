@@ -3,8 +3,8 @@
     <div class="page-title">Sign Up</div>
     <% provide(:title, 'Sign up') %>
 
-    <div class="row">
-        <div class="col-md-6 col-md-offset-3">
+    <div class="login-container">
+        <div class="login-content">
             <%= form_for(@user) do |f| %>
                 <%= render 'shared/error_messages', object: f.object  %>
 
