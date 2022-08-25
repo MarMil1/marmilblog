@@ -376,8 +376,6 @@
 }
 
 .favorites-section, .share-section, .more-section {
-    // cursor: pointer;
-    // margin-right: 20px;
     padding: 7px;
     font-size: 17px;
 }
@@ -387,7 +385,9 @@
     border-radius: 7px;
 }
 
-
+.favorites-section a, .favorites-section a:hover {
+    color: #333333;
+}
 
 .favorite-article-btn {
     background-color: inherit;
