@@ -36,7 +36,7 @@
             <div class="comments-section">  
                 <i class="far fa-comments article-reactions-btn" data-toggle="modal" data-target="#modal-right" data-toggle-class="modal-open-aside" title="Comment article"></i>
                 <% if @article.comments.count > 0 %>
-                    <div style="font-size:14px"><%= @article.comments.count %> Comments</div>
+                    <div style="font-size:14px"><%= @article.comments.count %> <%= "Comment".pluralize(@article.comments.length) %></div>
                 <% else %> 
                     <div style="font-size:14px">0 Comments</div>
                 <% end %>

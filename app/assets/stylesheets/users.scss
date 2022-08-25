@@ -127,3 +127,17 @@ aside {
   font-size: 1.1em;
   line-height: 1.7em;
 }
+
+// Show user articles
+
+.show-user-articles-metrics {
+  display: flex;
+}
+
+.favorites-count {
+  margin-bottom: 10px;
+  margin-right: 10px;
+  width: fit-content;
+  padding: 5px;
+  border-radius: 7px;
+}

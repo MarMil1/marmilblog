@@ -28,6 +28,7 @@
     margin: 12px;
     display: flex;
     align-items: center;
+    cursor: default;
 }
 
 .comment-textarea {
@@ -36,7 +37,7 @@
     border: none;
     padding: 10px;
     font-size: 15px;
-    height: 150px;
+    height: 155px;
 }
 
 .comment-textarea:focus {
