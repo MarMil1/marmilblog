@@ -306,6 +306,7 @@ input, textarea, select, .uneditable-input {
   background-color: inherit;
   font-family: inherit;
   margin: 0;
+  border-radius: 7px;
 }
 
 .dropdown-content {
@@ -317,6 +318,8 @@ input, textarea, select, .uneditable-input {
   z-index: 1;
   right: 11%;
   top: 55px;
+  border-radius: 7px;
+  padding-top: 15px;
 }
 
 .dropdown-content .nav-link, .dropdown-content .nav-link-first {
@@ -335,6 +338,7 @@ input, textarea, select, .uneditable-input {
 .dropdown-content .nav-link:hover, .dropdown-content .nav-link-first {
   background-color: #ddd;
   color: black;
+  border-radius: 7px;
 }
 
 .dropdown:hover .dropdown-content {
@@ -537,4 +541,17 @@ li {
   font-weight: bold;
   margin-bottom: 30px;
   border-bottom: 1px solid #eeeeee;
+}
+
+.page-title-favorites {
+  margin-bottom: 10px;
+}
+
+.favorites-count {
+  margin-bottom: 10px;
+  border: 1px solid #eeeeee;
+  width: fit-content;
+  padding: 5px;
+  border-radius: 7px;
+  font-weight: 500;
 }

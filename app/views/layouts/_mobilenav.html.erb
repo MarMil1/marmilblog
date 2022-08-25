@@ -15,9 +15,9 @@
                 <i class="fa-solid fa-plus <%= active_class_mobile?(new_article_path)%>"></i>
             </div>
         </a>
-        <a href="<%=  %>">
-            <div title="Saved">
-                <i class="far fa-bookmark <%= active_class_mobile?(root_path)%>"></i>
+        <a href="<%= user_favorites_path(current_user) %>">
+            <div title="Favorites">
+                <i class="far fa-bookmark <%= active_class_mobile?(user_favorites_path(current_user))%>"></i>
             </div>
         </a>
         <a href="<%= user_path(current_user) %>">
