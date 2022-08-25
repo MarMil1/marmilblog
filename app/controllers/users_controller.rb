@@ -16,7 +16,7 @@ class UsersController < ApplicationController
         @user = User.new(user_params)
         if @user.save
             log_in @user
-            flash[:success] = "Welcome to marmil_blog!"
+            flash[:success] = "Login successful."
             redirect_to @user
         else
           render 'new'
@@ -39,14 +39,19 @@ class UsersController < ApplicationController
         end
     end
 
+    def show_user_articles
+        @user = User.find(params[:user_id])
+        @user_articles = Article.where(user_id: @user.id)
+    end
+
     def add_favorite
         @favorite = current_user.favorites.build(article_id: params[:article_id])
         if @favorite.save
             flash[:success] = "Added a new favorite article."
-            redirect_to article_path(params[:article_id])
+            redirect_to request.referrer
         else 
             flash[:danger] = "Unable to add favorite article."
-            redirect_to article_path(params[:article_id])
+            redirect_to request.referrer
        end
     end
 
@@ -54,10 +59,10 @@ class UsersController < ApplicationController
         if current_user.favorite_articles.exists?(params[:article_id])
             current_user.favorite_articles.destroy(params[:article_id])
             flash[:success] = "Article removed from favorites."
-            redirect_to article_path(params[:article_id])
+            redirect_to request.referrer
         else 
             flash[:danger] = "Unable to remove article from favorites."
-            redirect_to article_path(params[:article_id])
+            redirect_to request.referrer
         end
     end
 
