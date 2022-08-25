@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   get 'signup'     => 'users#new'
 
   resources :users do
+    get  '/profile'   => 'users#show_user_articles'
     get  '/favorites' => 'users#favorites'
     resources :articles, only: [:edit, :create, :destroy] do
       collection do

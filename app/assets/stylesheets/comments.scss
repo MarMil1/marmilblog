@@ -50,7 +50,7 @@
 .comment-form-close-save-btns {
     display: flex;
     justify-content: flex-end;
-    align-items: center;
+    align-items: baseline;
     margin-right: 15px;
     margin-bottom: 30px;
 }
@@ -64,13 +64,21 @@
 }
 
 .post-comment-btn {
-    width: 60px !important;
-    margin-left: 10px;
-    border-radius: 30px !important;
+    width: fit-content;
+    padding: 7px;
+    border: 1px solid #61799E;
+    border-radius: 7px;
+    background-color: inherit;
+    margin-left: 20px;
 }
 
 .post-comment-btn:focus {
     outline: none;
+}
+
+.post-comment-btn:hover {
+    background-color: #61799E;
+    color: white;
 }
 
 .filter-comments {

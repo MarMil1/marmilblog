@@ -11,11 +11,11 @@
     </div>
     <div class="favorites-section" title="Add to Favorites">
         <% if current_user.favorite_articles.exists?(@article.id) %>
-            <%= button_to article_favorites_path(@article), method: :delete, data: { confirm: "Are you sure?" }, class:"favorite-article-btn" do %>
+            <%= button_to article_favorites_path(@article), method: :delete, class:"favorite-article-btn" do %>
                 <i class="fa-solid fa-bookmark"></i>
             <% end %>
         <% else %>
-            <%= button_to article_favorites_path(@article), method: :post, data: { confirm: "Are you sure?" }, class:"favorite-article-btn" do %>
+            <%= button_to article_favorites_path(@article), method: :post, class:"favorite-article-btn" do %>
                 <i class="far fa-bookmark"></i>
             <% end %>
         <% end %>
