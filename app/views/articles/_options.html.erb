@@ -13,11 +13,11 @@
         <div class="favorites-section" title="Add to Favorites">
             <% if current_user.favorite_articles.exists?(article.id) %>
                 <%= button_to article_favorites_path(article), method: :delete, class:"favorite-article-btn" do %>
-                    <i class="fa-solid fa-bookmark"></i>
+                    <i class="fa-solid fa-star"></i>
                 <% end %>
             <% else %>
                 <%= button_to article_favorites_path(article), method: :post, class:"favorite-article-btn" do %>
-                    <i class="far fa-bookmark"></i>
+                    <i class="fa-regular fa-star"></i>
                 <% end %>
             <% end %>
         </div>
@@ -25,7 +25,7 @@
         <div class="favorites-section" title="Add to Favorites">
             <a href="<%= signup_path %>" class="favorite-article-btn">
                 <div title="Favorite">
-                    <i class="far fa-bookmark"></i>
+                    <i class="fa-regular fa-star"></i>
                 </div>
             </a>
         </div>
