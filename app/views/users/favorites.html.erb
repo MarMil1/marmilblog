@@ -1,6 +1,6 @@
 <div class="bounding-container">
     <div class="page-title page-title-favorites">Favorites</div>
-    <div class="favorites-count"> Favorites: <%= @favorite_articles.size %></div>
+    <div class="favorites-count"> <i class="fa-solid fa-star" title="Favorites count"></i> <%= @favorite_articles.size %></div>
     <div>
         <% if @favorite_articles.size < 1 %>
             <div>No articles in favorites yet.</div>
@@ -20,11 +20,11 @@
                                 <div class="favorites-section stand-alone" title="Add to Favorites">
                                     <% if current_user.favorite_articles.exists?(article.id) %>
                                         <%= button_to article_favorites_path(article), method: :delete, class:"favorite-article-btn" do %>
-                                            <i class="fa-solid fa-bookmark"></i>
+                                            <i class="fa-solid fa-star"></i>
                                         <% end %>
                                     <% else %>
                                         <%= button_to article_favorites_path(article), method: :post, class:"favorite-article-btn" do %>
-                                            <i class="far fa-bookmark"></i>
+                                            <i class="fa-regular fa-star"></i>
                                         <% end %>
                                     <% end %>
                                 </div>
@@ -39,7 +39,7 @@
                         <div class="article-info" style="color: gray;">
                             <%= Time.at(*article.created_at.to_i).to_s(:long_ordinal)[0..-6]%>
                             <div style="margin-left: 10px;">
-                                <i class="far fa-comments disable-hover"></i> <%= article.comments.count %> Comments
+                                <i class="far fa-comments disable-hover"></i> <%= article.comments.count %> <%= "Comment".pluralize(article.comments.length) %>
                                 <i class="far fa-thumbs-up disable-hover" style="margin-left: 10px;"></i> <%= article.comments.count %> Likes
                             </div>
                         </div>

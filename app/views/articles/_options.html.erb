@@ -10,22 +10,22 @@
         </div>
     </div>
     <% if logged_in? %>
-        <div class="favorites-section" title="Add to Favorites">
+        <div class="favorites-section">
             <% if current_user.favorite_articles.exists?(article.id) %>
                 <%= button_to article_favorites_path(article), method: :delete, class:"favorite-article-btn" do %>
-                    <i class="fa-solid fa-bookmark"></i>
+                    <i class="fa-solid fa-star" title="In Favorites"></i>
                 <% end %>
             <% else %>
                 <%= button_to article_favorites_path(article), method: :post, class:"favorite-article-btn" do %>
-                    <i class="far fa-bookmark"></i>
+                    <i class="fa-regular fa-star" title="Add to Favorites"></i>
                 <% end %>
             <% end %>
         </div>
     <% else %>
-        <div class="favorites-section" title="Add to Favorites">
+        <div class="favorites-section">
             <a href="<%= signup_path %>" class="favorite-article-btn">
                 <div title="Favorite">
-                    <i class="far fa-bookmark"></i>
+                    <i class="fa-regular fa-star" title="Add to Favorites"></i>
                 </div>
             </a>
         </div>

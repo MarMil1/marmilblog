@@ -366,7 +366,6 @@
     display: flex;
     align-items: center;
     font-size: 20px;
-    cursor: pointer;
 }
 
 .report-section {
@@ -387,6 +386,10 @@
 
 .favorites-section a, .favorites-section a:hover {
     color: #333333;
+}
+
+.fa-solid.fa-star::before {
+    color: #d58b2f;
 }
 
 .favorite-article-btn {

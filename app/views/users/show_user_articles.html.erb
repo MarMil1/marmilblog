@@ -1,6 +1,9 @@
 <div class="bounding-container">
     <div class="page-title page-title-favorites"><%= @user.username %></div>
-    <div class="favorites-count"> Articles: <%= @user_articles.size %></div>
+    <div class="show-user-articles-metrics">
+        <div class="favorites-count"> <i class="fa-solid fa-file-pen" title="Articles count"></i> <%= @user_articles.size %></div>
+        <div class="favorites-count"> <i class="far fa-comments" title="Comments count"></i> <%= @user.comments.size %></div>
+    </div>
     <% if @user_articles.size < 1 %>
         <div>No articles written yet.</div>
     <% else %>
@@ -17,22 +20,22 @@
                                 </a>
                             </div>
                             <% if logged_in? %>
-                                <div class="favorites-section stand-alone" title="Add to Favorites">
+                                <div class="favorites-section stand-alone">
                                     <% if current_user.favorite_articles.exists?(article.id) %>
                                         <%= button_to article_favorites_path(article), method: :delete, class:"favorite-article-btn" do %>
-                                            <i class="fa-solid fa-bookmark"></i>
+                                            <i class="fa-solid fa-star" title="In Favorites"></i>
                                         <% end %>
                                     <% else %>
                                         <%= button_to article_favorites_path(article), method: :post, class:"favorite-article-btn" do %>
-                                            <i class="far fa-bookmark"></i>
+                                            <i class="fa-regular fa-star" title="Add to Favorites"></i>
                                         <% end %>
                                     <% end %>
                                 </div>
                             <% else %>
-                                <div class="favorites-section stand-alone" title="Add to Favorites">
+                                <div class="favorites-section stand-alone">
                                     <a href="<%= signup_path %>" class="favorite-article-btn">
                                         <div title="Favorite">
-                                            <i class="far fa-bookmark"></i>
+                                            <i class="fa-regular fa-star" title="Add to Favorites"></i>
                                         </div>
                                     </a>
                                 </div>
@@ -48,7 +51,7 @@
                     <div class="article-info" style="color: gray;">
                         <%= Time.at(*article.created_at.to_i).to_s(:long_ordinal)[0..-6]%>
                         <div style="margin-left: 10px;">
-                            <i class="far fa-comments disable-hover"></i> <%= article.comments.count %> Comments
+                            <i class="far fa-comments disable-hover"></i> <%= article.comments.count %> <%= "Comment".pluralize(article.comments.length) %>
                             <i class="far fa-thumbs-up disable-hover" style="margin-left: 10px;"></i> <%= article.comments.count %> Likes
                         </div>
                     </div>
