@@ -52,10 +52,10 @@ class UsersController < ApplicationController
     def add_favorite
         @favorite = current_user.favorites.build(article_id: params[:article_id])
         if @favorite.save
-            flash[:success] = "Added a new favorite article."
+            flash[:success] = "Added to favorites."
             redirect_to request.referrer
         else 
-            flash[:danger] = "Unable to add favorite article."
+            flash[:danger] = "Unable to add to favorites."
             redirect_to request.referrer
        end
     end
@@ -63,10 +63,10 @@ class UsersController < ApplicationController
     def remove_favorite
         if current_user.favorite_articles.exists?(params[:article_id])
             current_user.favorite_articles.destroy(params[:article_id])
-            flash[:success] = "Article removed from favorites."
+            flash[:success] = "Removed from favorites."
             redirect_to request.referrer
         else 
-            flash[:danger] = "Unable to remove article from favorites."
+            flash[:danger] = "Unable to remove from favorites."
             redirect_to request.referrer
         end
     end
