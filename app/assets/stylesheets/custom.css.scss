@@ -218,10 +218,9 @@ input, textarea, select, .uneditable-input {
   }
 
   #error_explanation {
-    color: red;
+    color: #A94442;
     ul {
-      color: red;
-      margin: 0 0 30px 0;
+      color: #A94442;
     }
   }
   
@@ -486,10 +485,10 @@ img {
 }
 
 li {
-	scroll-snap-align: center;
-	display: inline-block;
-	border-radius: 3px;
-	font-size: 0;
+  scroll-snap-align: center;
+  display: revert;
+  border-radius: 3px;
+  font-size: inherit;
 }
 
 @media screen and (max-width: 510px) {
