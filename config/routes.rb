@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  get 'errors/not_found'
+  get 'errors/internal_server_error'
+  match "/404", to: "errors#not_found", via: :all
+  match "/500", to: "errors#internal_server_error", via: :all
+
   # root
   root 'articles#index'
   # Filter latest articles
@@ -36,6 +41,7 @@ Rails.application.routes.draw do
         delete :destroy_all
       end
     end
+    resources :likes
   end
 
   patch '/articles/:article_id/comments/:id' => 'comments#update'
