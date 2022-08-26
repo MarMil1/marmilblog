@@ -10,6 +10,8 @@ module BlogRor
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.1
+    # Render custom error pages 404 and 500
+    config.exceptions_app = self.routes
 
     # Configuration for the application, engines, and railties goes here.
     #

@@ -4,6 +4,11 @@ class UsersController < ApplicationController
 
     def show
         @user = User.find(params[:id])
+        if current_user?(@user)
+            @user
+        else
+            redirect_to errors_not_found_path
+        end
     end
 
 
