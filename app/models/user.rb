@@ -4,6 +4,7 @@ class User < ApplicationRecord
     has_many :favorites, dependent: :destroy
     has_many :favorite_articles, through: :favorites, source: :article
     has_many :likes, dependent: :destroy
+    has_many :comment_likes, dependent: :destroy
 
     attr_accessor :remember_token
 
