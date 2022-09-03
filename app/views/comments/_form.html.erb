@@ -1,64 +1,74 @@
-<div class="comment-form-container" id="comment-form-container">
+<div class="comment-form-container">
+    <% if logged_in? %>
+        <a href="<%= user_profile_path(current_user.id) %>" class="">
+            <div class="user-blob-img" data-comment-initial=<%= current_user.username[0].capitalize %>></div>
+        </a>
+    <% end %>
     <%= form_with model: [ @article, @article.comments.build ] do |f| %>
         <%= render 'shared/error_messages', object: f.object  %>
-        <div class="comment-form-input comment-form-input-sideslide" id="comment-form-input">
-                <% if logged_in? %>
-                    <div class="commenter-info" id="commenter-info">
-                            <div data-comment-initial=<%= current_user.username[0].capitalize %>></div>
-                        <div class="user-comment-username" style="margin-left: 10px;">
-                            <%= current_user.username %>
-                        </div>
-                    </div>
-                <% else %>
-                    <div class="commenter-info" id="commenter-info">
-                            Not registered? 
-                        <div class="user-comment-username" style="margin-left: 10px;">
-                            <%= link_to "Sign up now!", signup_path %>
-                        </div>
-                    </div>
-                <% end %>
-            
-                <%= f.text_area :body, 
-                    placeholder: "Add a comment . . .", 
+        <% if !parent.nil? %>
+            <input type="hidden" name="comment[parent_id]" value="<%= parent.id %>">
+        <% end %>
+        <div class="comment-form-input" id="comment-form-input">
+            <%= f.text_area :body, 
+                    placeholder: "Reply...", 
                     class: "comment-textarea",
                     id: "comment-textarea" 
-                %>
+            %>
         </div>
-            
-        <div class="comment-form-close-save-btns" id="post-btns">
-            <div type="button" class="close-comment-btn" id="close-comment-btn" onclick="deleteTextarea()">
+        <div class="comment-form-close-save-btns">
+            <div type="button" class="close-comment-btn" onclick="clearReplyTextarea(this)">
                 Cancel
             </div>
             <%= f.submit "Post", class:"post-comment-btn" %>
         </div>
     <% end %>
-    <div class="filter-comments">MOST RECENT</div>
 </div>
 
 <script>
+    // Generate element ids
+    $(document).ready(function() {
+        let replyPostBtnsCounter = 1;
+        $('.comment-form-close-save-btns').each(function() {
+            $(this).attr('id', `post-btns-${replyPostBtnsCounter}`);
+            replyPostBtnsCounter++;
+        });
+
+        let replyTextAreaCounter = 1;
+        $('.comment-textarea').each(function() {
+            $(this).attr('id', `comment-textarea-${replyTextAreaCounter}`);
+            replyTextAreaCounter++;
+        });
+
+        let closeReplyTextAreaCounter = 1;
+        $('.close-comment-btn').each(function() {
+            $(this).attr('id', `close-comment-btn-${closeReplyTextAreaCounter}`);
+            closeReplyTextAreaCounter++;
+        });
+
+    });
+
+    $(document).ready(function () {
+        document.querySelectorAll('.comment-textarea').forEach(e => {
+            $('body').on('keydown input', `#comment-textarea-${e.id.substring(e.id.lastIndexOf('-') + 1)}`, function() {
+                this.style.removeProperty('height');
+                this.style.height = (this.scrollHeight) + 'px';
+            });
+        });
+    });
+
     // Clear textarea when clicking on cancel button
-    function deleteTextarea() {
-        document.getElementById('comment-textarea').value = "";
+    function clearReplyTextarea(elem) {
+        if (document.getElementById(`comment-textarea-${elem.id.substring(elem.id.lastIndexOf('-') + 1)}`).value === "" || confirm("You will lose your comment draft if you cancel.")) {
+            document.getElementById(`comment-textarea-${elem.id.substring(elem.id.lastIndexOf('-') + 1)}`).value = "";
+            document.getElementById(`post-btns-${elem.id.substring(elem.id.lastIndexOf('-') + 1)}`).style.display = "none";
+            document.getElementById(`comment-textarea-${elem.id.substring(elem.id.lastIndexOf('-') + 1)}`).style.height = "40px";
+            document.getElementById(`comment-form-container-${elem.id.substring(elem.id.lastIndexOf('-') + 1)}`).style.display = 'none';
+        } 
+        // Comment textarea expands when typing
+        document.getElementById(`comment-textarea-${elem.id.substring(elem.id.lastIndexOf('-') + 1)}`)
+                .addEventListener('click', () => {
+                    document.getElementById(`post-btns-${elem.id.substring(elem.id.lastIndexOf('-') + 1)}`).style.display = "flex";
+        });
     }
-
-    $(document).ready(function(){
-        $('#post-btns').hide();
-        $('#commenter-info').hide();
-    });
-
-    $(document).on('click', '.comment-textarea', function () {
-        $(this).addClass('expanded');
-        $('#post-btns').show();
-        $('#commenter-info').show();
-        $('#comment-form-input').height(195);
-    });
-
-    // Collapse the comment textarea when clicking on cancel button
-    $('#close-comment-btn').click(function() {
-        $('div.comment-form-input').
-            toggleClass('expanded', false);
-            $('#post-btns').hide();
-            $('#commenter-info').hide();
-            $('#comment-form-input').height(40);
-    });
 </script>

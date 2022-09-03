@@ -3,16 +3,18 @@ class ArticlesController < ApplicationController
     before_action :correct_user, only: [:edit, :update, :destroy, :destroy_all]
     
     def index
-        @articles = Article.all.order('created_at DESC')
+        @articles = Article.all.order(id: :desc)
     end
 
 
     def show 
+        # Disable mobile nav when showing articles (related in application.html.erb)
+        @disable_nav = true
         @article = Article.find(params[:id])
     end
 
     def popular
-        @articles = Article.all.order('comments_count DESC')
+        @articles = Article.all.order(comments_count: :desc)
     end
 
 

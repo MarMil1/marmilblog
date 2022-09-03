@@ -1,0 +1,69 @@
+<div class="" id="main-comment-form-container">
+    <%= form_with model: [ @article, @article.comments.build ] do |f| %>
+        <%= render 'shared/error_messages', object: f.object  %>
+        <div class="main-comment-form-input" id="main-comment-form-input">
+                <% if logged_in? %>
+                <div class="main-user-blob-comment-form">
+                        <div class="main-commenter-info" id="main-commenter-info">
+                            <a href="<%= user_profile_path(current_user.id) %>" class="">
+                                <div data-comment-initial=<%= current_user.username[0].capitalize %>></div>
+                            </a>
+                        </div>
+                        <%= f.text_area :body, 
+                            placeholder: "Comment...", 
+                            class: "main-comment-textarea",
+                            id: "main-comment-textarea",
+                            value: ""
+                        %> 
+                    </div>
+                    <div class="main-comment-form-close-save-btns" id="main-post-btn">
+                        <div type="button" class="main-close-comment-btn" id="main-close-comment-btn" onclick="clearCommentTextarea()">
+                            Cancel
+                        </div>
+                        <%= f.submit "Post", class:"main-post-comment-btn" %>
+                    </div>
+
+                <% else %>
+                    <div class="main-commenter-info-no-user">
+                            Not registered? 
+                        <div class="user-comment-username" style="margin-left: 10px;">
+                            <%= link_to "Sign up now!", signup_path %>
+                        </div>
+                    </div>
+                    <%= f.text_area :body, 
+                        placeholder: "Comment...", 
+                        class: "main-comment-textarea",
+                        id: "main-comment-textarea"
+                    %> 
+                    <div class="main-comment-form-close-save-btns" id="main-post-btn">
+                        <div type="button" class="main-close-comment-btn" id="main-close-comment-btn" onclick="clearCommentTextarea()">
+                            Cancel
+                        </div>
+                        <%= f.submit "Post", class:"main-post-comment-btn" %>
+                    </div>
+                <% end %>
+        </div>
+    <% end %>
+</div>
+
+<script>
+    //Auto-expanding comment textarea
+    $('body').on('keydown input', '#main-comment-textarea', function() {
+        this.style.removeProperty('height');
+        this.style.height = (this.scrollHeight) + 'px';
+    });
+
+    // Clear textarea when clicking on cancel button
+    function clearCommentTextarea() {
+        if (document.getElementById('main-comment-textarea').value === "" || confirm("You will lose your comment draft if you cancel.")) {
+            document.getElementById('main-comment-textarea').value = "";
+            document.getElementById('main-post-btn').style.display = "none";
+            document.getElementById('main-comment-textarea').style.height = "40px";
+        } 
+    }
+    // Comment textarea expands when typing
+    document.getElementById('main-comment-textarea')
+            .addEventListener('click', () => {
+                document.getElementById('main-post-btn').style.display = "flex";
+    });
+</script>
