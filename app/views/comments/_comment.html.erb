@@ -1,0 +1,205 @@
+<div>
+    <div class="user-comment-container">
+        <div class="user-comment-subcontainer">
+            <div class="user-blob-comment-guide-container">
+                <a href="<%= user_profile_path(comment.user_id) %>" class="">
+                    <div class="user-blob-img" data-comment-initial=<%= User.find_by(id: comment.user_id).username[0].capitalize %>></div>
+                </a>  
+                <div class="reply-comment-guide"></div>
+            </div>
+            <div class="user-comment-info-settings-stats-container">
+                <div class="user-comment-info-settings-container">
+                    <div class="user-comment-img-info">
+                        <div class="user-comment-info-settings-subcontainer">
+                            <div class="user-comment-info">
+                                <div class="user-comment-username">
+                                    <%= User.find_by(id: comment.user_id).try(:username) %>
+                                    <% if @article.user_id == comment.user_id %>
+                                        <div class="is-author" title="Article author"><i class="fa-solid fa-circle-check"></i></i></div>
+                                    <% end %>
+                                </div>
+
+                                <div class="user-comment-time">
+                                    <%= Time.at(*comment.created_at.to_i).to_s(:long_ordinal) %>
+                                </div>
+                            </div>
+                            <div class="user-comment-settings">
+                                <div class="dropdown-more-section" style="float:left; margin-right:10px;">
+                                    <div class="dropbtn-more-section"><i class="fas fa-ellipsis-h"></i></div>
+                                <div class="dropdown-content-more-section">
+                                    <% if logged_in? && current_user.id == comment.user_id %>
+                                        <%= link_to "Edit", 
+                                            edit_article_comment_path(@article, comment),
+                                            class: "delete-article"
+                                        %>
+                                        <%= button_to "Delete", 
+                                            article_comment_path(@article, comment), 
+                                            method: :delete, 
+                                            data: { confirm: "Are you sure?" },
+                                            class: "delete-article" 
+                                        %>
+                                    <% else %>
+                                        <a class="dropdown-item">Report this comment</a>
+                                    <% end %>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="user-comment">
+                    <div class="user-comment-body small-comment">
+                        <%= markdown(comment.body) %>
+                    </div>
+                    <%# if and else statement below so that 
+                    all comments' id numbers would be generated %>
+                    <div class="read-expand-reply-btns">
+                        <% if comment.body.include?("\r") || comment.body.length > 42 %>
+                            <div class="read-more" 
+                                onclick="readMoreLess(this)"
+                            >
+                                Read more
+                            </div>
+                        <% else %>
+                            <div class="read-more" 
+                                onclick="readMoreLess(this)"
+                                style="display: none;"
+                            >
+                                Read more
+                            </div>
+                        <% end %>
+                        
+                    </div>
+                </div>
+            </div>
+            
+            <div class="comment-likes-section" type="button">
+                <div class="comment-reply-btn" onclick="openCommentReplyBox(this)">
+                    Reply
+                </div>
+                <div class="comment-likes-icon-counter">
+                    <div class="comment-reply-counter">
+                        <%= comment.comments.count %>
+                        <i class="far fa-comments comment-reply-counter-icon article-reactions-btn open-comment-replies" title="View all replies" onclick="openReplyComments(this)"></i>
+                    </div>
+                    <% if logged_in? %>
+                        <div class="comment-like-counter"><%= comment.comment_likes.count %></div>
+                        <% pre_comment_like = comment.comment_likes.find { |comment_like| comment_like.user_id == current_user.id} %>
+                        <% if pre_comment_like %>
+                            <%= button_to article_comment_comment_like_path(@article, comment, pre_comment_like), method: :delete, class:"favorite-article-btn" do %> 
+                                <i class="fa-solid fa-thumbs-up article-reactions-btn" title="Unlike comment"></i>
+                            <% end %>
+                        <% else %>
+                            <%= button_to article_comment_comment_likes_path(@article, comment), method: :post, class:"favorite-article-btn" do %> 
+                                <i class="fa-regular fa-thumbs-up article-reactions-btn" title="Like comment"></i>
+                            <% end %>
+                        <% end %>
+                    <% else %>
+                        <div class="comment-like-counter"><%= comment.comment_likes.count %></div>
+                        <a href="<%= signup_path %>" class="favorite-article-btn like-btn-favorite">
+                            <div>
+                                <i class="fa-regular fa-thumbs-up article-reactions-btn" title="Like comment"></i>
+                            </div>
+                        </a>
+                    <% end %>
+                </div>
+            </div>
+
+        </div>
+        <div>
+            <div>
+                <%= render 'comments/form', article: comment.article, parent: comment %>
+            </div>
+            <div class="recursive-replies-container">
+                <%= render comment.comments.order(id: :desc) %>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Generate numeric IDs for elements
+    $(document).ready(function() {
+        let commentIdCounter = 1;
+        $('.user-comment').each(function() {
+            $(this).attr('id', `user-comment-${commentIdCounter}`);
+            commentIdCounter++;
+        });
+
+        let readIdCounter = 1;
+        $('.read-more').each(function() {
+            $(this).attr('id', `read-more-${readIdCounter}`);
+            readIdCounter++;            
+        });
+
+        let userCommentBodyCounter = 1;
+        $('.user-comment-body').each(function() {
+            $(this).attr('id', `user-comment-body-${userCommentBodyCounter}`);
+            userCommentBodyCounter++;            
+        });
+
+        const textLeftContainer = document.getElementById('text-left').querySelectorAll('.comment-form-container');
+        let openReplyBoxCounter = 1;
+        $(textLeftContainer).each(function() {
+            $(this).attr('id', `comment-form-container-${openReplyBoxCounter}`);
+            openReplyBoxCounter++;            
+        });
+
+        let openReplyButtonCounter = 1;
+        $('.comment-reply-btn').each(function() {
+            $(this).attr('id', `comment-reply-btn-${openReplyButtonCounter}`);
+            openReplyButtonCounter++;            
+        });
+
+        let recursiveRepliesContainerCounter = 1;
+        $('.recursive-replies-container').each(function() {
+            $(this).attr('id', `recursive-replies-container-${recursiveRepliesContainerCounter}`);
+            recursiveRepliesContainerCounter++;
+        });
+
+        let showMoreRepliesBtnCounter = 1;
+        $('.open-comment-replies').each(function() {
+            $(this).attr('id', `open-comment-replies-${showMoreRepliesBtnCounter}`);
+            showMoreRepliesBtnCounter++;
+        });
+    });
+
+    // Set display none foreach comment reply form
+    $(document).ready(function () {
+        document.querySelectorAll('.comment-form-container').forEach(e => {
+            document.getElementById(`comment-form-container-${e.id.substring(e.id.lastIndexOf('-') + 1)}`).style.display = 'none';
+        });
+    });
+
+    // Toggle small and big comment classes
+    function readMoreLess(elem) {
+        const firstChild = document.getElementById(`user-comment-body-${elem.id.substring(elem.id.lastIndexOf('-') + 1)}`);
+        firstChild.classList.toggle('big-comment');
+
+        // Change 'Read more...' to 'Read less...'
+        if (firstChild.classList.contains('big-comment')) {
+            elem.innerHTML = "Read less"
+        } else {
+            elem.innerHTML = "Read more"
+        }
+    }
+    // Open and close comments reply form by clicking on 'Reply' button
+    function openCommentReplyBox(elem) {
+        const commentFormContainer = document.getElementById(`comment-form-container-${elem.id.substring(elem.id.lastIndexOf('-') + 1)}`);
+        if (commentFormContainer.style.display === "none") {
+            commentFormContainer.style.display = "block";
+        } else {
+            commentFormContainer.style.display = "none";
+        }
+    }
+
+    // Open and close all comment replies by clicking on comments icon
+    function openReplyComments(elem) {
+        const repliesContainer = document.getElementById(`recursive-replies-container-${elem.id.substring(elem.id.lastIndexOf('-') + 1)}`);
+
+        if (repliesContainer.style.display === 'block') {
+            repliesContainer.style.display = 'none';
+        } else {
+            repliesContainer.style.display = 'block';
+        }
+    }
+</script>

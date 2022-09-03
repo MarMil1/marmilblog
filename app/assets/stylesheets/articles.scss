@@ -504,6 +504,15 @@
     border-radius: 0 !important;
  }
 
+ .modal-header {
+    padding: 10px !important;
+ }
+
+ .modal-header .close {
+    margin-top: 5px !important;
+    margin-right: -5px;
+}
+
  .modal-content {
     overflow: auto;
     font-size: 15px;
@@ -523,6 +532,9 @@
 
  .modal-comment-form {
      text-align: start;
+     border-bottom: 1px solid #DDDDDD;
+     padding: 10px;
+     margin-bottom: 10px;
  }
 
  .h-100 {
@@ -620,4 +632,13 @@
     .full-article-container {
         width: 100%;
     }
+}
+
+.general-back-btn {
+    margin-bottom: 5px;
+    font-size: 1.75rem;
+}
+
+.general-back-btn a:hover {
+    text-decoration: none;
 }

@@ -3,26 +3,12 @@
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
 // Comment form
-.comment-form-container{
-    color: black;
-    border-bottom: 1px solid rgb(230, 229, 229);
-    padding-bottom: 50px;
-}
-
 .comment-form-input {
-    height: 40px;
+    min-height: 40px;
     overflow: hidden;
-    cursor: pointer;
-    border-color: #f5f5f5;
-    border-radius: 10px;
-    border: 1px solid #d7d7d7;
-    // padding: 10px;
-    margin-bottom: 20px;
+    margin-left: 40px;
 }
 
-.comment-form-input-sideslide {
-    margin: 10px;
-}
 
 .commenter-info {
     margin: 12px;
@@ -32,16 +18,14 @@
 }
 
 .comment-textarea {
-    margin-bottom: 0 !important;
     resize: none;
     border: none;
     padding: 10px;
     font-size: 15px;
-    height: 155px;
-}
-
-.comment-textarea:focus {
-    height:150px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 3px 0px lightgrey;
+    height: 40px;
+    overflow: hidden;
 }
 
 .expanded {
@@ -52,8 +36,25 @@
     display: flex;
     justify-content: flex-end;
     align-items: baseline;
-    margin-right: 15px;
-    margin-bottom: 30px;
+}
+
+.read-expand-reply-btns {
+    display: inline-block;
+    width: 100%;
+}
+
+.comment-reply-btn {
+    float: right;
+    color: #7a98c5;
+    cursor: pointer;
+}
+
+.comment-reply-btn:hover {
+    color: #61799E;
+}
+
+.open-post-comment-reply {
+    display: block;
 }
 
 .close-comment-btn {
@@ -70,7 +71,7 @@
     border: 1px solid #61799E;
     border-radius: 7px;
     background-color: inherit;
-    margin-left: 20px;
+    margin-left: 10px;
 }
 
 .post-comment-btn:focus {
@@ -90,17 +91,48 @@
     font-size: 12px;
 }
 
-// Posted comment box 
+// Posted comment box
 
-.user-comment-container {
-    margin-bottom: 20px;
-    margin: 12px;
+.user-comment-subcontainer {
+    display: inline;
 }
 
-.user-comment-info-settings {
+.user-comment-container {
+    display: inline;
+}
+
+.user-blob-img {
+    float: left;
+    margin-right: 7px;
+}
+
+.user-comment-info-settings-container {
     display: flex;
-    align-items: center;
     justify-content: space-between;
+    flex-direction: column;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: white;
+    box-shadow: 0px 0px 3px 0px lightgrey;
+}
+
+.user-comment-info-settings-subcontainer {
+    display: inline-block;
+    width: 100%;
+}
+
+.reply-comment-guide {
+    border-left: 3px solid #61799e;
+    height: 115px;
+    border-bottom-left-radius: 20px;
+    width: 10px;
+}
+
+.user-blob-comment-guide-container {
+    float: left; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .user-comment-img-info {
@@ -109,7 +141,7 @@
 }
 
 .user-comment-info {
-    margin-left: 10px;
+    float: left;
 }
 
 .user-comment-username {
@@ -117,13 +149,10 @@
 }
 
 .is-author {
-    margin-left: 10px;
-    color: rgb(255, 255, 255);
-    background-color: #333333;
-    font-size: 9px;
+    margin-left: 3px;
+    color: rgb(66, 142, 0);
+    font-size: 1.25rem;
     align-self: center;
-    padding: 2px;
-    border-radius: 5px;
 }
 
 .is-author-icon:hover {
@@ -142,7 +171,7 @@
     background:#61799E;
     vertical-align:middle;
     color:white;
-    // margin-right: 10px;
+    margin-top: 5px;
 }
 
 .user-comment-time {
@@ -151,8 +180,7 @@
 }
 
 .user-comment-settings {
-    display: flex;
-    align-items: center;
+    float: right;
 }
 
 .user-comment-delete {
@@ -174,23 +202,40 @@
 }
 
 .read-more {
-    margin-top: 5px;
-    color: rgb(141, 182, 254);
+    color: #7a98c5;
     cursor: pointer;
-    width: 90px;
+    float: left;
 }
 
 .read-more:hover {
-    color: rgb(88, 148, 254);
+    color: #61799E;
 }
 
 .comment-likes-section {
-    margin-top: 20px;
     font-size: 15px;
-    cursor: pointer;
-    width: fit-content;
+    width: auto;
     display: flex;
     align-items: baseline;
+    margin-left: 40px;
+    margin-bottom: 10px;
+    justify-content: space-between;
+}
+
+.comment-likes-icon-counter {
+    display: flex;
+    align-items: baseline;
+}
+
+.comment-reply-counter {
+    font-size: 14px;
+}
+
+.comment-reply-counter-icon {
+    margin-left: 3px;
+}
+
+.comment-like-counter {
+    font-size:14px;
 }
 
 .line-between-comments:last-child {
@@ -214,4 +259,10 @@
     justify-content: flex-end;
     align-items: center;
 
+}
+
+// Comment Replies
+.recursive-replies-container:not(:first-child) {
+    margin-left: 30px;
+    display: none;
 }

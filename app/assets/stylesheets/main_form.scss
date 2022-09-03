@@ -1,0 +1,66 @@
+.main-comment-form-input {
+    margin: 0px 5px;
+}
+
+.main-user-blob-comment-form, .main-commenter-info-no-user {
+    display: flex;
+}
+
+.main-commenter-info-no-user {
+    margin-bottom: 7px;
+}
+
+.main-commenter-info {
+    margin-right: 7px;
+}
+
+.main-comment-textarea {
+    resize: none;
+    border: none;
+    padding: 10px;
+    font-size: 15px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 3px 0px lightgrey;
+    height: 40px;
+    overflow: hidden;
+}
+
+.main-expanded {
+    background-color: white;
+}
+
+// .main-comment-textarea:focus {
+//     height:150px;
+// }
+
+.main-close-comment-btn {
+    cursor: pointer;
+}
+
+.main-close-comment-btn:hover {
+    color: rgba(61, 61, 61, 1);;
+}
+
+.main-comment-form-close-save-btns {
+    display: none;
+    justify-content: flex-end;
+    align-items: baseline;
+}
+
+.main-post-comment-btn {
+    width: fit-content;
+    padding: 7px;
+    border: 1px solid #61799E;
+    border-radius: 7px;
+    background-color: inherit;
+    margin-left: 10px;
+}
+
+.main-post-comment-btn:focus {
+    outline: none;
+}
+
+.main-post-comment-btn:hover {
+    background-color: #61799E;
+    color: white;
+}

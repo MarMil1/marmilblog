@@ -10,11 +10,11 @@
                 </div>
             </div>
             <div class="modal-comment-form">
-                <%= render "comments/new", comment: @comment %>
+                <%= render "comments/main_form", comment: @comment, parent:nil %>
             </div>
             <div class="modal-body">
                 
-                <div class="text-left">
+                <div class="text-left" id="text-left">
                     <%= render "comments/show", comment: @comment %>
                 </div>
             </div>
