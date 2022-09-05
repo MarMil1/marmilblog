@@ -4,28 +4,27 @@
     <div id="comment-form-container" style="width: 100%;">
         <%= form_with model: [ @article, @comment ] do |f| %>
             <%= render 'shared/error_messages', object: f.object  %>
-            <div class="comment-form-input" id="comment-form-input" style="height:150px;">
-                    <% if logged_in? %>
-                        <div class="commenter-info" id="commenter-info">
-                                <div data-comment-initial=<%= current_user.username[0].capitalize %>></div>
-                            <div class="user-comment-username" style="margin-left: 10px;">
-                                <%= current_user.username %>
-                            </div>
-                        </div>
-                    <% else %>
-                        <div class="commenter-info" id="commenter-info">
-                                Not registered? 
-                            <div class="user-comment-username" style="margin-left: 10px;">
-                                <%= link_to "Sign up now!", signup_path %>
-                            </div>
-                        </div>
-                    <% end %>
-                
-                    <%= f.text_area :body, 
-                        placeholder: "Add a comment . . .", 
-                        class: "comment-textarea",
-                        id: "comment-textarea" 
-                    %>
+            <% if logged_in? %>
+                <div class="commenter-info" id="commenter-info">
+                        <div data-comment-initial=<%= current_user.username[0].capitalize %>></div>
+                    <div class="user-comment-username" style="margin-left: 10px;">
+                        <%= current_user.username %>
+                    </div>
+                </div>
+            <% else %>
+                <div class="commenter-info" id="commenter-info">
+                        Not registered? 
+                    <div class="user-comment-username" style="margin-left: 10px;">
+                        <%= link_to "Sign up now!", signup_path %>
+                    </div>
+                </div>
+            <% end %>
+            <div class="comment-form-input" id="comment-form-input">
+                <%= f.text_area :body, 
+                    placeholder: "Add a comment . . .", 
+                    class: "comment-textarea-edit-article",
+                    id: "comment-textarea-edit-article" 
+                %>
             </div>
                 
             <div class="comment-form-close-save-btns" id="post-btns">
@@ -37,3 +36,14 @@
         <% end %>
     </div>
 </div>
+
+<script>
+    // To resize text area as user is typing
+    let textarea = document.getElementById("comment-textarea-edit-article");
+    textarea.addEventListener('input', autoResize, false);
+    
+    function autoResize() {
+        this.style.height = 'auto';
+        this.style.height = this.scrollHeight - 3.5 + 'px';
+    }
+</script>

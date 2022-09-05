@@ -22,6 +22,19 @@
     </div>
 
     <div class="full-article-body">
+        <% if @article.image_url %>
+            <div class="in-article-img-container">
+                <img 
+                    src="<%= @article.image_url %>"
+                    <%# get the image name  %>
+                    alt="<%= @article.image_data.split('"filename":"').last.split('","size"').first %>" 
+                    class="in-article-img" 
+                    width="600" 
+                    height="400"
+                >
+            </div>
+        <% end %>
+
         <p><%= markdown(@article.body) %></p>
     </div>
 
