@@ -1,6 +1,7 @@
-<% @articles.each do |article| %>
+<%= render 'articles/first_article' %>
+<% @articles.drop(1).each do |article| %>
     <div class="single-article-container">
-        <a href="<%= article_path(article) %>"><div class="single-article-img"></div></a>
+        
         <div class="article-container">
             <a href="<%= user_profile_path(article.user.id) %>">
                 <div class="user-img-name-favorite">

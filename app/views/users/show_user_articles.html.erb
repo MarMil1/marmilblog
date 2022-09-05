@@ -8,9 +8,77 @@
     <% if @user_articles.size < 1 %>
         <div>No articles written yet.</div>
     <% else %>
+        <div class="single-article-container">
+            <a href="<%= article_path(@user_articles[0]) %>">
+                <% if @user_articles[0].image_url %>
+                    <div class="single-article-img">
+                        <img 
+                        src="<%= @user_articles[0].image_url %>"
+                        alt="Article image" 
+                        class="single-article-cover-img"
+                    >
+                    </div>
+                <% else %>
+                    <div class="single-article-img">
+                        <%= image_tag "default-article-img.jpg",
+                            alt: "Default article image", 
+                            class: "single-article-cover-img"
+                        %>
+                    </div>
+                <% end %>
+            </a>
+            <div class="article-container">
+                <a href="<%= user_profile_path(@user_articles[0].user.id) %>">
+                    <div class="user-img-name-favorite">
+                        <div class="user-img-name">
+                            <div data-index-initial=<%= @user_articles[0].user.username[0].capitalize %>></div>
+                            <a href="<%= user_profile_path(@user_articles[0].user.id) %>" class="user-name">
+                                <%= @user_articles[0].user.username %>
+                            </a>
+                        </div>
+                        <% if logged_in? %>
+                            <div class="favorites-section stand-alone">
+                                <% if current_user.favorite_articles.exists?(@user_articles[0].id) %>
+                                    <%= button_to article_favorites_path(@user_articles[0]), method: :delete, class:"favorite-article-btn" do %>
+                                        <i class="fa-solid fa-star" title="In Favorites"></i>
+                                    <% end %>
+                                <% else %>
+                                    <%= button_to article_favorites_path(@user_articles[0]), method: :post, class:"favorite-article-btn" do %>
+                                        <i class="fa-regular fa-star" title="Add to Favorites"></i>
+                                    <% end %>
+                                <% end %>
+                            </div>
+                        <% else %>
+                            <div class="favorites-section stand-alone">
+                                <a href="<%= signup_path %>" class="favorite-article-btn">
+                                    <div title="Favorite">
+                                        <i class="fa-regular fa-star" title="Add to Favorites"></i>
+                                    </div>
+                                </a>
+                            </div>
+                        <% end %>
+                    </div>
+                </a>
+                <div class="article-title">
+                    <%= link_to truncate(@user_articles[0].title.html_safe, length: 50), 
+                        @user_articles[0],
+                        class: "article-title-link"
+                    %>
+                </div>
+                <div class="article-info" style="color: gray;">
+                    <%= Time.at(*@user_articles[0].created_at.to_i).to_s(:long_ordinal)[0..-6]%>
+                    <div style="margin-left: 10px;">
+                        <i class="far fa-comments disable-hover"></i> <%= @user_articles[0].comments.count %> <%= "Comment".pluralize(@user_articles[0].comments.length) %>
+                        <i class="far fa-thumbs-up disable-hover" style="margin-left: 10px;"></i> <%= @user_articles[0].likes.count %> <%= "Like".pluralize(@user_articles[0].likes.length) %>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <%# Show the rest user articles and do not include article image %>
         <% @user_articles.each do |article| %>
             <div class="single-article-container">
-                <a href="<%= article_path(article) %>"><div class="single-article-img"></div></a>
+                
                 <div class="article-container">
                     <a href="<%= user_profile_path(article.user.id) %>">
                         <div class="user-img-name-favorite">

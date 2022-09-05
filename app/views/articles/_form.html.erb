@@ -1,19 +1,27 @@
 <%= render "layouts/text_tools" %>
 <%= form_with model: article do |form| %>
 <%= render 'shared/error_messages', object: form.object %>
+    <div><b>Enter article title:</b></div>
     <div class="article-title-area"> 
         <%= form.text_field :title, 
-            placeholder: "Add a title...",
+            placeholder: "Title...",
             class: "article-input-title"
         %>
     </div>
 
+   <div class="field">
+        <div><b>Insert article image:</b></div>
+        <%= image_tag form.object.image_url if form.object.cached_image_data %>
+        <%= form.hidden_field :image, value: form.object.cached_image_data %>
+        <%= form.file_field :image, class: "image-input-form" %>
+    </div>
+
     <div class="article-body-area">
+        <div><b>Enter article content:</b></div>
         <%= form.text_area :body, 
             placeholder: "Write something interesting...",
             class: "article-input-body",
-            id: "article-input-body",
-            style: "height: 70vh;" 
+            id: "article-input-body"
         %>
     </div>
     <br>
