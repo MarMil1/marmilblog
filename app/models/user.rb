@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+    include ImageUploader::Attachment(:image)
+
     has_many :articles, dependent: :destroy
     has_many :comments, dependent: :destroy
     has_many :favorites, dependent: :destroy

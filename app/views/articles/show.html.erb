@@ -4,7 +4,11 @@
     <div class="full-article-info-settings">
 
         <div class="full-article-img-info">
-            <div data-letters=<%= @article.user.username[0].capitalize %>></div>
+            <% if @article.user.image_data  %>
+                <%= image_tag @article.user.image_url, class: "user-profile-blob" %>
+            <% else %>
+                <div data-index-initial=<%= @article.user.username[0].capitalize %>></div>
+            <% end %>
             <div class="full-article-info">
                 <div class="full-article-name">
                     <%= @article.user.username %>

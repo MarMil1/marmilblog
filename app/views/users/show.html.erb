@@ -5,7 +5,11 @@
   <div class="user-profile-container">
     
     <div class="user-profile-logo-name">
+    <% if @user.image_data  %>
+      <%= image_tag @user.image_url, class: "user-profile-blob" %>
+    <% else %>
       <div data-profile-initial=<%= @user.username[0].capitalize %>></div>
+    <% end %>
       <div class="user-profile-name-member-since">
         <h1 class="user-profile-name">
           <%= @user.username %>

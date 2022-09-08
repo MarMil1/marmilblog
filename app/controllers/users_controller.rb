@@ -76,6 +76,21 @@ class UsersController < ApplicationController
         @favorite_articles = @favorites.where(id: Favorite.pluck(:article_id))
     end
 
+    # TODO: delete profile image
+    def delete_profile_image
+        @user = User.find(params[:user_id])
+        @image_id = @user.image.id.split('.')[0]
+
+        if !@user.image.nil?
+            result = Cloudinary::Uploader::destroy(@image_id)
+            @user.update(image: nil)
+            flash[:success] = "Profile image deleted."
+        else 
+            flash[:danger] = "Unable to delete profile image."
+        end
+        redirect_to request.referrer
+    end
+
     # Delete user profile and all posted user articles
     def destroy
         @user = User.find(params[:id])
@@ -96,7 +111,7 @@ class UsersController < ApplicationController
     private 
     
         def user_params
-            params.require(:user).permit(:username, :email, :password, :password_confirmation)
+            params.require(:user).permit(:username, :email, :password, :password_confirmation, :image)
         end
         
 

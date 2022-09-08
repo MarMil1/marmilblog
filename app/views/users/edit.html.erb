@@ -5,8 +5,26 @@
 
     <div class="login-container" style="margin-top: 50px;">
     <div class="login-content">
+    <div class="profile-label">Current Profile Image</div>
+        <div class="edit-user-blob">
+            <% if current_user.image_data.nil?  %>
+                <div data-profile-initial=<%= current_user.username[0].capitalize %>></div>
+            <% else %>
+                <%= button_to "x",
+                            user_delete_profile_image_path(current_user.id), 
+                            method: :post,
+                            class: "delete-profile-img" 
+                %>
+                <%= image_tag current_user.image_url, class: "user-profile-blob" %>
+            <% end %>
+        </div>
         <%= form_for(@user) do |f| %>
         <%= render 'shared/error_messages', object: f.object  %>
+
+         <div class="field">
+            <div class="profile-label">Upload New Profile Image</div>
+            <%= f.file_field :image, class: "image-input-form" %>
+        </div>
 
         <%= f.label :username %>
         <%= f.text_field :username, class: 'form-control' %>

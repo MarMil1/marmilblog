@@ -6,7 +6,11 @@
                 <div class="main-user-blob-comment-form">
                         <div class="main-commenter-info" id="main-commenter-info">
                             <a href="<%= user_profile_path(current_user.id) %>" class="">
-                                <div data-comment-initial=<%= current_user.username[0].capitalize %>></div>
+                                <% if current_user.image_data  %>
+                                    <%= image_tag current_user.image_url, class: "user-gen-blob" %>
+                                <% else %>
+                                    <div data-index-initial=<%= current_user.username[0].capitalize %>></div>
+                                <% end %>
                             </a>
                         </div>
                         <%= f.text_area :body, 
