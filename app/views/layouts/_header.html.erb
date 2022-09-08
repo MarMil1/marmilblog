@@ -7,7 +7,11 @@
       <div class="topnav" id="myTopnav">
         <div class="dropdown">
           <button class="dropbtn">
+          <% if current_user.image_data  %>
+            <%= image_tag current_user.image_url, class: "user-gen-blob" %>
+          <% else %>
             <div data-comment-initial=<%= current_user.username[0].capitalize %>></div> 
+          <% end %>
           </button>
           <div class="dropdown-content">
             <%= link_to "Write", new_article_path, class:"nav-link" %>

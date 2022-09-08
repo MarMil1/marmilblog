@@ -3,7 +3,11 @@
         <div class="user-comment-subcontainer">
             <div class="user-blob-comment-guide-container">
                 <a href="<%= user_profile_path(comment.user_id) %>" class="">
-                    <div class="user-blob-img" data-comment-initial=<%= User.find_by(id: comment.user_id).username[0].capitalize %>></div>
+                    <% if User.find_by(id: comment.user_id).image_data  %>
+                            <%= image_tag User.find_by(id: comment.user_id).image_url, class: "user-gen-blob" %>
+                        <% else %>
+                            <div class="user-blob-img" data-comment-initial=<%= User.find_by(id: comment.user_id).username[0].capitalize %>></div>
+                        <% end %>
                 </a>  
                 <div class="reply-comment-guide"></div>
             </div>

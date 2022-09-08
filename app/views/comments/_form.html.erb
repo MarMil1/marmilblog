@@ -1,7 +1,11 @@
 <div class="comment-form-container">
     <% if logged_in? %>
         <a href="<%= user_profile_path(current_user.id) %>" class="">
-            <div class="user-blob-img" data-comment-initial=<%= current_user.username[0].capitalize %>></div>
+            <% if current_user.image_data  %>
+                <%= image_tag current_user.image_url, class: "user-gen-blob user-blob-img" %>
+            <% else %>
+                <div class="user-blob-img" data-index-initial=<%= current_user.username[0].capitalize %>></div>
+            <% end %>
         </a>
     <% end %>
     <%= form_with model: [ @article, @article.comments.build ] do |f| %>

@@ -23,8 +23,9 @@ Rails.application.routes.draw do
   get 'signup'     => 'users#new'
 
   resources :users do
-    get  '/profile'   => 'users#show_user_articles'
-    get  '/favorites' => 'users#favorites'
+    get    '/profile'   => 'users#show_user_articles'
+    get    '/favorites' => 'users#favorites'
+    post   '/delete_profile_image'   => 'users#delete_profile_image', as: :delete_profile_image
     resources :articles, only: [:edit, :create, :destroy] do
       collection do
         delete :destroy_all

@@ -1,6 +1,13 @@
 <div class="bounding-container">
     <%= render 'layouts/back_btn' %>
-    <div class="page-title page-title-favorites"><%= @user.username %></div>
+    <div class="page-title page-title-favorites" style="padding-bottom: 10px;">
+        <% if @user.image_data  %>
+            <%= image_tag @user.image_url, class: "user-profile-blob" %>
+        <% else %>
+            <div data-profile-initial=<%= @user.username[0].capitalize %>></div>
+        <% end %>
+        <%= @user.username %>
+    </div>
     <div class="show-user-articles-metrics">
         <div class="favorites-count"> <i class="fa-solid fa-file-pen" title="Articles count"></i> <%= @user_articles.size %></div>
         <div class="favorites-count"> <i class="far fa-comments" title="Comments count"></i> <%= @user.comments.size %></div>
@@ -31,7 +38,11 @@
                 <a href="<%= user_profile_path(@user_articles[0].user.id) %>">
                     <div class="user-img-name-favorite">
                         <div class="user-img-name">
-                            <div data-index-initial=<%= @user_articles[0].user.username[0].capitalize %>></div>
+                            <% if @user_articles[0].user.image_data  %>
+                                <%= image_tag @user_articles[0].user.image_url, class: "user-gen-blob" %>
+                            <% else %>
+                                <div data-profile-initial=<%= @user_articles[0].user.username[0].capitalize %>></div>
+                            <% end %>
                             <a href="<%= user_profile_path(@user_articles[0].user.id) %>" class="user-name">
                                 <%= @user_articles[0].user.username %>
                             </a>
@@ -83,7 +94,11 @@
                     <a href="<%= user_profile_path(article.user.id) %>">
                         <div class="user-img-name-favorite">
                             <div class="user-img-name">
-                                <div data-index-initial=<%= article.user.username[0].capitalize %>></div>
+                                <% if article.user.image_data  %>
+                                    <%= image_tag article.user.image_url, class: "user-gen-blob" %>
+                                <% else %>
+                                    <div data-profile-initial=<%= article.user.username[0].capitalize %>></div>
+                                <% end %>
                                 <a href="<%= user_profile_path(article.user.id) %>" class="user-name">
                                     <%= article.user.username %>
                                 </a>

@@ -272,13 +272,13 @@
 [data-index-initial]:before {
     content:attr(data-index-initial);
     display:inline-block;
-    font-size: 12px;
-    height: 22px;
-    width: 22px;
+    font-size: 22px;
+    height: 40px;
+    width: 40px;
     line-height:2em;
     text-align:center;
     border-radius:50%;
-    background:gray;
+    background:#61799E;
     vertical-align:middle;
     color:white;
 }
@@ -328,6 +328,7 @@
 
 .in-article-img-container {
     text-align: center;
+    margin-bottom: 50px;
 }
 
 .in-article-img {

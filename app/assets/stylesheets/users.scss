@@ -54,7 +54,7 @@ aside {
     line-height:1.7em;
     text-align:center;
     border-radius:50%;
-    background:gray;
+    background:#61799E;
     vertical-align:middle;
     color:white;
 }
@@ -140,4 +140,44 @@ aside {
   width: fit-content;
   padding: 5px;
   border-radius: 7px;
+}
+
+.user-profile-blob {
+  height: 60px;
+  width: 60px;
+  border-radius: 50%; 
+  border: 2px solid #61799e;
+}
+
+.user-gen-blob {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  border: 2px solid #61799e;
+}
+
+.edit-user-blob {
+  margin-bottom: 10px;
+}
+
+.profile-label {
+  display: inline-block;
+  max-width: 100%;
+  margin-bottom: 5px;
+  font-weight: 700;
+}
+
+.delete-profile-img {
+  border: none;
+  width: fit-content;
+  background-color: inherit;
+  position: absolute;
+  padding: 0px 5px;
+  transform: translate(60px, -5px);
+  // display: none;
+}
+
+.delete-profile-img:hover {
+  border-radius: 5px;
+  background-color: #DDDDDD;
 }

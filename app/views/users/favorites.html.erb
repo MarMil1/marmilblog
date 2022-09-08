@@ -31,7 +31,11 @@
                     <a href="<%= user_profile_path(@favorite_articles[0].user.id) %>">
                         <div class="user-img-name-favorite">
                             <div class="user-img-name">
-                                <div data-index-initial=<%= @favorite_articles[0].user.username[0].capitalize %>></div>
+                                <% if @favorite_articles[0].user.image_data  %>
+                                    <%= image_tag @favorite_articles[0].user.image_url, class: "user-gen-blob" %>
+                                <% else %>
+                                    <div data-profile-initial=<%= @favorite_articles[0].user.username[0].capitalize %>></div>
+                                <% end %>
                                 <a href="<%= user_profile_path(@favorite_articles[0].user.id) %>" class="user-name">
                                     <%= @favorite_articles[0].user.username %>
                                 </a>
@@ -73,7 +77,11 @@
                         <a href="<%= user_profile_path(article.user.id) %>">
                             <div class="user-img-name-favorite">
                                 <div class="user-img-name">
-                                    <div data-index-initial=<%= article.user.username[0].capitalize %>></div>
+                                    <% if article.user.image_data  %>
+                                        <%= image_tag article.user.image_url, class: "user-gen-blob" %>
+                                    <% else %>
+                                        <div data-index-initial=<%= article.user.username[0].capitalize %>></div>
+                                    <% end %>
                                     <a href="<%= user_profile_path(article.user.id) %>" class="user-name">
                                         <%= article.user.username %>
                                     </a>
