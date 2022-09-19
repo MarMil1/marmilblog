@@ -17,3 +17,121 @@
 .user-profile-member-since {
     font-size: 1.5rem;
 }
+
+.user-profile-stats-title {
+    font-size: 2rem;
+    font-weight: 500;
+    border-bottom: 1px solid #eeeeee;
+    margin-top: 30px;
+}
+
+// Grid layout START
+
+.user-profile-stats {
+    margin-top: 10px;
+    display: grid;
+    width: 100%;
+    grid-template-areas: "profile-articles" 
+                         "profile-comments"
+                         "profile-likes"  
+                         "profile-favorites";
+    min-height: fit-content;
+    gap: 20px;
+}
+
+.profile-articles {
+    grid-area: profile-articles;
+    background-color: #f6f6f6;
+    border-radius: 10px;
+    box-shadow: 0px 0px 3px 0px lightgrey;
+    padding: 10px;
+}
+
+.profile-comments {
+    grid-area: profile-comments;
+    background-color: #f6f6f6;
+    border-radius: 10px;
+    box-shadow: 0px 0px 3px 0px lightgrey;
+    padding: 10px;
+}
+
+.profile-likes {
+    grid-area: profile-likes;
+    background-color: #f6f6f6;
+    border-radius: 10px;
+    box-shadow: 0px 0px 3px 0px lightgrey;
+    padding: 10px;
+}
+
+.profile-favorites {
+    grid-area: profile-favorites;
+    background-color: #f6f6f6;
+    border-radius: 10px;
+    box-shadow: 0px 0px 3px 0px lightgrey;
+    padding: 10px;
+}
+
+// Grid layout END
+
+
+.profile-card-title {
+    font-size: 1.5rem;
+    font-weight: 500;
+    border-bottom: 1px solid #eeeeee;
+}
+
+.profile-card-list {
+    margin-top: 10px;
+    font-size: 1.5rem;
+}
+
+.profile-card-list ul {
+    margin: 0;
+}
+
+.profile-card-list-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-left: 2px solid #61799e;
+}
+
+.profile-card-list-item:hover {
+    background-color: white;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.profile-card-list-item > div > div > b, .profile-card-list-item > div > p > b {
+    font-weight: 500;
+    color: #333333;
+}
+
+.profile-card-list-item-controls {
+    display: inline-grid;
+    visibility: hidden;
+}
+
+.profile-card-list-item:hover .profile-card-list-item-controls {
+    visibility: visible;
+}
+
+.profile-card-list-item-control-left {
+    float: left;
+}
+
+.profile-card-list-item-control-left > a {
+    color: #333333;
+}
+
+.profile-card-list-item-control-no-btn {
+    border: none;
+    background: none;
+    padding: 0px;
+}
+
+.profile-card-list-item-control-right {
+    float: right;
+}

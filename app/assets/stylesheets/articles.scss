@@ -587,10 +587,13 @@
     padding: 10px;
     border-radius: 10px;
     margin-bottom: 50px;
+    border: none;
 }
 
 .image-input-form {
     border-radius: 5px;
+    border: none;
+    box-shadow: lightgrey 2px 2px 5px;
 }
 
 .article-input-body {
@@ -600,6 +603,7 @@
     resize: none;
     padding: 10px;
     border-radius: 10px;
+    border: none;
 }
 
 .publish-article {

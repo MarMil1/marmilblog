@@ -102,9 +102,7 @@ $gray-medium-light: #eaeaea;
   }
   
   p {
-    font-size: 1.1em;
     line-height: 1.7em;
-    width: max-content;
   }
   
 
@@ -262,8 +260,8 @@ input, textarea, select, .uneditable-input {
   align-items: center;
   max-width: 100%;
   justify-content: space-between;
-  margin-left: 11%;
-  margin-right: 11.5%;
+  margin-left: 11.5%;
+  margin-right: 10%;
   height: 55px;
 }
 
@@ -303,8 +301,6 @@ input, textarea, select, .uneditable-input {
   background-color: inherit;
   font-family: inherit;
   margin: 0;
-  border-bottom-left-radius: 7px;
-  border-top-left-radius: 7px;
   border-radius: 10px;
 }
 
@@ -545,4 +541,11 @@ li {
 
 .page-title-favorites {
   margin-bottom: 10px;
+}
+
+
+
+.login-content > form > input {
+  border: none;
+  box-shadow: lightgrey 2px 2px 5px;
 }
