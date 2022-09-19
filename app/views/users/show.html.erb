@@ -6,7 +6,9 @@
     
     <div class="user-profile-logo-name">
     <% if @user.image_data  %>
-      <%= image_tag @user.image_url, class: "user-profile-blob" %>
+      <%= image_tag @user.image_url, 
+          class: "user-profile-blob" 
+      %>
     <% else %>
       <div data-profile-initial=<%= @user.username[0].capitalize %>></div>
     <% end %>
@@ -19,9 +21,159 @@
         </div>
       </div>
     </div>
-
-    <div class="user-profile-content">
+    <div class="user-profile-stats-title">
+      History and Stats
     </div>
 
+    <div class="user-profile-stats">
+
+      <div class="profile-articles">
+        <div class="profile-card-title">
+         Articles (<%= Article.where(user_id: current_user.id).count %>)
+        </div>
+        <% if Article.where(user_id: current_user.id).count > 0 %>
+          <div class="profile-card-list">
+            <div>
+              <% Article.where(user_id: current_user.id).each do |article| %>
+                <div class="profile-card-list-item">
+                  <div>
+                    <div>
+                      <b>Created On:</b> <%= Time.at(*article.created_at.to_i).to_s(:db)[0..-10] %>
+                    </div>
+                    <div>
+                      <b>Article:</b> <a href="<%= article_path(article.id) %>"><%= Article.find(article.id).title %></a>
+                    </div>
+                  </div>
+                  <span class="profile-card-list-item-controls">
+                    <div class="profile-card-list-item-control-left" title="Edit">
+                      <a href="<%= edit_user_article_path(article.id, article) %>"><i class="fa-solid fa-pen-to-square article-reactions-btn"></i></a>
+                    </div>
+                    <div class="profile-card-list-item-control-right" title="Delete">
+                      <%= button_to user_article_path(article.id, article), method: :delete, class:"profile-card-list-item-control-no-btn" do %> 
+                        <i class="fa-solid fa-trash-can article-reactions-btn"></i>
+                      <% end %>
+                    </div>
+                  </span>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        <% else %>
+          <div>No articles found.</div>
+        <% end %>
+      </div>
+
+      <div class="profile-comments">
+        <div class="profile-card-title">
+         Comments (<%= Comment.where(user_id: current_user.id).count %>)
+        </div>
+        <% if Comment.where(user_id: current_user.id).count > 0 %>
+          <div class="profile-card-list">
+            <div>
+              <% Comment.where(user_id: current_user.id).each do |comment| %>
+                <div class="profile-card-list-item">
+                  <div>
+                    <div>
+                      <b>Created On:</b> <%= Time.at(*comment.created_at.to_i).to_s(:db)[0..-10] %>
+                    </div>
+                    <div>
+                      <b>Article:</b> <a href="<%=  article_path(comment.article_id) %>"><%= Article.find(comment.article_id).title %></a>
+                    </div>
+                    <p>
+                      <b>Comment:</b> <%= comment.body %>
+                    </p>
+                  </div>
+                  <span class="profile-card-list-item-controls">
+                    <div class="profile-card-list-item-control-left" title="Edit">
+                      <a href="<%= edit_article_comment_path(comment.article_id, comment) %>"><i class="fa-solid fa-pen-to-square article-reactions-btn"></i></a>
+                    </div>
+                    <div class="profile-card-list-item-control-right" title="Delete">
+                      <%= button_to article_comment_path(comment.article_id, comment), method: :delete, class:"profile-card-list-item-control-no-btn" do %> 
+                        <i class="fa-solid fa-trash-can article-reactions-btn"></i>
+                      <% end %>
+                    </div>
+                  </span>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        <% else %>
+          <div>No comments found.</div>
+        <% end %>
+      </div>
+
+      <div class="profile-likes">
+        <div class="profile-card-title">
+         Likes (<%= Article.joins(:likes).where(likes: { user_id: current_user.id }).count %>)
+        </div>
+        <% if Article.joins(:likes).where(likes: { user_id: current_user.id }).count > 0 %>
+          <div class="profile-card-list">
+            <div>
+              <% Article.joins(:likes).where(likes: { user_id: current_user.id }).each do |article| %>
+                <div class="profile-card-list-item">
+                  <div>
+                    <div>
+                      <b>Liked On:</b> <%= Time.at(*article.created_at.to_i).to_s(:db)[0..-10] %>
+                    </div>
+                    <div>
+                      <b>Article:</b> <a href="<%= article_path(article.id) %>"><%= Article.find(article.id).title %></a>
+                    </div>
+                  </div>
+                  <span class="profile-card-list-item-controls">
+                    <div class="profile-card-list-item-control-right" title="Delete">
+                      <% pre_like = article.likes.find { |like| like.user_id == current_user.id} %>
+                      <% if pre_like %>
+                          <%= button_to article_like_path(article, pre_like), method: :delete, class:"favorite-article-btn" do %> 
+                              <i class="fa-solid fa-thumbs-up article-reactions-btn" title="Unlike article"></i>
+                          <% end %>
+                      <% end %>
+                    </div>
+                  </span>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        <% else %>
+          <div>No likes found.</div>
+        <% end %>
+      </div>
+
+      <div class="profile-favorites">
+        <div class="profile-card-title">
+         Favorites (<%= Article.joins(:favorites).where(favorites: { user_id: current_user.id }).count %>)
+        </div>
+        <% if Article.joins(:favorites).where(favorites: { user_id: current_user.id }).count > 0 %>
+          <div class="profile-card-list">
+            <div>
+              <% Article.joins(:favorites).where(favorites: { user_id: current_user.id }).each do |article| %>
+                <div class="profile-card-list-item">
+                  <div>
+                    <div>
+                      <b>Liked On:</b> <%= Time.at(*article.created_at.to_i).to_s(:db)[0..-10] %>
+                    </div>
+                    <div>
+                      <b>Article:</b> <a href="<%= article_path(article.id) %>"><%= Article.find(article.id).title %></a>
+                    </div>
+                  </div>
+                  <span class="profile-card-list-item-controls">
+                    <div class="profile-card-list-item-control-right" title="Remove favorite">
+                      <% if current_user.favorite_articles.exists?(article.id) %>
+                          <%= button_to article_favorites_path(article), method: :delete, class:"favorite-article-btn" do %>
+                              <i class="fa-solid fa-star"></i>
+                          <% end %>
+                      <% end %>
+                    </div>
+                  </span>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        <% else %>
+          <div>No favorites found.</div>
+        <% end %>
+      </div>
+      
+    </div>
+    
   </div>
 </div>

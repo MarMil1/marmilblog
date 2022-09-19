@@ -8,7 +8,7 @@ class LikesController < ApplicationController
         else
             @article.likes.create(user_id: current_user.id)
         end
-        redirect_to article_path(@article)
+        redirect_to request.referrer
     end
 
     def destroy
@@ -17,7 +17,7 @@ class LikesController < ApplicationController
         else
             @like.destroy
         end
-        redirect_to article_path(@article)
+        redirect_to request.referrer
     end
 
     def find_like
