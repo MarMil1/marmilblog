@@ -35,11 +35,11 @@
             <div class="dropbtn-more-section" title="More"><i class="fas fa-ellipsis-h"></i></div>
             <div class="dropdown-content-more-section">
                 <% if current_user?(@article.user) %>
-                    <%= link_to "Edit this article", 
+                    <%= link_to "Edit article", 
                         edit_article_path(@article),
                         class: "edit-article" 
                     %>
-                    <%= button_to "Delete this article", 
+                    <%= button_to "Delete article", 
                         article_path(@article), 
                         method: :delete, 
                         data: { confirm: "Are you sure?" },

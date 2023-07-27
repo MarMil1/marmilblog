@@ -16,11 +16,9 @@
 
 .main-comment-textarea {
     resize: none;
-    border: none;
+    border: 1px solid #DDDDDD;
     padding: 10px;
     font-size: 15px;
-    border-radius: 10px;
-    box-shadow: 0px 0px 3px 0px lightgrey;
     height: 40px;
     overflow: hidden;
 }
@@ -49,11 +47,11 @@
 
 .main-post-comment-btn {
     width: fit-content;
-    padding: 7px;
-    border: 1px solid #61799E;
-    border-radius: 7px;
-    background-color: inherit;
+    padding: 5px 8px;
+    background-color: #2965BC;
     margin-left: 10px;
+    color: #FFF;
+    text-transform: uppercase;
 }
 
 .main-post-comment-btn:focus {
@@ -61,6 +59,6 @@
 }
 
 .main-post-comment-btn:hover {
-    background-color: #61799E;
+    background-color: #3075dc;
     color: white;
 }

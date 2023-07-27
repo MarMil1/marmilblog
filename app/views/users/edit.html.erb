@@ -1,11 +1,10 @@
 <div class="bounding-container">
-    <%= render 'layouts/back_btn' %>
     <div class="page-title">Settings</div>
     <% provide(:title, "Edit user") %>
 
     <div class="login-container" style="margin-top: 50px;">
     <div class="login-content">
-    <div class="profile-label">Current Profile Image</div>
+    <div class="profile-label">Current profile image</div>
         <div class="edit-user-blob">
             <% if current_user.image_data.nil?  %>
                 <div data-profile-initial=<%= current_user.username[0].capitalize %>></div>
@@ -21,8 +20,8 @@
         <%= form_for(@user) do |f| %>
         <%= render 'shared/error_messages', object: f.object  %>
 
-         <div class="field">
-            <div class="profile-label">Upload New Profile Image</div>
+         <div class="field" style="display: flex; flex-direction: column;">
+            <div class="profile-label">Upload new profile image</div>
             <%= f.file_field :image, class: "image-input-form" %>
         </div>
 
@@ -35,7 +34,7 @@
         <%= f.label :password %>
         <%= f.password_field :password, class: 'form-control' %>
 
-        <%= f.label :password_confirmation, "Confirm Password" %>
+        <%= f.label :password_confirmation, "Confirm password" %>
         <%= f.password_field :password_confirmation, class: 'form-control' %>
 
         <%= f.submit "Save changes", class: "btn save-settings-btn" %>
@@ -46,7 +45,7 @@
                 <h3>Danger Zone</h3>
                 <br>
                 <div class="danger-zone-items">
-                    <p>This will delete your entire profile and all posts</p>
+                    <p>Delete your entire profile, all articles, comments, likes, and favorites associated.</p>
                     <button id="delete-user-button" class="btn delete-user-btn-container">
                         <%= button_to "Delete User Profile", 
                         @user, 
@@ -59,7 +58,7 @@
                 <br>
 
                 <div class="danger-zone-items">
-                    <p>This will delete all of your articles</p>
+                    <p>Delete all of your articles and all comments, likes, and favorites associated.</p>
                     <button id="delete-user-button" class="btn delete-user-btn-container">
                         <%= button_to "Delete All Articles", 
                             destroy_all_user_articles_path(current_user), 
@@ -73,7 +72,7 @@
                 <br>
 
                 <div class="danger-zone-items">
-                    <p>This will delete all of your comments</p>
+                    <p>Delete all of your comments along with likes and nested comments associated.</p>
                     <button id="delete-user-button" class="btn delete-user-btn-container">
                         <%= button_to "Delete All Comments", 
                             destroy_all_article_comments_url(current_user), 

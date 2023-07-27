@@ -14,8 +14,26 @@
           <% end %>
           </button>
           <div class="dropdown-content">
+          <%= link_to current_user, class:"nav-user-container-link" do %>
+              <div class="nav-user-container">
+                <div class="nav-user-img">
+                  <% if current_user.image_data  %>
+                    <%= image_tag current_user.image_url, class: "user-gen-blob" %>
+                  <% else %>
+                    <div data-comment-initial=<%= current_user.username[0].capitalize %>></div> 
+                  <% end %>
+                </div>
+                <div class="nav-username-email">
+                  <div class="nav-username">
+                    <%= current_user.username %>
+                  </div>
+                  <div class="nav-email">
+                    <%= current_user.email %>
+                  </div>
+                </div>
+              </div>
+            <% end %>
             <%= link_to "Write", new_article_path, class:"nav-link" %>
-            <%= link_to "Profile", current_user, class:"nav-link" %>
             <%= link_to "Settings", edit_user_path(current_user), class:"nav-link" %>
             <%= link_to "About",   about_path, class:"nav-link" %>
             <%= link_to "Contact", contact_path, class:"nav-link" %>
@@ -23,7 +41,6 @@
             <%= button_to "Log out", logout_path, method: :delete, class:"nav-link logout-header-btn", style:"background-color:lightred;" %>
           </div>
         </div>
-        <%# <a href="javascript:void(0);" style="font-size:15px;" class="icon nav-link" onclick="myFunction()">&#9776;</a> %>
       </div>
     </div>
   </div>
@@ -35,7 +52,6 @@
     <div class="nav-login-btns">
       <%= link_to "Log in", login_path, class:"nav-login-btn" %>
       <%= link_to "Sign Up", signup_path, class:"nav-signup-btn" %>
-      <%# <a href="javascript:void(0);" style="font-size:15px;" class="icon nav-link" onclick="myFunction()">&#9776;</a> %>
     </div>
   </div>
 </div>
