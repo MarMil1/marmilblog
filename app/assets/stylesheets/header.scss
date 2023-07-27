@@ -1,27 +1,24 @@
 .nav-login-btn {
-    background-color: inherit;
-    border: 1px solid #61799E;
-    border-radius: 7px;
     padding: 7px;
+    color: #2965BC;
+    font-weight: 600;
 }
 
 .nav-signup-btn {
-    background-color: #9E6179;
-    border: 1px solid #61799E;
-    border-radius: 7px;
     padding: 7px;
-    color: white;
+    color: #FFF;
+    background-color: #2965BC;
+    font-weight: 600;
 }
 
 .nav-login-btn:hover {
     text-decoration: none;
-    background-color: #61799E;
-    color: white;
+    color: #3075dc;
 }
 
 .nav-signup-btn:hover {
     text-decoration: none;
-    background-color: #799E61;
+    background-color: #3075dc;
     color: white;
 }
 

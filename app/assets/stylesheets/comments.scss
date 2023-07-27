@@ -19,11 +19,9 @@
 
 .comment-textarea {
     resize: none;
-    border: none;
+    border: 1px solid #DDDDDD;
     padding: 10px;
     font-size: 15px;
-    border-radius: 10px;
-    box-shadow: 0px 0px 3px 0px lightgrey;
     height: 40px;
     overflow: hidden;
 }
@@ -51,7 +49,7 @@
 }
 
 .comment-reply-btn:hover {
-    color: #61799E;
+    color: #393939;
 }
 
 .open-post-comment-reply {
@@ -68,11 +66,11 @@
 
 .post-comment-btn {
     width: fit-content;
-    padding: 7px;
-    border: 1px solid #61799E;
-    border-radius: 7px;
-    background-color: inherit;
+    padding: 5px 8px;
+    background-color: #2965BC;
     margin-left: 10px;
+    color: #FFF;
+    text-transform: uppercase;
 }
 
 .post-comment-btn:focus {
@@ -80,7 +78,7 @@
 }
 
 .post-comment-btn:hover {
-    background-color: #61799E;
+    background-color: #3075dc;
     color: white;
 }
 
@@ -112,9 +110,7 @@
     justify-content: space-between;
     flex-direction: column;
     padding: 10px;
-    border-radius: 10px;
     background-color: white;
-    box-shadow: 0px 0px 3px 0px lightgrey;
 }
 
 .user-comment-info-settings-subcontainer {
@@ -125,7 +121,6 @@
 .reply-comment-guide {
     border-left: 3px solid #61799e;
     height: 115px;
-    border-bottom-left-radius: 20px;
     width: 5px;
 }
 

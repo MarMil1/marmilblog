@@ -1,5 +1,6 @@
-<%= render 'articles/first_article' %>
-<% @articles.drop(1).each do |article| %>
+<%# <%= render 'articles/first_article' %>
+<div class="article-filter-type">Latest</div>
+<% @articles.each do |article| %>
     <div class="single-article-container">
         
         <div class="article-container">
@@ -15,27 +16,6 @@
                             <%= article.user.username %>
                         </a>
                     </div>
-                    <% if logged_in? %>
-                        <div class="favorites-section stand-alone">
-                            <% if current_user.favorite_articles.exists?(article.id) %>
-                                <%= button_to article_favorites_path(article), method: :delete, class:"favorite-article-btn" do %>
-                                    <i class="fa-solid fa-star" title="In Favorites"></i>
-                                <% end %>
-                            <% else %>
-                                <%= button_to article_favorites_path(article), method: :post, class:"favorite-article-btn" do %>
-                                    <i class="fa-regular fa-star" title="Add to Favorites"></i>
-                                <% end %>
-                            <% end %>
-                        </div>
-                    <% else %>
-                        <div class="favorites-section stand-alone">
-                            <a href="<%= signup_path %>" class="favorite-article-btn">
-                                <div title="Favorite">
-                                    <i class="fa-regular fa-star" title="Add to Favorites"></i>
-                                </div>
-                            </a>
-                        </div>
-                    <% end %>
                 </div>
             </a>
             <div class="article-title">
@@ -47,10 +27,49 @@
             <div class="article-info" style="color: gray;">
                 <%= Time.at(*article.created_at.to_i).to_s(:long_ordinal)[0..-6]%>
                 <div style="margin-left: 10px;">
-                    <i class="far fa-comments disable-hover"></i> <%= article.comments.count %> <%= "Comment".pluralize(article.comments.length) %>
-                    <i class="far fa-thumbs-up disable-hover" style="margin-left: 10px;"></i> <%= article.likes.count %> <%= "Like".pluralize(article.likes.length) %>
+                    <i class="far fa-comments disable-hover"></i> <%= article.comments.count %>
+                    <i class="far fa-thumbs-up disable-hover" style="margin-left: 10px;"></i> <%= article.likes.count %>
                 </div>
+                <% if logged_in? %>
+                    <div class="favorites-section stand-alone">
+                        <% if current_user.favorite_articles.exists?(article.id) %>
+                            <%= button_to article_favorites_path(article), method: :delete, class:"favorite-article-btn" do %>
+                                <i class="fa-solid fa-star" title="In Favorites"></i>
+                            <% end %>
+                        <% else %>
+                            <%= button_to article_favorites_path(article), method: :post, class:"favorite-article-btn" do %>
+                                <i class="fa-regular fa-star" title="Add to Favorites"></i>
+                            <% end %>
+                        <% end %>
+                    </div>
+                <% else %>
+                    <div class="favorites-section stand-alone">
+                        <a href="<%= signup_path %>" class="favorite-article-btn">
+                            <div title="Favorite">
+                                <i class="fa-regular fa-star" title="Add to Favorites"></i>
+                            </div>
+                        </a>
+                    </div>
+                <% end %>
             </div>
         </div>
+        <a href="<%= article_path(article) %>">
+            <% if article.image_url %>
+                <div class="single-article-img">
+                    <img 
+                    src="<%= article.image_url %>"
+                    alt="Article image" 
+                    class="single-article-cover-img"
+                >
+                </div>
+            <% else %>
+                <div class="single-article-img">
+                    <%= image_tag "default-article-img.jpg",
+                        alt: "Default article image", 
+                        class: "single-article-cover-img"
+                    %>
+                </div>
+            <% end %>
+        </a>
     </div>
 <% end %>

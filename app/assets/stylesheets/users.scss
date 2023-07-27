@@ -62,31 +62,31 @@ aside {
 // Settings Page
 
   .save-settings-btn {
-    background-color: #61799e;
+    background-color: #2965BC;
     color: #ffffff;
-    border-radius: 7px;
+    text-transform: uppercase;
+    border-radius: 0px;
   }
 
   .save-settings-btn:hover {
-    background-color: #799E61;
+    background-color: #3075dc;
     color: #f2f2f2;
   }
   
   .danger-zone {
       margin-top: 50px;
-      border: 1px solid rgb(161, 151, 151);
-      border-radius: 10px;
+      border: 1px solid #cccccc;
       padding: 15px;
   }
 
   .danger-zone-items {
       display: flex;
-      justify-content: space-between;
-      align-items: center;
+      flex-direction: column;
+      align-items: stretch;
   }
 
   .delete-user-btn-container {
-    background-color: #9E6179;
+    background-color: #df1465;
     color: #f2f2f2;
     height: 40px;
   }
@@ -100,22 +100,16 @@ aside {
       background-color: inherit;
       border: none;
       font-size: 14px;
+      text-transform: uppercase;
   }
 
   .delete-user-btn-container:hover {
-    background-color: #799E61;
+    background-color: #fb1873;
   }
   
   .delete-user-btn:link {
     color: white;
     text-decoration: none;
-}
-
-@media screen and (max-width: 1348px) {
-  .danger-zone-items {
-    flex-direction: column;
-    align-items: stretch;
-  }
 }
 
 // Login page
@@ -126,6 +120,27 @@ aside {
   color: #333333;
   font-size: 1.1em;
   line-height: 1.7em;
+  margin-top: 20px;
+}
+
+.to-login-page .nav-link {
+  color:#2965BC;
+  margin-left: 10px;
+}
+
+.to-login-page .nav-link:hover {
+  background-color: inherit;
+}
+
+.sign-up-now-btn {
+  margin-left: 10px;
+  color: #2965BC;
+  text-transform: uppercase;
+}
+
+.sign-up-now-btn:hover {
+  text-decoration: none;
+  color: #2965BC;
 }
 
 // Show user articles
@@ -153,7 +168,6 @@ aside {
   height: 40px;
   width: 40px;
   border-radius: 50%;
-  border: 2px solid #61799e;
 }
 
 .edit-user-blob {

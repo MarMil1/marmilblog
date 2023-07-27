@@ -1,5 +1,4 @@
 <div class="bounding-container">
-  <%= render 'layouts/back_btn' %>
   <div class="page-title">Log In</div>
   <% provide(:title, "Log in") %>
 
@@ -21,9 +20,9 @@
           <%= f.submit "Log in", class: "btn save-settings-btn" %>
         <% end %>
 
-        <p style="margin-top: 5px;">
+        <p class="to-login-page">
           New user? 
-          <%= link_to "Sign up now!", signup_path %>
+          <%= link_to "Sign Up", signup_path, class: "sign-up-now-btn" %>
         </p>
     </div>
   </div>

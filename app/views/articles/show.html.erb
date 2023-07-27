@@ -1,5 +1,4 @@
 <div class="full-article-container">
-    <%= render 'layouts/back_btn' %>
     <div class="page-title"><%= @article.title %></div>
     <div class="full-article-info-settings">
 
@@ -41,8 +40,6 @@
 
         <p><%= markdown(@article.body) %></p>
     </div>
-
-    <hr/>
 
     <div class="comments-likes-report-section">
         <div class="likes-comments-section">
