@@ -95,9 +95,12 @@ GEM
       aws_cf_signer
       rest-client (>= 2.0.0)
     concurrent-ruby (1.2.2)
+    connection_pool (2.4.1)
     content_disposition (1.0.0)
     crass (1.0.6)
     date (3.3.3)
+    dockerfile-rails (1.5.2)
+      rails
     domain_name (0.5.20190701)
       unf (>= 0.0.5, < 1.0.0)
     dotenv (2.8.1)
@@ -154,9 +157,9 @@ GEM
     mime-types-data (3.2023.0218.1)
     mini_magick (4.12.0)
     mini_mime (1.1.2)
-    minitest (5.18.1)
+    minitest (5.19.0)
     msgpack (1.7.2)
-    net-imap (0.3.6)
+    net-imap (0.3.7)
       date
       net-protocol
     net-pop (0.1.2)
@@ -167,6 +170,8 @@ GEM
       net-protocol
     netrc (0.11.0)
     nio4r (2.5.9)
+    nokogiri (1.15.3-aarch64-linux)
+      racc (~> 1.4)
     nokogiri (1.15.3-arm64-darwin)
       racc (~> 1.4)
     nokogiri (1.15.3-x86_64-darwin)
@@ -218,13 +223,17 @@ GEM
     rb-inotify (0.10.1)
       ffi (~> 1.0)
     redcarpet (3.6.0)
+    redis (5.0.6)
+      redis-client (>= 0.9.0)
+    redis-client (0.14.1)
+      connection_pool
     regexp_parser (2.8.1)
     rest-client (2.1.0)
       http-accept (>= 1.7.0, < 2.0)
       http-cookie (>= 1.0.2, < 2.0)
       mime-types (>= 1.16, < 4.0)
       netrc (~> 0.8)
-    rexml (3.2.5)
+    rexml (3.2.6)
     ruby-vips (2.1.4)
       ffi (~> 1.12)
     rubyzip (2.3.2)
@@ -293,6 +302,7 @@ GEM
     zeitwerk (2.6.9)
 
 PLATFORMS
+  aarch64-linux
   arm64-darwin-21
   x86_64-darwin-20
   x86_64-darwin-21
@@ -305,17 +315,20 @@ DEPENDENCIES
   breadcrumbs_on_rails
   byebug
   capybara (>= 3.26)
+  dockerfile-rails (>= 1.5)
   dotenv-rails
   font-awesome-sass
   image_processing (~> 1.2)
   jbuilder (~> 2.7)
   listen (~> 3.3)
+  mime-types (~> 3.1)
   nokogiri
   pg (~> 1.1)
   puma (~> 5.0)
   rack-mini-profiler (~> 2.0)
   rails (~> 7.0.3.1)
   redcarpet
+  redis (~> 5.0)
   sass-rails (>= 6)
   selenium-webdriver
   shrine (~> 3.3)
