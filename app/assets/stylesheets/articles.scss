@@ -194,7 +194,6 @@
 
 .all-articles {
     max-width: 600px;
-    margin: auto;
     gap: 30px;
     display: flex;
     flex-direction: column;
@@ -209,6 +208,10 @@
 }
 
 @media screen and (max-width: 753px) {
+    .all-articles {
+        margin: auto;
+    }
+    
     .latest-popular-index-filter {
         display: none;
     }
@@ -261,6 +264,7 @@
 .full-article-container .page-title, 
 .article-container .article-title .article-title-link {
     font-family: 'Lora', serif;
+    font-weight: 500;
 }
 
 .full-article-body * {
