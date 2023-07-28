@@ -110,7 +110,7 @@
     justify-content: space-between;
     flex-direction: column;
     padding: 10px;
-    background-color: white;
+    background-color: #f0f0f0;
 }
 
 .user-comment-info-settings-subcontainer {
@@ -259,11 +259,9 @@
 
 .comment-textarea-edit-article {
     resize: none;
-    border-radius: 10px;
     padding: 10px;
     overflow: hidden;
-    border: none;
-    box-shadow: lightgrey 2px 2px 5px;
+    border: 1px solid #DDDDDD;
     width: 90%;
 }
 

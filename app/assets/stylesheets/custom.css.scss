@@ -528,13 +528,11 @@ li {
 
 .page-title {
   font-size: 3rem;
-  font-weight: bold;
   margin-bottom: 10px;
 }
 
 @media screen and (max-width: 753px) {
   .page-title {
-    font-size: 2rem;
     max-width: 600px;
   }
 }
