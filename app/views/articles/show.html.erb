@@ -62,7 +62,7 @@
                         </div>
                     </a>
                 <% end %>
-                <div style="font-size:14px"><%= @article.likes.count %> <%= "Like".pluralize(@article.likes.length) %></div>
+                <div style="font-size:14px"><%= @article.likes.count %></div>
             </div>
             
             <div class="comments-section">
@@ -71,7 +71,7 @@
                 <% else %>
                     <i class="far fa-comments article-reactions-btn" data-toggle="modal" data-target="#modal-right" data-toggle-class="modal-open-aside" title="Comment article"></i>
                 <% end %>
-                <div style="font-size:14px"><%= @article.comments.count %> <%= "Comment".pluralize(@article.comments.length) %></div>
+                <div style="font-size:14px"><%= @article.comments.count %></div>
                 <%= render "articles/modal", article: @article %>
             </div>
         </div>
