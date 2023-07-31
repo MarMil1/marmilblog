@@ -2,59 +2,144 @@
   <div class="nav-container">
     <div class="nav-sub-container">
       <div class="logo-container">
-        <%= link_to "MARMIL_BLOG", root_path, id: "logo" %>
+        <%= link_to "SANDGLASS", root_path, id: "logo" %>
       </div>
-      <div class="topnav" id="myTopnav">
-        <div class="dropdown">
-          <button class="dropbtn">
-          <% if current_user.image_data  %>
-            <%= image_tag current_user.image_url, class: "user-gen-blob" %>
-          <% else %>
-            <div data-comment-initial=<%= current_user.username[0].capitalize %>></div> 
-          <% end %>
-          </button>
-          <div class="dropdown-content">
-          <%= link_to current_user, class:"nav-user-container-link" do %>
-              <div class="nav-user-container">
-                <div class="nav-user-img">
-                  <% if current_user.image_data  %>
-                    <%= image_tag current_user.image_url, class: "user-gen-blob" %>
-                  <% else %>
-                    <div data-comment-initial=<%= current_user.username[0].capitalize %>></div> 
-                  <% end %>
+      <div class="mobile-btn-logo">
+        <div class="open-mobile-menu-btn" onclick="toggleMobileMenuLogged()">
+          <span class="mobile-menu-btn-item"></span>
+          <span class="mobile-menu-btn-item"></span>
+          <span class="mobile-menu-btn-item"></span>
+        </div>
+        <div id="mobile-nav-logged" class="mobile-nav-container">
+          <%= render 'layouts/mobilenav' %>
+        </div>
+        <a href="<%= articles_path %>" class="mobile-logo">
+          <div>SANDGLASS</div>
+        </a>
+      </div>
+      <div class="nav-menu-dropdown-container">
+          <div class="nav-menu-btns">
+            <a href="<%= articles_path %>">
+              <div class="nav-link <%= active_class_desktop?(articles_path) %>">
+                  Home
+              </div>
+            </a>
+            <a href="<%= new_article_path %>">
+              <div class="nav-link <%= active_class_desktop?(new_article_path) %>">
+                  Write
+              </div>
+            </a>
+            <a href="<%= user_favorites_path(current_user) %>">
+              <div class="nav-link <%= active_class_desktop?(user_favorites_path(current_user)) %>">
+                  Favorites
+              </div>
+            </a>
+            <a href="<%= about_path %>">
+                <div class="nav-link <%= active_class_desktop?(about_path) %>">
+                    About
                 </div>
-                <div class="nav-username-email">
-                  <div class="nav-username">
-                    <%= current_user.username %>
+            </a>
+            <a href="<%= contact_path %>">
+                <div class="nav-link <%= active_class_desktop?(contact_path) %>">
+                    Contact
+                </div>
+            </a>
+            <a href="<%= help_path %>">
+                <div class="nav-link <%= active_class_desktop?(help_path) %>">
+                    Help
+                </div>
+            </a>
+          </div>
+
+          <div class="topnav" id="myTopnav">
+            <div class="dropdown">
+              <button class="dropbtn">
+              <% if current_user.image_data  %>
+                <%= image_tag current_user.image_url, class: "user-gen-blob" %>
+              <% else %>
+                <div data-comment-initial=<%= current_user.username[0].capitalize %>></div> 
+              <% end %>
+              </button>
+              <div class="dropdown-content">
+              <%= link_to current_user, class:"nav-user-container-link" do %>
+                  <div class="nav-user-container">
+                    <div class="nav-user-img">
+                      <% if current_user.image_data  %>
+                        <%= image_tag current_user.image_url, class: "user-gen-blob" %>
+                      <% else %>
+                        <div data-comment-initial=<%= current_user.username[0].capitalize %>></div> 
+                      <% end %>
+                    </div>
+                    <div class="nav-username-email">
+                      <div class="nav-username">
+                        <%= current_user.username %>
+                      </div>
+                      <div class="nav-email">
+                        <%= current_user.email %>
+                      </div>
+                    </div>
                   </div>
-                  <div class="nav-email">
-                    <%= current_user.email %>
-                  </div>
+                <% end %>
+                <div class="dropdown-menu-nav">
+                  <%= link_to "Write New Article", new_article_path, class:"nav-link" %>
+                  <%= link_to "Account Settings", edit_user_path(current_user), class:"nav-link" %>
+                  <%= button_to "Log out", logout_path, method: :delete, class:"nav-link logout-header-btn" %>
                 </div>
               </div>
-            <% end %>
-            <%= link_to "Write", new_article_path, class:"nav-link" %>
-            <%= link_to "Settings", edit_user_path(current_user), class:"nav-link" %>
-            <%= link_to "About",   about_path, class:"nav-link" %>
-            <%= link_to "Contact", contact_path, class:"nav-link" %>
-            <%= link_to "Help",    help_path, class:"nav-link" %>
-            <%= button_to "Log out", logout_path, method: :delete, class:"nav-link logout-header-btn", style:"background-color:lightred;" %>
+            </div>
           </div>
+
+      </div>
+      
+    </div>
+  </div>
+<%# IF LOGGED OUT %>
+<% else %>
+<div class="nav-container">
+  <div class="nav-sub-container">
+    <%= link_to "SANDGLASS", root_path, id: "logo" %>
+      <div class="open-mobile-menu-btn" onclick="toggleMobileMenuReg()" style="margin-right: 15px">
+        <span class="mobile-menu-btn-item"></span>
+        <span class="mobile-menu-btn-item"></span>
+        <span class="mobile-menu-btn-item"></span>
+      </div>
+      <div id="mobile-nav-reg" class="mobile-nav-container">
+        <%= render 'layouts/mobilenav' %>
+      </div>
+      <div class="nav-menu-btns">
+        <a href="<%= articles_path %>">
+          <div class="nav-link <%= active_class_desktop?(articles_path) %>">
+              Home
+          </div>
+        </a>
+        <a href="<%= signup_path %>">
+              <div class="nav-link">
+                  Write
+              </div>
+          </a>
+        <a href="<%= about_path %>">
+            <div class="nav-link <%= active_class_desktop?(about_path) %>">
+                About
+            </div>
+        </a>
+        <a href="<%= contact_path %>">
+            <div class="nav-link <%= active_class_desktop?(contact_path) %>">
+                Contact
+            </div>
+        </a>
+        <a href="<%= help_path %>">
+            <div class="nav-link <%= active_class_desktop?(help_path) %>">
+                Help
+            </div>
+        </a>
+      
+        <div class="nav-login-btns">
+          <%= link_to "Log in", login_path, class:"nav-login-btn" %>
+          <%= link_to "Sign Up", signup_path, class:"nav-signup-btn" %>
         </div>
       </div>
     </div>
   </div>
-
-<% else %>
-<div class="nav-container">
-  <div class="nav-sub-container">
-    <%= link_to "MARMIL_BLOG", root_path, id: "logo" %>
-    <div class="nav-login-btns">
-      <%= link_to "Log in", login_path, class:"nav-login-btn" %>
-      <%= link_to "Sign Up", signup_path, class:"nav-signup-btn" %>
-    </div>
-  </div>
-</div>
 <% end %>
 
 
@@ -68,4 +153,15 @@
       x.className = "topnav";
     }
   }
+
+  function toggleMobileMenuLogged() {
+    var mobileMenuBtnLogged = document.getElementById('mobile-nav-logged');
+    mobileMenuBtnLogged.classList.toggle("mobile-nav-container-visible");
+  }
+
+  function toggleMobileMenuReg() {
+    var mobileMenuBtnLogged = document.getElementById('mobile-nav-reg');
+    mobileMenuBtnLogged.classList.toggle("mobile-nav-container-visible");
+  }
+
 </script>

@@ -13,6 +13,9 @@ Rails.application.routes.draw do
   get '/help' => 'static_pages#help'
   get '/contact' => 'static_pages#contact'
   get '/about' => 'static_pages#about'
+  get '/privacy_policy' => 'static_pages#privacy_policy'
+  get '/terms_and_conditions' => 'static_pages#terms_and_conditions'
+  get '/disclaimer' => 'static_pages#disclaimer'
 
   # Session tracking routes
   get    'login'   => 'sessions#new'

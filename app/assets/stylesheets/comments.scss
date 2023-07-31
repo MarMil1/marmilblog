@@ -24,6 +24,7 @@
     font-size: 15px;
     height: 40px;
     overflow: hidden;
+    border-radius: 5px;
 }
 
 .expanded {
@@ -71,6 +72,7 @@
     margin-left: 10px;
     color: #FFF;
     text-transform: uppercase;
+    border-radius: 5px;
 }
 
 .post-comment-btn:focus {
@@ -111,6 +113,7 @@
     flex-direction: column;
     padding: 10px;
     background-color: #f0f0f0;
+    border-radius: 5px;
 }
 
 .user-comment-info-settings-subcontainer {
@@ -263,6 +266,7 @@
     overflow: hidden;
     border: 1px solid #DDDDDD;
     width: 90%;
+    border-radius: 5px;
 }
 
 // Comment Replies

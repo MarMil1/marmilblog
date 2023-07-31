@@ -1,17 +1,19 @@
-<div class="hero-container" style="background: linear-gradient(122deg, rgba(162,162,162,1) 0%, rgba(167,170,182,1) 22%, rgba(138,140,153,1) 50%, rgba(181,181,181,1) 75%, rgba(237,237,237,1) 100%);">
-  <h1 class="container-item">
-    Share your stories and reach the world.
-  </h1>
-  <h2 class="container-item">
-    Writing and reading stories from all over the world has never been easier.
-  </h2>
-  <% if logged_in? %>
-      <button class="container-item hero-button">
-          <%= link_to "Write Something", new_article_path, class:"nav-link" %>
-      </button>
-  <% else %>
-      <button class="container-item hero-button">
-          <%= link_to "Get Started", signup_path, class:"nav-link" %>
-      </button>
-  <% end %>
+<div class="landing-container">
+  <%= image_tag "homepage.webp",
+      alt: "Colorful landing section", 
+      class: "landing-image"
+  %>
+  <div class="landing-title-body">
+    <div class="landing-title">READ, WRITE & CONNECT</div>
+    <p class="landing-body">Write articles, share stories, post comments, and stay in control of your content. Join us now!</p>
+    <% if logged_in? %>
+      <a href="<%= new_article_path %>" class="landing-cta-link">
+        <button class="landing-cta">Write</button>
+      </a>
+    <% else %>
+      <a href="<%= signup_path %>" class="landing-cta-link">
+        <button class="landing-cta">Join Us</button>
+      </a>
+    <% end %>
+  </div>
 </div>
