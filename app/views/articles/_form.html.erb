@@ -40,8 +40,8 @@
 
 <script>
     // To resize text area as user is typing
-    let textarea = document.getElementById("article-input-body");
-    textarea.addEventListener('input', autoResize, false);
+    var textarea = document.getElementById("article-input-body");
+    textarea.addEventListener('focus', autoResize, false);
     
     function autoResize() {
         this.style.height = 'auto';

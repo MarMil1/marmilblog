@@ -1,11 +1,68 @@
+.nav-menu-btns {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.nav-menu-btns a:hover {
+    text-decoration: none;
+}
+
+@media screen and (max-width: 770px) {
+    .nav-menu-btns {
+        display: none;
+    }
+
+    .logo-container {
+        display: none;
+    }
+
+    .open-mobile-menu-btn {
+        display: flex !important;
+        gap: 4px;
+        flex-direction: column;
+        cursor: pointer;
+        padding: 7px;
+        border-radius: 5px;
+    }
+}
+
+.open-mobile-menu-btn {
+    display: none;
+}
+
+.open-mobile-menu-btn:hover {
+    background-color: #DDDDDD;
+}
+
+.mobile-btn-logo {
+    display: flex; 
+    gap: 10px; 
+    align-items: center;
+}
+
+.mobile-menu-btn-item {
+    height: 2px;
+    width: 20px;
+    background-color: gray;
+}
+
+.mobile-menu-btn-item:last-child {
+    width: 16px;
+}
+
+.nav-menu-dropdown-container {
+    display: flex;
+}
+
 .nav-login-btn {
-    padding: 7px;
+    padding: 7px 12px;
     color: #2965BC;
     font-weight: 600;
 }
 
 .nav-signup-btn {
-    padding: 7px;
+    padding: 7px 12px;
     color: #FFF;
     background-color: #2965BC;
     font-weight: 600;
