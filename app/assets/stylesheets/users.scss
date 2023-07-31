@@ -77,6 +77,7 @@ aside {
       margin-top: 50px;
       border: 1px solid #cccccc;
       padding: 15px;
+      border-radius: 5px;
   }
 
   .danger-zone-items {
@@ -126,16 +127,17 @@ aside {
 .to-login-page .nav-link {
   color:#2965BC;
   margin-left: 10px;
+  border-bottom: none;
 }
 
 .to-login-page .nav-link:hover {
   background-color: inherit;
+  border-bottom: none;
 }
 
 .sign-up-now-btn {
   margin-left: 10px;
   color: #2965BC;
-  text-transform: uppercase;
 }
 
 .sign-up-now-btn:hover {
@@ -160,8 +162,7 @@ aside {
 .user-profile-blob {
   height: 60px;
   width: 60px;
-  border-radius: 50%; 
-  border: 2px solid #61799e;
+  border-radius: 50%;
 }
 
 .user-gen-blob {

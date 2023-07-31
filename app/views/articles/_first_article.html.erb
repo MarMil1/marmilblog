@@ -44,9 +44,9 @@
             </div>
             <div class="article-info" style="color: gray;">
                 <%= Time.at(*@articles[0].created_at.to_i).to_s(:long_ordinal)[0..-6]%>
-                <div style="margin-left: 10px;">
+                <div class="article-info-tools">
                     <i class="far fa-comments disable-hover"></i> <%= @articles[0].comments.count %>
-                    <i class="far fa-thumbs-up disable-hover" style="margin-left: 10px;"></i> <%= @articles[0].likes.count %>
+                    <i class="far fa-thumbs-up disable-hover"></i> <%= @articles[0].likes.count %>
                 </div>
             </div>
         </div>
@@ -54,14 +54,14 @@
             <% if @articles[0].image_url %>
                 <div class="single-article-img">
                     <img 
-                    src="<%= @articles[0].image_url %>"
-                    alt="Article image" 
-                    class="single-article-cover-img"
-                >
+                        src="<%= @articles[0].image_url %>"
+                        alt="Article image" 
+                        class="single-article-cover-img"
+                    >
                 </div>
             <% else %>
                 <div class="single-article-img">
-                    <%= image_tag "default-article-img.jpg",
+                    <%= image_tag "default-article-img.webp",
                         alt: "Default article image", 
                         class: "single-article-cover-img"
                     %>

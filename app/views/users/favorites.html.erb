@@ -1,4 +1,4 @@
-<div class="bounding-container">
+<div class="bounding-container" style="height: 100vh;">
     <div class="page-title page-title-favorites">Favorites</div>
     <div class="favorites-count"> <i class="fa-solid fa-star" title="Favorites count"></i> <%= @favorite_articles.size %></div>
     <div>
@@ -32,9 +32,9 @@
                         </div>
                         <div class="article-info" style="color: gray;">
                             <%= Time.at(*article.created_at.to_i).to_s(:long_ordinal)[0..-6]%>
-                            <div style="margin-left: 10px;">
+                            <div class="article-info-tools">
                                 <i class="far fa-comments disable-hover"></i> <%= article.comments.count %>
-                                <i class="far fa-thumbs-up disable-hover" style="margin-left: 10px;"></i> <%= article.likes.count %>
+                                <i class="far fa-thumbs-up disable-hover"></i> <%= article.likes.count %>
                             </div>
                             <div class="favorites-section stand-alone" title="Add to Favorites">
                                 <% if current_user.favorite_articles.exists?(article.id) %>
@@ -60,7 +60,7 @@
                             </div>
                         <% else %>
                             <div class="single-article-img">
-                                <%= image_tag "default-article-img.jpg",
+                                <%= image_tag "default-article-img.webp",
                                     alt: "Default article image", 
                                     class: "single-article-cover-img"
                                 %>

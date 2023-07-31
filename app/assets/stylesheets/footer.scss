@@ -1,0 +1,38 @@
+footer {
+    height: 300px;
+    border-top: 1px solid #F0F0F0;
+}
+
+.footer-items-container {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    padding: 30px;
+    flex-wrap: wrap;
+}
+
+.footer-item {
+    font-size: 16px;
+    color: #393939;
+}
+
+.footer-item:hover {
+    text-decoration: none;
+}
+
+.footer-socials {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.footer-socials a i {
+    font-size: 2.75rem;
+    color: #393939;
+}
+
+.copyright-content {
+    text-align: center;
+    margin: 30px 0;
+    font-size: 16px;
+}
