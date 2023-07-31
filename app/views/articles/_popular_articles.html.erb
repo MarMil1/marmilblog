@@ -1,5 +1,3 @@
-<%# <%= render 'articles/first_article' %>
-<div class="article-filter-type">Popular</div>
 <% @articles.each do |article| %>
     <div class="single-article-container">
         
@@ -26,9 +24,9 @@
             </div>
             <div class="article-info" style="color: gray;">
                 <%= Time.at(*article.created_at.to_i).to_s(:long_ordinal)[0..-6]%>
-                <div style="margin-left: 10px;">
+                <div class="article-info-tools">
                     <i class="far fa-comments disable-hover"></i> <%= article.comments.count %>
-                    <i class="far fa-thumbs-up disable-hover" style="margin-left: 10px;"></i> <%= article.likes.count %>
+                    <i class="far fa-thumbs-up disable-hover"></i> <%= article.likes.count %>
                 </div>
                 <% if logged_in? %>
                     <div class="favorites-section stand-alone">
@@ -64,7 +62,7 @@
                 </div>
             <% else %>
                 <div class="single-article-img">
-                    <%= image_tag "default-article-img.jpg",
+                    <%= image_tag "default-article-img.webp",
                         alt: "Default article image", 
                         class: "single-article-cover-img"
                     %>

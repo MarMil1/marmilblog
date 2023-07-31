@@ -43,7 +43,7 @@
 
     <div class="comments-likes-report-section">
         <div class="likes-comments-section">
-            <div class="likes-section" type="button">
+            <div class="likes-section">
                 <% if logged_in? %>
                     <% pre_like = @article.likes.find { |like| like.user_id == current_user.id} %>
                     <% if pre_like %>
@@ -64,7 +64,7 @@
                 <% end %>
                 <div style="font-size:14px"><%= @article.likes.count %></div>
             </div>
-            
+
             <div class="comments-section">
                 <% if logged_in? && current_user.comments.where(:article_id => params[:id]).exists? %>
                     <i class="fa-solid fa-comments article-reactions-btn" data-toggle="modal" data-target="#modal-right" data-toggle-class="modal-open-aside" title="Comment article"></i>
@@ -75,9 +75,6 @@
                 <%= render "articles/modal", article: @article %>
             </div>
         </div>
-        <% if @article.body.length > 600 %>
-            <%= render "articles/options", article: @article %>
-        <% end %>
-
+        <%= render "articles/options", article: @article %>
     </div>
 </div>

@@ -1,13 +1,14 @@
-<div class="all-articles">
-    
-    <div class="latest-popular-index-filter">
-        <a href="<%= articles_path %>">
-            <div class="latest-popular-btn <%= active_class_desktop?(articles_path) || active_class_desktop?(root_path) %> ">Latest</div>
-        </a>
-        <a href="<%= articles_popular_path %>">
-            <div class="latest-popular-btn">Popular</div>
-        </a>
+<%= render "layouts/landing" %>
+<div class="all-articles-container">
+    <div class="all-articles">
+        <div class="latest-popular-index-filter">
+            <a href="<%= articles_path %>">
+                <div class="latest-popular-btn <%= active_class_desktop?(articles_path) || active_class_desktop?(root_path) %> ">Latest</div>
+            </a>
+            <a href="<%= articles_popular_path %>">
+                <div class="latest-popular-btn">Popular</div>
+            </a>
+        </div>
+        <%= render 'articles/latest_articles' %>
     </div>
-    <%= render 'articles/latest_articles' %>
 </div>
-<%= render 'layouts/sidecontent' %>

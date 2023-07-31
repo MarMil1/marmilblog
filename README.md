@@ -1,3 +1,3 @@
 # README
 
-### MarMil Blog
+### SANDGLASS Blog

@@ -3,7 +3,7 @@
 .slogan-statement-container {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    margin-bottom: 30px;
 }
 
 .slogan-container {
@@ -13,25 +13,8 @@
 
 .statement-container {
     font-size: 20px;
-    text-align: center;
     font-weight: 300;
     width: 550px;
-}
-
-.app-info-container {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    margin-top: 50px;
-    font-size: 17px;
-    font-weight: 300;
-    text-align: center;
-    border-bottom: 2px solid #2965BC;
-    padding-bottom: 70px;
-}
-
-.app-info-item-value {
-    font-weight: 600;
 }
 
 .socials-section {
@@ -46,11 +29,6 @@
     background-color: #2965BC;
     padding: 5px;
     margin-top: 20px;
-}
-
-.about-promo-section {
-    margin-left: 20%;
-    margin-right: 20%;
 }
 
 .about-promo-item {
@@ -70,10 +48,6 @@
 @media screen and (max-width: 610px) {
     .slogan-container {
         font-size: 30px;
-    }
-
-    .app-info-item-title {
-        font-size: 14px;
     }
 
     .statement-container {
@@ -109,4 +83,28 @@
     text-align: center;
     color: #61799e;
     margin-bottom: 150px;
+}
+
+.contact-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.contact-us-img {
+    height: auto;
+    max-width: 600px;
+    width: 100%;
+}
+
+@media screen and (max-width: 970px) {
+    .contact-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .contact-us-img {
+        margin-top: 80px;
+    }
 }
