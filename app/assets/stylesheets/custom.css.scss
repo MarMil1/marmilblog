@@ -101,26 +101,7 @@ $gray-medium-light: #eaeaea;
     line-height: 1.7em;
   }
   
-
-// header
-
-#logo {
-    font-size: 1.7em;
-    color: #2965BC;
-    text-transform: uppercase;
-    font-weight: bold;
-  }
-  
-  #logo:hover {
-    text-decoration: none;
-  }
-
-  .logout-header-btn {
-    border: none;
-    background-color: inherit;
-  }
-
-  // forms
+// forms
 
 input, textarea, select, .uneditable-input {
     border: 1px solid #bbb;
@@ -175,16 +156,16 @@ input, textarea, select, .uneditable-input {
 .nav-sub-container {
   display: flex;
   align-items: center;
-  max-width: 1024px;
+  max-width: 1280px;
   margin: auto;
   padding: 0px 20px;
   justify-content: space-between;
   height: 55px;
 }
 
- .topnav {
-  overflow: hidden;
-}
+//  .topnav {
+//   overflow: hidden;
+// }
 
 .topnav .nav-link, .topnav .nav-link-first {
   float: left;
@@ -205,8 +186,9 @@ input, textarea, select, .uneditable-input {
 }
 
 .dropdown {
-  float: left;
-  overflow: hidden;
+  // float: left;
+  // overflow: hidden;
+  position: relative;
 }
 
 .dropdown .dropbtn {
@@ -219,16 +201,19 @@ input, textarea, select, .uneditable-input {
   font-family: inherit;
   margin: 0;
   border-radius: 10px;
+  height: 55px;
+  display: flex;
+  align-items: center;
 }
 
 .dropdown-content {
   display: none;
-  position: fixed;
+  position: absolute;
   background-color: #f6f6f6;
   min-width: 160px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 1;
-  right: 11%;
+  right: 0;
   top: 55px;
   border-radius: 5px;
 }

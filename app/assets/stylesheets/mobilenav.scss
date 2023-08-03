@@ -1,15 +1,25 @@
 .mobile-nav-container {
+    display: none;
+}
+
+.mobile-nav-container-visible {
+    display: block;
     background-color: #fff;
     position: absolute;
     width: 100%;
     height: 100vh;
     top: 55px;
     left: 0;
-    display: none;
+    animation: dropDownMobileMenu 300ms linear;
 }
 
-.mobile-nav-container-visible {
-    display: block;
+@keyframes dropDownMobileMenu {
+    0% {
+        height: 0vh;
+    }
+    100% {
+        height: 100vh;
+    }
 }
 
 .mobile-logo {
@@ -24,7 +34,7 @@
     color: #2965BC;
 }
 
-@media screen and (min-width: 770px) {
+@media screen and (min-width: 835px) {
     .mobile-nav-container-visible, .mobile-logo {
         display: none;
     }
@@ -37,6 +47,16 @@
     gap: 10px;
     padding: 20px;
     width: 100%;
+    animation: dropDownMenuFadeIn 300ms linear;
+}
+
+@keyframes dropDownMenuFadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
 }
 
 .mobile-nav-btn {

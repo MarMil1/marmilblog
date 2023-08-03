@@ -1,9 +1,15 @@
 <% if logged_in? %>
   <div class="nav-container">
     <div class="nav-sub-container">
-      <div class="logo-container">
-        <%= link_to "SANDGLASS", root_path, id: "logo" %>
-      </div>
+      <a href="<%= root_path %>" class="logo-container-link">
+        <div class="logo-container">
+          <%= image_tag "sandglass-logo.svg",
+              alt: "Logo", 
+              class: "logo-image"
+          %>
+          <div id="logo">SANDGLASS</div>
+        </div>
+      </a>
       <div class="mobile-btn-logo">
         <div class="open-mobile-menu-btn" onclick="toggleMobileMenuLogged()">
           <span class="mobile-menu-btn-item"></span>
@@ -14,7 +20,10 @@
           <%= render 'layouts/mobilenav' %>
         </div>
         <a href="<%= articles_path %>" class="mobile-logo">
-          <div>SANDGLASS</div>
+          <%= image_tag "sandglass-logo.svg",
+              alt: "Logo", 
+              class: "logo-image"
+          %>
         </a>
       </div>
       <div class="nav-menu-dropdown-container">
@@ -95,9 +104,17 @@
   </div>
 <%# IF LOGGED OUT %>
 <% else %>
-<div class="nav-container">
-  <div class="nav-sub-container">
-    <%= link_to "SANDGLASS", root_path, id: "logo" %>
+  <div class="nav-container">
+    <div class="nav-sub-container">
+      <a href="<%= root_path %>" class="logo-container-link logged-out">
+        <div class="logo-container">
+          <%= image_tag "sandglass-logo.svg",
+              alt: "Logo", 
+              class: "logo-image"
+          %>
+          <div id="logo">SANDGLASS</div>
+        </div>
+      </a>
       <div class="open-mobile-menu-btn" onclick="toggleMobileMenuReg()" style="margin-right: 15px">
         <span class="mobile-menu-btn-item"></span>
         <span class="mobile-menu-btn-item"></span>
