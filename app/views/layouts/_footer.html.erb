@@ -39,5 +39,15 @@
             <i class="fa-brands fa-linkedin"></i>
         </a>
     </div>
+    <a href="<%= root_path %>" class="logo-container-link logo-footer">
+        <div class="logo-container">
+        <div id="logo">SAND</div>
+          <%= image_tag "sandglass-logo.svg",
+              alt: "Logo", 
+              class: "logo-image"
+          %>
+          <div id="logo">GLASS</div>
+        </div>
+      </a>
     <div class="copyright-content">Copyright &copy; <%= Date.current.year %> Marko Milosavljevic</div>
 </footer>

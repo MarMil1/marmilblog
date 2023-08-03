@@ -28,11 +28,17 @@ footer {
 
 .footer-socials a i {
     font-size: 2.75rem;
-    color: #393939;
+    color: #2865bc;
 }
 
 .copyright-content {
     text-align: center;
     margin: 30px 0;
     font-size: 16px;
+}
+
+.logo-footer {
+    display: flex !important;
+    justify-content: center;
+    margin-top: 30px;
 }
