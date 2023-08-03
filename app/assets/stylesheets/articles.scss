@@ -131,7 +131,7 @@
 // All articles / Index page
 
 .main-container {
-    max-width: 1024px;
+    max-width: 1280px;
     margin: 100px auto;
     padding: 20px 20px;
 }
@@ -215,7 +215,7 @@
 
 // Full single article with body
 .full-article-container, .bounding-container-editor {
-    max-width: 768px;
+    max-width: 680px;
     margin: auto;
     position: relative;
 }
@@ -227,7 +227,7 @@
 }
 
 .full-article-body * {
-    font-family: 'Source Serif 4', serif;
+    font-family: 'Merriweather', serif;
 }
 
 .full-article-info-settings {
@@ -310,10 +310,11 @@
 
 .delete-article:hover {
     text-decoration: none;
+    color: #2965BC;
 }
 
 .full-article-body {
-    font-size: 17px;
+    font-size: 18px;
     overflow-wrap: break-word;
     margin-bottom: 40px;
 }
@@ -455,7 +456,7 @@
 }
 
 .dropdown-content-more-section a:hover {
-    color: #000000;
+    color: #2965BC;
 }
 
 #copyArticleLink, .dropdown-item {
@@ -465,6 +466,7 @@
 
 #copyArticleLink:hover, .dropdown-item:hover {
     cursor: pointer;
+    color: #2965BC !important;
 }
   
 .dropdown-more-section:hover .dropdown-content-more-section {
