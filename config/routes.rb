@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'password_resets/new'
+  get 'password_resets/edit'
   get 'errors/not_found'
   get 'errors/internal_server_error'
   match "/404", to: "errors#not_found", via: :all
@@ -52,5 +54,6 @@ Rails.application.routes.draw do
   patch '/articles/:article_id/comments/:id' => 'comments#update'
 
   resources :account_activations, only: [:edit]
+  resources :password_resets,     only: [:new, :create, :edit, :update]
   
 end

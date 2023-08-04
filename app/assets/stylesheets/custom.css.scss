@@ -443,7 +443,8 @@ li {
   gap: 10px;
 }
 
-.login-content > form > input {
+.login-content > form > input,
+.password-reset-content > form > input {
   border-radius: 5px;
 }
 
