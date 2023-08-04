@@ -50,5 +50,7 @@ Rails.application.routes.draw do
   end
 
   patch '/articles/:article_id/comments/:id' => 'comments#update'
+
+  resources :account_activations, only: [:edit]
   
 end
