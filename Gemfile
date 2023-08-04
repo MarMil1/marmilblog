@@ -83,3 +83,5 @@ gem "dockerfile-rails", ">= 1.5", :group => :development
 gem "redis", "~> 5.0"
 
 gem 'mime-types', '~> 3.1' 
+
+gem 'faker', '~> 3.2'
