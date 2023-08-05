@@ -5,12 +5,13 @@
   %>
   <div class="landing-title-body">
     <div class="landing-title">READ, WRITE & CONNECT</div>
-    <p class="landing-body">Write articles, share stories, post comments, and stay in control of your content. Join us now!</p>
     <% if logged_in? %>
+      <p class="landing-body">Write articles, share stories, post comments, and stay in control of your content. Start today!</p>
       <a href="<%= new_article_path %>" class="landing-cta-link">
         <button class="landing-cta">Write</button>
       </a>
     <% else %>
+      <p class="landing-body">Write articles, share stories, post comments, and stay in control of your content. Join us now!</p>
       <a href="<%= signup_path %>" class="landing-cta-link">
         <button class="landing-cta">Join Us</button>
       </a>
