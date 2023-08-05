@@ -40,3 +40,5 @@ yarn-debug.log*
 Dockerfile
 fly.toml
 fly.rake
+
+config/secrets.yml
