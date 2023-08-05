@@ -24,7 +24,7 @@
                                 </div>
 
                                 <div class="user-comment-time">
-                                    <%= Time.at(*comment.created_at.to_i).to_s(:long_ordinal) %>
+                                    <%= Time.at(*comment.created_at.to_i).to_fs(:long_ordinal) %>
                                 </div>
                             </div>
                             <div class="user-comment-settings">
