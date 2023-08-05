@@ -43,7 +43,7 @@
                 %>
             </div>
             <div class="article-info" style="color: gray;">
-                <%= Time.at(*@articles[0].created_at.to_i).to_s(:long_ordinal)[0..-6]%>
+                <%= Time.at(*@articles[0].created_at.to_i).to_fs(:long_ordinal)[0..-6]%>
                 <div class="article-info-tools">
                     <i class="far fa-comments disable-hover"></i> <%= @articles[0].comments.count %>
                     <i class="far fa-thumbs-up disable-hover"></i> <%= @articles[0].likes.count %>
