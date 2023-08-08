@@ -1,72 +1,37 @@
-<% if logged_in? %>
-    <nav class="mobile-nav">
-        <a href="<%= articles_path %>" class="mobile-nav-btn">
-            <div>
-               Home
-            </div>
-        </a>
-        <a href="<%= new_article_path %>" class="mobile-nav-btn">
-            <div>
-                Write
-            </div>
-        </a>
-        <a href="<%= user_favorites_path(current_user) %>" class="mobile-nav-btn">
-            <div>
-                Favorites
-            </div>
-        </a>
-        <a href="<%= about_path %>" class="mobile-nav-btn">
-            <div>
-                About
-            </div>
-        </a>
-        <a href="<%= contact_path %>" class="mobile-nav-btn">
-            <div>
-                Contact
-            </div>
-        </a>
-        <a href="<%= help_path %>" class="mobile-nav-btn">
-            <div>
-                Help
-            </div>
-        </a>
-    </nav>
-<% else %>
-    <nav class="mobile-nav">
-        <a href="<%= articles_path %>" class="mobile-nav-btn">
-            <div>
-               Home
-            </div>
-        </a>
-        <a href="<%= signup_path %>" class="mobile-nav-btn">
-            <div>
-                Write
-            </div>
-        </a>
-        <a href="<%= about_path %>" class="mobile-nav-btn">
-            <div>
-                About
-            </div>
-        </a>
-        <a href="<%= contact_path %>" class="mobile-nav-btn">
-            <div>
-                Contact
-            </div>
-        </a>
-        <a href="<%= help_path %>" class="mobile-nav-btn">
-            <div>
-                Help
-            </div>
-        </a>
-        <a href="<%= login_path %>" class="mobile-nav-btn-login">
-            <div>
-                Log In
-            </div>
-        </a>
-        <a href="<%= signup_path %>" class="mobile-nav-btn-signup">
-            <div>
-                Sign Up
-            </div>
-        </a>
-    </nav>
-<% end %>
+<nav class="mobile-nav">
+    <a href="<%= articles_path %>" class="mobile-nav-btn">
+        <div>
+            Home
+        </div>
+    </a>
+    <a href="<%= signup_path %>" class="mobile-nav-btn">
+        <div>
+            Write
+        </div>
+    </a>
+    <a href="<%= about_path %>" class="mobile-nav-btn">
+        <div>
+            About
+        </div>
+    </a>
+    <a href="<%= contact_path %>" class="mobile-nav-btn">
+        <div>
+            Contact
+        </div>
+    </a>
+    <a href="<%= help_path %>" class="mobile-nav-btn">
+        <div>
+            Help
+        </div>
+    </a>
+    <a href="<%= login_path %>" class="mobile-nav-btn-login">
+        <div>
+            Log In
+        </div>
+    </a>
+    <a href="<%= signup_path %>" class="mobile-nav-btn-signup">
+        <div>
+            Sign Up
+        </div>
+    </a>
+</nav>
