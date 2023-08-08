@@ -1,12 +1,7 @@
 .landing-container {
     height: 450px;
-    margin-top: -70px;
-    margin-bottom: 30px;
-    // background-image: image-url("homepage.webp");
-    // background-repeat: no-repeat;
-    // background-position: center;
-    // background-size: cover;
-    // filter: contrast(0.7);
+    max-width: 1280px;
+    margin: -70px -20px 30px -20px;
     position: relative;
     display: flex;
     flex-direction: column;

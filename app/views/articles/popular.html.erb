@@ -1,4 +1,6 @@
-<%= render "layouts/landing" %>
+<% if !logged_in? %>
+    <%= render "layouts/landing" %>
+<% end %>
 <div class="all-articles-container">
     <div class="all-articles">
         <div class="latest-popular-index-filter">
